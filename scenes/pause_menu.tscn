@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dlaqcju7cj62t"]
+
+[ext_resource type="Script" uid="uid://b7urt5min7b08" path="res://scripts/pause_menu.gd" id="1_myx47"]
+[ext_resource type="PackedScene" uid="uid://boytkmlbjs72p" path="res://scenes/settings.tscn" id="1_n87rw"]
+
+[node name="PauseMenu" type="Control" unique_id=1811061067]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_myx47")
+
+[node name="PauseMenuVBox" type="VBoxContainer" parent="." unique_id=837675356]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -50.5
+offset_right = 35.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="PauseMenuVBox" unique_id=577476883]
+layout_mode = 2
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="PauseMenuVBox" unique_id=1766917561]
+layout_mode = 2
+text = "Settings"
+
+[node name="MenuButton" type="Button" parent="PauseMenuVBox" unique_id=451124657]
+layout_mode = 2
+text = "MainMenu"
+
+[node name="Settings" parent="." unique_id=266761967 instance=ExtResource("1_n87rw")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_right = 35.0
+
+[connection signal="pressed" from="PauseMenuVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PauseMenuVBox/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="on_back_pressed" from="Settings" to="." method="_on_back_pressed"]
