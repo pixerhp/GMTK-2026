@@ -146,3 +146,6 @@ tile_set = SubResource("TileSet_ydybj")
 
 [node name="Player" parent="." unique_id=1697917956 instance=ExtResource("2_t18mc")]
 position = Vector2(589, 180)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=155360246]
+position_smoothing_enabled = true
