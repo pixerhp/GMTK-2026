@@ -15,3 +15,19 @@ shape = SubResource("RectangleShape2D_ydybj")
 texture = ExtResource("2_g2els")
 region_enabled = true
 region_rect = Rect2(32, 55, 20, 20)
+
+[node name="LedgeRightUpperCheck" type="RayCast2D" parent="." unique_id=860445500]
+position = Vector2(10, -13)
+target_position = Vector2(10, 0)
+
+[node name="LedgeRightLowerCheck" type="RayCast2D" parent="." unique_id=1114469347]
+position = Vector2(10, -9)
+target_position = Vector2(10, 0)
+
+[node name="LedgeLeftUpperCheck" type="RayCast2D" parent="." unique_id=1186413911]
+position = Vector2(-10, -13)
+target_position = Vector2(-10, 0)
+
+[node name="LedgeLeftLowerCheck" type="RayCast2D" parent="." unique_id=1764576627]
+position = Vector2(-10, -9)
+target_position = Vector2(-10, 0)
