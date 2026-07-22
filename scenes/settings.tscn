@@ -11,16 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5p8wc")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=186265047]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 177.0
-offset_right = 650.0
-offset_bottom = 227.0
-theme_override_font_sizes/normal_font_size = 36
-text = "Settings"
-fit_content = true
-
 [node name="SettingsVBox" type="VBoxContainer" parent="." unique_id=496854380]
 layout_mode = 1
 anchors_preset = 8
@@ -36,8 +26,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 
+[node name="Label" type="Label" parent="SettingsVBox" unique_id=343952041]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Settings"
+horizontal_alignment = 1
+
 [node name="MusicSlider" type="HSlider" parent="SettingsVBox" unique_id=1926606127]
 layout_mode = 2
+value = 100.0
 
 [node name="MusicLabel" type="Label" parent="SettingsVBox/MusicSlider" unique_id=976721949]
 layout_mode = 0
@@ -49,6 +46,7 @@ text = "Music"
 
 [node name="SoundSlider" type="HSlider" parent="SettingsVBox" unique_id=883537972]
 layout_mode = 2
+value = 100.0
 
 [node name="SoundLabel" type="Label" parent="SettingsVBox/SoundSlider" unique_id=2136810285]
 layout_mode = 0
