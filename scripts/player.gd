@@ -53,8 +53,14 @@ func _physics_process(delta: float) -> void:
 		if ledge_grabbing == LEDGE_GRAB_DIRECTION.LEFT:
 			if Input.is_action_just_pressed("right"):
 				ledge_grab_cooldown = 0.1
+			if Input.is_action_just_pressed("left"):
+				position += Vector2(-16, -32)
+				ledge_grab_cooldown = 0.1
 		elif ledge_grabbing == LEDGE_GRAB_DIRECTION.RIGHT:
 			if Input.is_action_just_pressed("left"):
+				ledge_grab_cooldown = 0.1
+			if Input.is_action_just_pressed("right"):
+				position += Vector2(16, -32)
 				ledge_grab_cooldown = 0.1
 		
 	move_and_slide()
