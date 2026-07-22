@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cc052d8pl0jx" path="res://assets/placeholder_art/placeholder_player.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydybj"]
+size = Vector2(16, 32)
 
 [node name="Player" type="CharacterBody2D" unique_id=1697917956]
 script = ExtResource("1_3vyb7")
@@ -17,17 +18,17 @@ region_enabled = true
 region_rect = Rect2(0, 0, 16, 32)
 
 [node name="LedgeRightUpperCheck" type="RayCast2D" parent="." unique_id=860445500]
-position = Vector2(10, -13)
+position = Vector2(8, -15)
 target_position = Vector2(10, 0)
 
 [node name="LedgeRightLowerCheck" type="RayCast2D" parent="." unique_id=1114469347]
-position = Vector2(10, -9)
+position = Vector2(8, -11)
 target_position = Vector2(10, 0)
 
 [node name="LedgeLeftUpperCheck" type="RayCast2D" parent="." unique_id=1186413911]
-position = Vector2(-10, -13)
+position = Vector2(-8, -15)
 target_position = Vector2(-10, 0)
 
 [node name="LedgeLeftLowerCheck" type="RayCast2D" parent="." unique_id=1764576627]
-position = Vector2(-10, -9)
+position = Vector2(-8, -11)
 target_position = Vector2(-10, 0)
