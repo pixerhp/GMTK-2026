@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_bqqt6")
 
 [node name="MainMenuVBox" type="VBoxContainer" parent="." unique_id=1235927817]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,16 +46,12 @@ text = "Quit"
 [node name="Settings" parent="." unique_id=266761967 instance=ExtResource("1_l6cm7")]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -35.0
-offset_right = 35.0
+anchors_preset = -1
+offset_top = -4.0
+offset_right = -1.0
+offset_bottom = 3.0
 
 [node name="CreditsVBox" type="VBoxContainer" parent="." unique_id=1311366397]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -68,18 +65,37 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CreditsVBox" unique_id=266856863]
-custom_minimum_size = Vector2(250, 0)
+[node name="Label" type="Label" parent="CreditsVBox" unique_id=308933017]
 layout_mode = 2
-bbcode_enabled = true
-text = "[center]CREDITS[/center]
-People
-Who
-Made
-This
-Game
-"
-fit_content = true
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreditsVBox" unique_id=1219766417]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Names" type="Label" parent="CreditsVBox/HBoxContainer" unique_id=1067135881]
+layout_mode = 2
+text = "PixerHP
+Jcodefox
+Coral
+Burnout
+Stevemc32
+Emanations
+RaY
+RickLastley"
+
+[node name="Roles" type="Label" parent="CreditsVBox/HBoxContainer" unique_id=2026749926]
+layout_mode = 2
+text = "Leader Guy
+Programmer
+Artist
+Cool Guy
+Even cooler guy
+Music and Sound
+Ideas
+Credits"
+horizontal_alignment = 2
 
 [node name="BackButton" type="Button" parent="CreditsVBox" unique_id=2010020827]
 layout_mode = 2
