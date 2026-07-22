@@ -41,7 +41,8 @@ func _physics_process(delta: float) -> void:
 	if time_since_pressed_jump < 0.1 and time_since_on_floor < 0.1:
 		velocity.y = -JUMP_VELOCITY
 	
-	velocity.x = Input.get_axis("left", "right") * SPEED
+	var move_intent: float = Input.get_axis("left", "right")
+	velocity.x = move_intent * SPEED
 	
 	var ledge_grabbing: LEDGE_GRAB_DIRECTION = LEDGE_GRAB_DIRECTION.NEITHER
 	
@@ -74,5 +75,7 @@ func _physics_process(delta: float) -> void:
 					ledge_grab_cooldown = 0.1
 	else:
 		was_ledge_grabbing = false
+	if velocity.x and move_intent:
+		$Sprite2D.flip_h = move_intent < 0
 		
 	move_and_slide()
