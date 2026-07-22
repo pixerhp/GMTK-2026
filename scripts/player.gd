@@ -79,3 +79,8 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D.flip_h = move_intent < 0
 		
 	move_and_slide()
+
+# TODO: Handle deaths better
+func _on_hurt_box_body_entered(_body: Node2D) -> void:
+	print("Player died")
+	get_tree().call_deferred("reload_current_scene")
