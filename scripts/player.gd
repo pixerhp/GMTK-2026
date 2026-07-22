@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	if ledge_right_lower_check.is_colliding() and not ledge_right_upper_check.is_colliding():
 		ledge_grabbing = LEDGE_GRAB_DIRECTION.RIGHT
 	
-	if ledge_grabbing != LEDGE_GRAB_DIRECTION.NEITHER and ledge_grab_cooldown <= 0.0:
+	if ledge_grabbing != LEDGE_GRAB_DIRECTION.NEITHER and ledge_grab_cooldown <= 0.0 and velocity.y >= 0:
 		if not was_ledge_grabbing:
 			ledge_movement_cooldown = 0.2
 		was_ledge_grabbing = true
