@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://boytkmlbjs72p"]
 
-[ext_resource type="Script" uid="uid://nh0nssb7w8se" path="res://scripts/settings.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://nh0nssb7w8se" path="res://scripts/ui_prefabs/settings.gd" id="1_ep6cx"]
 
 [node name="Settings" type="Control" unique_id=266761967]
 process_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5p8wc")
+script = ExtResource("1_ep6cx")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1946243295]
 layout_mode = 1

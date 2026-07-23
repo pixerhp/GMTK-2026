@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8xxm06qgkjxv"]
 
-[ext_resource type="Script" uid="uid://d2vo4atjn8tb2" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="PackedScene" uid="uid://boytkmlbjs72p" path="res://scenes/settings.tscn" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://d2vo4atjn8tb2" path="res://scripts/topscenes/main_menu.gd" id="1_0i0qt"]
+[ext_resource type="PackedScene" uid="uid://boytkmlbjs72p" path="res://scenes/ui_prefabs/settings.tscn" id="2_wbtsg"]
 
 [node name="MainMenu" type="Control" unique_id=1561242803]
 process_mode = 3
@@ -13,7 +13,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bqqt6")
+script = ExtResource("1_0i0qt")
 
 [node name="MainMenuVBox" type="VBoxContainer" parent="." unique_id=1235927817]
 layout_mode = 1
@@ -45,7 +45,7 @@ text = "Credits"
 layout_mode = 2
 text = "Quit"
 
-[node name="Settings" parent="." unique_id=266761967 instance=ExtResource("1_l6cm7")]
+[node name="Settings" parent="." unique_id=266761967 instance=ExtResource("2_wbtsg")]
 visible = false
 layout_mode = 1
 

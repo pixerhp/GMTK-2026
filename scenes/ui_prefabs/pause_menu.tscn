@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlaqcju7cj62t"]
 
-[ext_resource type="Script" uid="uid://b7urt5min7b08" path="res://scripts/pause_menu.gd" id="1_myx47"]
-[ext_resource type="PackedScene" uid="uid://boytkmlbjs72p" path="res://scenes/settings.tscn" id="1_n87rw"]
+[ext_resource type="Script" uid="uid://b7urt5min7b08" path="res://scripts/ui_prefabs/pause_menu.gd" id="1_emkde"]
+[ext_resource type="PackedScene" uid="uid://boytkmlbjs72p" path="res://scenes/ui_prefabs/settings.tscn" id="2_yd762"]
 
 [node name="PauseMenu" type="Control" unique_id=1811061067]
 process_mode = 3
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_myx47")
+script = ExtResource("1_emkde")
 
 [node name="PauseMenuVBox" type="VBoxContainer" parent="." unique_id=837675356]
 layout_mode = 1
@@ -39,7 +39,7 @@ text = "Settings"
 layout_mode = 2
 text = "MainMenu"
 
-[node name="Settings" parent="." unique_id=266761967 instance=ExtResource("1_n87rw")]
+[node name="Settings" parent="." unique_id=266761967 instance=ExtResource("2_yd762")]
 visible = false
 layout_mode = 1
 offset_left = -35.0

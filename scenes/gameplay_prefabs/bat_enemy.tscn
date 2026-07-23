@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://exvp2wbmlftg"]
 
-[ext_resource type="Script" uid="uid://b2cevspisob4s" path="res://scenes/bat_enemy_behavior.gd" id="1_5ejt7"]
+[ext_resource type="Script" uid="uid://b2cevspisob4s" path="res://scripts/gameplay_prefabs/bat_enemy_behavior.gd" id="1_5ejt7"]
 [ext_resource type="Texture2D" uid="uid://0ss80htd4dsf" path="res://assets/placeholder_art/placeholder_bat.png" id="1_jb6fn"]
 [ext_resource type="Texture2D" uid="uid://xg5bhe53iaue" path="res://assets/art/bat_flight_sprite.png" id="2_a1g8r"]
 

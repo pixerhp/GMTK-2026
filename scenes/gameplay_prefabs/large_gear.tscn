@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clv825o0ktwl1"]
 
 [ext_resource type="Texture2D" uid="uid://ctdx7odnrreri" path="res://assets/art/LargeGear.png" id="1_87u81"]
-[ext_resource type="Script" uid="uid://c43erpyijdpac" path="res://scenes/large_gear.gd" id="1_n82xw"]
+[ext_resource type="Script" uid="uid://c43erpyijdpac" path="res://scripts/gameplay_prefabs/large_gear.gd" id="1_n82xw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_trrqd"]
 radius = 24.33105
