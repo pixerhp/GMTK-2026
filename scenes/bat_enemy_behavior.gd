@@ -13,12 +13,12 @@ var health: int = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_reset_Move()
-	Globals.tickbeat.connect(_reset_Move)
-	
+	_reset_move()
+	Globals.tickbeat.connect(_reset_move)
 
-func _reset_Move() -> void:
-	moveExecute = moveSpeed
+func _reset_move() -> void:
+	if (Globals.tickbeat_count % 4) == 0:
+		moveExecute = moveSpeed
 
 # TODO: on Behavior 1 and Behavior 2, ensure they follow as the Enum says, making a back and forth hard coded pattern of direction!
 # Called every frame. 'delta' is the elapsed time since the previous frame.

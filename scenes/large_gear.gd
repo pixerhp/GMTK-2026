@@ -9,4 +9,5 @@ func _ready() -> void:
 	Globals.tickbeat.connect(_switch_direction)
 
 func _switch_direction() -> void:
-	gearAnim.play("gearTurn")
+	if (Globals.tickbeat_count % 4) == 0:
+		gearAnim.play("gearTurn")

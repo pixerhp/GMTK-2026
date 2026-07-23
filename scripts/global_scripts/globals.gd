@@ -2,7 +2,7 @@ extends Node
 
 signal tickbeat
 var tickbeat_timer: Timer = Timer.new()
-const TICKBEAT_TIMER_DURATION: float = 2.0
+const TICKBEAT_TIMER_DURATION: float = 0.5
 var tickbeat_count: int = 0 # (Can be used with modular arithmetic for doing things every n beats or similar.)
 func _on_tickbeat_timer_timeout() -> void:
 	tickbeat_count += 1 
