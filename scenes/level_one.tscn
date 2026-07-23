@@ -238,6 +238,7 @@ sources/3 = SubResource("TileSetAtlasSource_4p75b")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1612070724]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1811061067 instance=ExtResource("7_4p75b")]
+unique_name_in_owner = true
 visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=468422003]

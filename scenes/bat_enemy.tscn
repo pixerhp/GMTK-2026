@@ -2,9 +2,36 @@
 
 [ext_resource type="Script" uid="uid://b2cevspisob4s" path="res://scenes/bat_enemy_behavior.gd" id="1_5ejt7"]
 [ext_resource type="Texture2D" uid="uid://0ss80htd4dsf" path="res://assets/placeholder_art/placeholder_bat.png" id="1_jb6fn"]
+[ext_resource type="Texture2D" uid="uid://xg5bhe53iaue" path="res://assets/art/bat_flight_sprite.png" id="2_a1g8r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm0s6"]
+atlas = ExtResource("2_a1g8r")
+region = Rect2(0, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6jij"]
+atlas = ExtResource("2_a1g8r")
+region = Rect2(16, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d0ax"]
+atlas = ExtResource("2_a1g8r")
+region = Rect2(32, 0, 16, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_trrqd"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm0s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6jij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d0ax")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_jb6fn")
@@ -29,7 +56,9 @@ script = ExtResource("1_5ejt7")
 
 [node name="BatSprite" type="AnimatedSprite2D" parent="." unique_id=1160160396]
 sprite_frames = SubResource("SpriteFrames_trrqd")
-animation = &"noAnimation"
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.52784836
 
 [node name="BatCollisionBody" type="CharacterBody2D" parent="BatSprite" unique_id=218068835]
 collision_layer = 2

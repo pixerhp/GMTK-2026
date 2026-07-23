@@ -2,11 +2,63 @@
 
 [ext_resource type="Script" uid="uid://bsoc5t783xb72" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://cc052d8pl0jx" path="res://assets/placeholder_art/placeholder_player.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://bsddidcbb0wk7" path="res://assets/art/player_idle_and_walk.png" id="2_qlg0r"]
 [ext_resource type="Script" uid="uid://crsrstc3gcffe" path="res://scripts/player/player_attack.gd" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydybj"]
 size = Vector2(16, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(2, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(25, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(48, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(71, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(94, 0, 20, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(20, 17.62712)
@@ -21,7 +73,15 @@ SPEED = 150.0
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ydybj")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=622229441]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_dqkch")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.5450002
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1848761524]
+visible = false
 texture = ExtResource("2_g2els")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 32)

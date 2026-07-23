@@ -91,10 +91,14 @@ func _physics_process(delta: float) -> void:
 	if velocity.x and move_intent:
 		var movingRight = move_intent > 0
 		$Sprite2D.flip_h = !movingRight
+		%AnimatedSprite2D.flip_h = !movingRight
 		attack_sprite.flip_h = !movingRight
 		if (movingRight):
 			attack_area.position.x = 14
 		else: attack_area.position.x = -14
+		%AnimatedSprite2D.animation = "walk"
+	else:
+		%AnimatedSprite2D.animation = "idle"
 		
 	move_and_slide()
 
