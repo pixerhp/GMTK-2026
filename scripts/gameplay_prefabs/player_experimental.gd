@@ -23,6 +23,12 @@ var jump_coyote_time: int = -99999999
 
 var is_facing_right: bool = true
 
+var is_ledge_hit: bool = false
+var ledge_hit_point: Vector2
+var ledge_hit_node: Node2D
+
+var grab_point_marker: Marker2D = Marker2D.new()
+
 func _process(_delta):
 	%CharacterSprite.flip_h = not is_facing_right
 
@@ -42,10 +48,32 @@ func _physics_process(delta: float) -> void:
 		
 		%LedgeUpperCheck.target_position.x = -abs(%LedgeUpperCheck.target_position.x)
 		%LedgeLowerCheck.target_position.x = -abs(%LedgeLowerCheck.target_position.x)
+	
 	%LedgeUpperCheck.force_raycast_update()
 	%LedgeLowerCheck.force_raycast_update()
 	
+	is_ledge_hit = %LedgeLowerCheck.is_colliding() and not %LedgeUpperCheck.is_colliding()
+	if is_ledge_hit:
+		ledge_hit_point = %LedgeLowerCheck.get_collision_point()
+		ledge_hit_node = %LedgeLowerCheck.get_collider()
+		ledge_hit_node.get_class()
+		if ledge_hit_node is TileMapLayer:
+			var tm: TileMapLayer = ledge_hit_node
+			var tile_position: Vector2 = tm.to_global(tm.map_to_local(tm.local_to_map(tm.to_local(ledge_hit_point))))
+			var tile_size: Vector2 = tm.to_global(tm.map_to_local(Vector2i.ONE) - tm.map_to_local(Vector2i.ZERO))
+			grab_point_marker.global_position = tile_position
+			grab_point_marker.global_position.y -= tile_size.y / 2
+			if is_facing_right:
+				grab_point_marker.global_position.x -= tile_size.x / 2
+			else:
+				grab_point_marker.global_position.x += tile_size.x / 2
+			if not grab_point_marker.get_parent():
+				tm.add_child(grab_point_marker)
+	
 	move_and_slide()
+	
+	if grab_point_marker.get_parent():
+		global_position = grab_point_marker.global_position - %LedgeUpperCheck.position
 
 func handle_collision_checks():
 	if is_on_floor():
