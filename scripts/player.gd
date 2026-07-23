@@ -4,7 +4,7 @@ enum LEDGE_GRAB_DIRECTION { NEITHER, LEFT, RIGHT }
 
 @export var GRAVITY: float = 9.8
 @export var SPEED: float = 180.0
-@export var JUMP_VELOCITY: float = 160.0
+@export var JUMP_VELOCITY: float = 200.0
 @export var ACCELERATION: float = 60.0
 @export var FRICTION: float = 500.0
 @export var JUMP_SLOWDOWN = 0.5
