@@ -1,18 +1,43 @@
 [gd_scene format=3 uid="uid://bqd3qdjgx2gje"]
 
-[ext_resource type="Script" uid="uid://cb3h0ucmtxuly" path="res://scenes/horizontal_gear.gd" id="1_q3ea8"]
-[ext_resource type="Texture2D" uid="uid://yhuxwa0e741o" path="res://assets/placeholder_art/placeholder_sideways_gear.png" id="1_xhvmc"]
+[ext_resource type="Script" uid="uid://cb3h0ucmtxuly" path="res://scripts/horizontal_gear.gd" id="1_q3ea8"]
+[ext_resource type="Texture2D" uid="uid://dg6ujq2oqn7yb" path="res://assets/art/LargeHorizontalGear.png" id="1_xhvmc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trrqd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3hsd"]
 size = Vector2(40, 16)
 
-[node name="HorizontalGear" type="Sprite2D" unique_id=2055071262]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhvmc"]
+atlas = ExtResource("1_xhvmc")
+region = Rect2(64, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pql16"]
+atlas = ExtResource("1_xhvmc")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3hsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhvmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pql16")
+}],
+"loop": 0,
+"name": &"horizontalGearTurn",
+"speed": 6.0
+}]
+
+[node name="HorizontalGear" type="StaticBody2D" unique_id=1434888456]
 scale = Vector2(2, 1)
-texture = ExtResource("1_xhvmc")
 script = ExtResource("1_q3ea8")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=773805860]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1987408990]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=887019106]
 position = Vector2(-12, 0)
-shape = SubResource("RectangleShape2D_trrqd")
+shape = SubResource("RectangleShape2D_q3hsd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1630783697]
+sprite_frames = SubResource("SpriteFrames_q3hsd")
+animation = &"horizontalGearTurn"
+frame = 1
+frame_progress = 1.0

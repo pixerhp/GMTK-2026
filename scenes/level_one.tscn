@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5t3u7j773p0x" path="res://assets/placeholder_art/placeholder_directional_spike.png" id="4_bhu28"]
 [ext_resource type="PackedScene" uid="uid://bqd3qdjgx2gje" path="res://scenes/horizontal_gear.tscn" id="5_r4wdr"]
 [ext_resource type="PackedScene" uid="uid://dlaqcju7cj62t" path="res://scenes/pause_menu.tscn" id="7_4p75b"]
+[ext_resource type="PackedScene" uid="uid://clv825o0ktwl1" path="res://scenes/large_gear.tscn" id="8_y8ti4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t18mc"]
 texture = ExtResource("1_cd1xg")
@@ -246,3 +247,9 @@ position = Vector2(1232, 504)
 [node name="HorizontalGear4" parent="." unique_id=1912188179 instance=ExtResource("5_r4wdr")]
 position = Vector2(1232, 568)
 gearDirection = true
+
+[node name="LargeGear" parent="." unique_id=523454924 instance=ExtResource("8_y8ti4")]
+position = Vector2(1472, 688)
+
+[node name="LargeGear2" parent="." unique_id=1955243485 instance=ExtResource("8_y8ti4")]
+position = Vector2(1520, 672)
