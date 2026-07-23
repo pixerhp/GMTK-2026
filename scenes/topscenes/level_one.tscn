@@ -283,3 +283,7 @@ position = Vector2(1567, 419)
 
 [node name="LargeGear3" parent="." unique_id=727121963 instance=ExtResource("8_0f7dx")]
 position = Vector2(1535, 631)
+
+[node name="bat_enemy2" parent="." unique_id=1753946486 instance=ExtResource("9_iy65v")]
+position = Vector2(383, 372)
+behavior_choice = 1

@@ -79,5 +79,17 @@ shape = SubResource("CircleShape2D_8rghg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=976180450]
 shape = SubResource("CircleShape2D_q3hsd")
 
+[node name="HorizontalWallDetectionRight" type="RayCast2D" parent="." unique_id=1755893510]
+target_position = Vector2(25, 0)
+
+[node name="HorizontalWallDetectionLeft" type="RayCast2D" parent="." unique_id=1376307239]
+target_position = Vector2(-25, 0)
+
+[node name="VerticalWallDetectionUp" type="RayCast2D" parent="." unique_id=1997292320]
+target_position = Vector2(0, -25)
+
+[node name="VerticalWallDetectionDown" type="RayCast2D" parent="." unique_id=638075694]
+target_position = Vector2(0, 25)
+
 [connection signal="body_entered" from="BatSprite/PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="BatSprite/PlayerDetection" to="." method="_on_player_detection_body_exited"]
