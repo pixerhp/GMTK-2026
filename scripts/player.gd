@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	
 	if time_since_pressed_jump < 0.1 and time_since_on_floor < 0.1:
 		velocity.y = -JUMP_VELOCITY
-	if !Input.is_key_pressed(KEY_SPACE) && velocity.y < 0:
+	if !Input.is_action_pressed("jump") && velocity.y < 0:
 		velocity.y *= JUMP_SLOWDOWN
 	
 	var move_intent: float = Input.get_axis("left", "right")
