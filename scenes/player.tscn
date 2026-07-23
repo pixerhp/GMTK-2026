@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bsoc5t783xb72" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://cc052d8pl0jx" path="res://assets/placeholder_art/placeholder_player.png" id="2_g2els"]
+[ext_resource type="Script" uid="uid://b1loq3hmbc5en" path="res://scripts/player/player_attack.gd" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydybj"]
 size = Vector2(16, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(20, 17.62712)
 
 [node name="Player" type="CharacterBody2D" unique_id=1697917956]
 script = ExtResource("1_3vyb7")
@@ -33,6 +37,22 @@ target_position = Vector2(-10, 0)
 [node name="LedgeLeftLowerCheck" type="RayCast2D" parent="." unique_id=1764576627]
 position = Vector2(-8, -11)
 target_position = Vector2(-10, 0)
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1074214635]
+position = Vector2(14, 0)
+script = ExtResource("3_qhqgy")
+
+[node name="Collider" type="CollisionShape2D" parent="DamageArea" unique_id=24877283]
+scale = Vector2(0.385, 1.18)
+shape = SubResource("RectangleShape2D_dqkch")
+disabled = true
+
+[node name="Sprite" type="Sprite2D" parent="DamageArea" unique_id=844528969]
+visible = false
+scale = Vector2(0.4400006, 0.51999974)
+texture = ExtResource("2_g2els")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=452433190]
 collision_layer = 0
