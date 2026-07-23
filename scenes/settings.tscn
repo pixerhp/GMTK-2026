@@ -12,6 +12,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5p8wc")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1086769478]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 195.0
+offset_right = 724.0
+offset_bottom = 487.0
+color = Color(0, 0, 0, 0.45490196)
+
 [node name="SettingsVBox" type="VBoxContainer" parent="." unique_id=496854380]
 layout_mode = 1
 anchors_preset = 8
