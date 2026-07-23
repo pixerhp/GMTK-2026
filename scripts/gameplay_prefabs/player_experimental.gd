@@ -23,11 +23,12 @@ var jump_coyote_time: int = -99999999
 
 var is_facing_right: bool = true
 
+func _process(_delta):
+	%CharacterSprite.flip_h = not is_facing_right
+
 func _physics_process(delta: float) -> void:
 	handle_collision_checks()
 	handle_inputs_and_movement(delta)
-	
-	%CharacterSprite.flip_h = not is_facing_right
 	
 	move_and_slide()
 
