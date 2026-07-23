@@ -70,6 +70,7 @@ func _physics_process(delta: float) -> void:
 		was_ledge_grabbing = true
 		velocity = Vector2.ZERO
 		time_since_on_floor = 0.0
+		$Sprite2D.flip_h = ledge_grabbing == LEDGE_GRAB_DIRECTION.LEFT
 		if ledge_movement_cooldown <= 0.0:
 			if Input.is_action_pressed("down"):
 				ledge_grab_cooldown = 0.1
