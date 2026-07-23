@@ -5,12 +5,12 @@ extends CharacterBody2D
 
 @export var GRAVITY: float = 22.0 * 60.0
 @export var GRAVITY_MULT_IF_HOLDING_JUMP: float = 0.5
-@export var FALL_MAX: float = 400.0
+@export var FALL_SPEED_MAX: float = 600.0
 @export var HORIZONTAL_MOVEMENT_UPON_JUMP_MULT: float = 0.8
-@export var HORIZONTAL_MOVEMENT_GROUND_ACCEL: float = 15.0 * 60.0
+@export var HORIZONTAL_MOVEMENT_GROUND_ACCEL: float = 20.0 * 60.0
 @export var HORIZONTAL_MOVEMENT_GROUND_MAX_SPEED: float = 220.0
-@export var HORIZONTAL_MOVEMENT_GROUND_DECEL_WHILE_STOPPING: float = 0.0000001
-@export var HORIZONTAL_MOVEMENT_AIR_ACCEL: float = 2.0 * 60.0
+@export var HORIZONTAL_MOVEMENT_GROUND_DECEL_WHILE_STOPPING: float = 0.0000000001
+@export var HORIZONTAL_MOVEMENT_AIR_ACCEL: float = 2.25 * 60.0
 @export var HORIZONTAL_MOVEMENT_AIR_DECEL: float = 1.0 / (1.5)
 @export var AIR_TURNAROUND_ACCEL: float = 10.0 * 60.0
 @export var AIR_TURNAROUND_SPEED_LIMIT: float = 120.0
@@ -47,7 +47,9 @@ func handle_inputs_and_movement(delta: float):
 		jump_coyote_time = -99999999
 		velocity.y = -1.0 * JUMP_VERTICAL_VELOCITY
 		velocity.x *= HORIZONTAL_MOVEMENT_UPON_JUMP_MULT
-	
+	# Vertical speed limits:
+	if (velocity.y > FALL_SPEED_MAX):
+		velocity.y = FALL_SPEED_MAX
 	
 	if is_on_floor():
 		# Ground deceleration:
@@ -91,6 +93,3 @@ func handle_inputs_and_movement(delta: float):
 			#pass
 		#else:
 			#pass
-	
-	if velocity.y < (-1.0 * FALL_MAX):
-		velocity.y = -1.0 * FALL_MAX
