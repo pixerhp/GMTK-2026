@@ -23,7 +23,8 @@ var was_ledge_grabbing: bool = false
 @onready var ledge_right_upper_check: RayCast2D = $LedgeRightUpperCheck
 @onready var ledge_right_lower_check: RayCast2D = $LedgeRightLowerCheck
 
-@onready var damage_area: Area2D = $DamageArea
+@onready var attack_area: Area2D = $DamageArea
+@onready var attack_sprite: Sprite2D = $DamageArea/Sprite
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY
@@ -87,9 +88,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		was_ledge_grabbing = false
 	if velocity.x and move_intent:
-		$Sprite2D.flip_h = move_intent < 0
-		if (move_intent > 0): damage_area.position.x = 14
-		else: damage_area.position.x = -14
+		var movingRight = move_intent > 0
+		$Sprite2D.flip_h = !movingRight
+		attack_sprite.flip_h = !movingRight
+		if (movingRight):
+			attack_area.position.x = 14
+		else: attack_area.position.x = -14
 		
 	move_and_slide()
 
