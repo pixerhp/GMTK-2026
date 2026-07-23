@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://exvp2wbmlftg"]
+
+[ext_resource type="Script" uid="uid://b2cevspisob4s" path="res://scenes/bat_enemy_behavior.gd" id="1_5ejt7"]
+[ext_resource type="Texture2D" uid="uid://0ss80htd4dsf" path="res://assets/placeholder_art/placeholder_bat.png" id="1_jb6fn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_trrqd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jb6fn")
+}],
+"loop": 1,
+"name": &"noAnimation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trrqd"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8rghg"]
+radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3hsd"]
+radius = 15.0
+
+[node name="bat_enemy" type="CharacterBody2D" unique_id=1753946486]
+collision_layer = 0
+script = ExtResource("1_5ejt7")
+
+[node name="BatSprite" type="AnimatedSprite2D" parent="." unique_id=1160160396]
+sprite_frames = SubResource("SpriteFrames_trrqd")
+animation = &"noAnimation"
+
+[node name="BatCollisionBody" type="CharacterBody2D" parent="BatSprite" unique_id=218068835]
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+platform_floor_layers = 4294967041
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatSprite/BatCollisionBody" unique_id=514364286]
+shape = SubResource("CircleShape2D_trrqd")
+debug_color = Color(0.9971555, 0, 0.18161646, 0.41960785)
+
+[node name="PlayerDetection" type="Area2D" parent="BatSprite" unique_id=488612769]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatSprite/PlayerDetection" unique_id=1367212469]
+shape = SubResource("CircleShape2D_8rghg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=976180450]
+shape = SubResource("CircleShape2D_q3hsd")
+
+[connection signal="body_entered" from="BatSprite/PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="BatSprite/PlayerDetection" to="." method="_on_player_detection_body_exited"]
