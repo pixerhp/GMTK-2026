@@ -4,7 +4,6 @@ signal on_back_pressed
 
 var music_volume: float = 1.0
 var sfx_volume: float = 1.0
-var fullscreen: bool = false
 
 func _ready() -> void:
 	_load_settings()
@@ -14,13 +13,17 @@ func _exit_tree() -> void:
 
 func _on_back_button_pressed() -> void:
 	on_back_pressed.emit()
+	
+func _process(_delta):
+	if Input.is_action_just_pressed("fullscreen_toggle"):
+		%FullScreenTickbox.button_pressed = Globals.is_fullscreen
 
 func _save_settings() -> void:
 	var save_file: FileAccess = FileAccess.open("user://settings.dat", FileAccess.WRITE)
 	save_file.store_float(music_volume)
 	save_file.store_float(sfx_volume)
 
-	save_file.store_8(1 if fullscreen else 0)
+	save_file.store_8(1 if Globals.is_fullscreen else 0)
 	save_file.flush()
 	
 func _load_settings() -> void:
@@ -31,7 +34,7 @@ func _load_settings() -> void:
 	music_volume = load_file.get_float()
 	sfx_volume = load_file.get_float()
 
-	fullscreen = load_file.get_8()
+	Globals.is_fullscreen = load_file.get_8()
 
 	_post_load_settings()
 	
@@ -39,11 +42,11 @@ func _post_load_settings() -> void:
 	_on_music_slider_value_changed(music_volume)
 	_on_sound_slider_value_changed(sfx_volume)
 
-	_on_full_screen_box_toggled(fullscreen)
+	_on_full_screen_box_toggled(Globals.is_fullscreen)
 	%MusicVolSlider.value = music_volume
 	%SoundVolSlider.value = sfx_volume
 	
-	%FullScreenTickbox.button_pressed = fullscreen
+	%FullScreenTickbox.button_pressed = Globals.is_fullscreen
 
 func _on_sound_slider_value_changed(value: float) -> void:
 	sfx_volume = value
@@ -59,8 +62,4 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 
 func _on_full_screen_box_toggled(toggled_on: bool) -> void:
-	fullscreen = toggled_on
-	if fullscreen :
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	Globals.set_fullscreen(toggled_on)

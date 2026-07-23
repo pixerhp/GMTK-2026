@@ -10,21 +10,25 @@ func _on_tickbeat_timer_timeout() -> void:
 	tickbeat_timer.start(TICKBEAT_TIMER_DURATION)
 	#print("TICKBEAT ", tickbeat_count)
 
+var is_fullscreen: bool = false
 func _ready() -> void:
 	# Prepare tickbeat timer:
 	tickbeat_timer.timeout.connect(_on_tickbeat_timer_timeout)
 	add_child(tickbeat_timer)
 	tickbeat_timer.start(TICKBEAT_TIMER_DURATION)
+	is_fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 
 var window_mode_pre_fullscreen: int = ProjectSettings.get_setting("display/window/size/mode")
 func _process(_delta):
 	# Handle global inputs:
 	if Input.is_action_just_pressed("fullscreen_toggle"):
+		set_fullscreen(not is_fullscreen)
+	
+func set_fullscreen(value: bool) -> void:
+	is_fullscreen = value
+	if is_fullscreen:
 		if not DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 			window_mode_pre_fullscreen = DisplayServer.window_get_mode()
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		else:
-			DisplayServer.window_set_mode(window_mode_pre_fullscreen)
-	
-	# Global tick signal, for synchronized environment/hazard/etc movement:
-	
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(window_mode_pre_fullscreen)
