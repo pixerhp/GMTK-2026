@@ -248,11 +248,6 @@ tile_set = SubResource("TileSet_ydybj")
 [node name="Player" parent="." unique_id=1697917956 instance=ExtResource("6_g4qfc")]
 position = Vector2(610, 348)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=155360246]
-zoom = Vector2(2.5, 2.5)
-process_callback = 0
-position_smoothing_enabled = true
-
 [node name="HorizontalGear" parent="." unique_id=2055071262 instance=ExtResource("7_jrqry")]
 position = Vector2(1232, 376)
 
