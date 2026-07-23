@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg6ujq2oqn7yb"
-path="res://.godot/imported/LargeHorizontalGear.png-aca5c872405ad02836dac17bfff503f7.ctex"
+path="res://.godot/imported/gear_large_horizontal.png-e3b2e497100e24fc14eb479e0ac4f552.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/LargeHorizontalGear.png"
-dest_files=["res://.godot/imported/LargeHorizontalGear.png-aca5c872405ad02836dac17bfff503f7.ctex"]
+source_file="res://assets/art/gear_large_horizontal.png"
+dest_files=["res://.godot/imported/gear_large_horizontal.png-e3b2e497100e24fc14eb479e0ac4f552.ctex"]
 
 [params]
 

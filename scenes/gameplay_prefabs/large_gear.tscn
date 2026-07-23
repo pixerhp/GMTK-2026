@@ -1,7 +1,22 @@
 [gd_scene format=3 uid="uid://clv825o0ktwl1"]
 
-[ext_resource type="Texture2D" uid="uid://ctdx7odnrreri" path="res://assets/art/LargeGear.png" id="1_87u81"]
-[ext_resource type="Script" uid="uid://c43erpyijdpac" path="res://scripts/gameplay_prefabs/large_gear.gd" id="1_n82xw"]
+[ext_resource type="Texture2D" uid="uid://ctdx7odnrreri" path="res://assets/art/gear_large.png" id="1_87u81"]
+
+[sub_resource type="GDScript" id="GDScript_oia0r"]
+script/source = "extends Node2D
+
+@export var gearDirection: bool = false
+@onready var gearAnim = $AnimatedSprite2D
+# TODO: replace this ready function with when the counter goes to zero, please. - Ray
+# this makes the switching
+func _ready() -> void:
+	_switch_direction()
+	Globals.tickbeat.connect(_switch_direction)
+
+func _switch_direction() -> void:
+	if (Globals.tickbeat_count % 4) == 0:
+		gearAnim.play(\"gearTurn\")
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_trrqd"]
 radius = 24.33105
@@ -30,7 +45,7 @@ animations = [{
 
 [node name="LargeGear" type="StaticBody2D" unique_id=523454924]
 scale = Vector2(2, 2)
-script = ExtResource("1_n82xw")
+script = SubResource("GDScript_oia0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1728846996]
 shape = SubResource("CircleShape2D_trrqd")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqd3qdjgx2gje"]
 
 [ext_resource type="Script" uid="uid://cb3h0ucmtxuly" path="res://scripts/gameplay_prefabs/horizontal_gear.gd" id="1_q3ea8"]
-[ext_resource type="Texture2D" uid="uid://dg6ujq2oqn7yb" path="res://assets/art/LargeHorizontalGear.png" id="1_xhvmc"]
+[ext_resource type="Texture2D" uid="uid://dg6ujq2oqn7yb" path="res://assets/art/gear_large_horizontal.png" id="1_xhvmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3hsd"]
 size = Vector2(40, 16)

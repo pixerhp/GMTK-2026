@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk5eggv0ao1q3"
-path="res://.godot/imported/player idle and walk animation test sprite.png-e5027bc92350c319fb7afbd888404664.ctex"
+uid="uid://cgyb5lnni423h"
+path="res://.godot/imported/spikes_directional_long.png-434f3fba41fc73d9bd331c3d5ac234af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/player idle and walk animation test sprite.png"
-dest_files=["res://.godot/imported/player idle and walk animation test sprite.png-e5027bc92350c319fb7afbd888404664.ctex"]
+source_file="res://assets/art/spikes_directional_long.png"
+dest_files=["res://.godot/imported/spikes_directional_long.png-434f3fba41fc73d9bd331c3d5ac234af.ctex"]
 
 [params]
 

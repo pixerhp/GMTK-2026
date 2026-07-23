@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsddidcbb0wk7"
-path="res://.godot/imported/player_idle_and_walk.png-eb370967103d84ac354223f078dac617.ctex"
+uid="uid://gger6stj18qj"
+path="res://.godot/imported/common_tilemap.png-66325ed559744f72efb8e8305af8d5e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/player_idle_and_walk.png"
-dest_files=["res://.godot/imported/player_idle_and_walk.png-eb370967103d84ac354223f078dac617.ctex"]
+source_file="res://assets/tilemaps/common_tilemap.png"
+dest_files=["res://.godot/imported/common_tilemap.png-66325ed559744f72efb8e8305af8d5e6.ctex"]
 
 [params]
 

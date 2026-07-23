@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgyb5lnni423h"
-path="res://.godot/imported/long_spikes.png-4317e3c0096bd694ec9816eff4d9fba8.ctex"
+uid="uid://dast4mbd2enft"
+path="res://.godot/imported/placeholder_tilemap.png-410d5a84abd6fe1e8eeedd89fa4bbf1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/long_spikes.png"
-dest_files=["res://.godot/imported/long_spikes.png-4317e3c0096bd694ec9816eff4d9fba8.ctex"]
+source_file="res://assets/tilemaps/placeholder_tilemap.png"
+dest_files=["res://.godot/imported/placeholder_tilemap.png-410d5a84abd6fe1e8eeedd89fa4bbf1d.ctex"]
 
 [params]
 
