@@ -27,7 +27,7 @@ var was_ledge_grabbing: bool = false
 @onready var attack_sprite: Sprite2D = $DamageArea/Sprite
 
 func _physics_process(delta: float) -> void:
-	%Camera2D.position = Input.get_vector("move_left", "move_right", "move_up", "move_down") * 100
+	%Camera2D.position.y = Input.get_axis("move_up", "move_down") * 100
 	
 	velocity.y += GRAVITY
 	
