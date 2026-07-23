@@ -40,6 +40,10 @@ func _post_load_settings() -> void:
 	_on_sound_slider_value_changed(sfx_volume)
 
 	_on_full_screen_box_toggled(fullscreen)
+	%MusicVolSlider.value = music_volume
+	%SoundVolSlider.value = sfx_volume
+	
+	%FullScreenTickbox.button_pressed = fullscreen
 
 func _on_sound_slider_value_changed(value: float) -> void:
 	sfx_volume = value

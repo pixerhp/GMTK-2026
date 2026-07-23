@@ -21,57 +21,86 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -115.5
-offset_top = -134.0
-offset_right = 115.5
-offset_bottom = 134.0
+offset_left = -72.5
+offset_top = -89.5
+offset_right = 72.5
+offset_bottom = 89.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsVBox" type="VBoxContainer" parent="PanelContainer" unique_id=496854380]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1770879969]
 layout_mode = 2
-theme_override_constants/separation = 15
-alignment = 1
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
-[node name="Label" type="Label" parent="PanelContainer/SettingsVBox" unique_id=343952041]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Settings"
-horizontal_alignment = 1
-
-[node name="MusicContainer" type="HBoxContainer" parent="PanelContainer/SettingsVBox" unique_id=1904721084]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=764578417]
 layout_mode = 2
 
-[node name="MusicLabel" type="Label" parent="PanelContainer/SettingsVBox/MusicContainer" unique_id=976721949]
-layout_mode = 2
-text = "Music"
-
-[node name="MusicSlider" type="HSlider" parent="PanelContainer/SettingsVBox/MusicContainer" unique_id=1926606127]
-layout_mode = 2
-size_flags_horizontal = 3
-value = 100.0
-
-[node name="SoundContainer" type="HBoxContainer" parent="PanelContainer/SettingsVBox" unique_id=669117318]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1892516129]
 layout_mode = 2
 
-[node name="SoundLabel" type="Label" parent="PanelContainer/SettingsVBox/SoundContainer" unique_id=2136810285]
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=3550062]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Sound"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "< Exit"
 
-[node name="SoundSlider" type="HSlider" parent="PanelContainer/SettingsVBox/SoundContainer" unique_id=883537972]
+[node name="Spacer1" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=595231012]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="SettingsTitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=118591056]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SETTINGS:"
+horizontal_alignment = 2
+
+[node name="Spacer2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1598166937]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer1" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=656608182]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="MusicVolLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=976721949]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="MusicVolSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1926606127]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 value = 100.0
 
-[node name="FullScreenBox" type="CheckBox" parent="PanelContainer/SettingsVBox" unique_id=597518639]
+[node name="Spacer2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=195035015]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="SoundVolLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2136810285]
+layout_mode = 2
+text = "SFX Volume:"
+
+[node name="SoundVolSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=883537972]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+
+[node name="Spacer3" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1531879243]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="FullScreenTickbox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=597518639]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Full Screen"
 
-[node name="BackButton" type="Button" parent="PanelContainer/SettingsVBox" unique_id=3550062]
-layout_mode = 2
-text = "Back"
-
-[connection signal="value_changed" from="PanelContainer/SettingsVBox/MusicContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="PanelContainer/SettingsVBox/SoundContainer/SoundSlider" to="." method="_on_sound_slider_value_changed"]
-[connection signal="toggled" from="PanelContainer/SettingsVBox/FullScreenBox" to="." method="_on_full_screen_box_toggled"]
-[connection signal="pressed" from="PanelContainer/SettingsVBox/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/FullScreenTickbox" to="." method="_on_full_screen_box_toggled"]
