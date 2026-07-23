@@ -7,7 +7,7 @@ func _on_back_button_pressed() -> void:
 
 
 func _on_full_screen_box_pressed() -> void:
-	if($SettingsVBox/FullScreenBox.button_pressed) :
+	if(%BackButton.button_pressed) :
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
