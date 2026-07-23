@@ -268,7 +268,11 @@ position = Vector2(1232, 568)
 gearDirection = true
 
 [node name="LargeGear" parent="." unique_id=523454924 instance=ExtResource("8_y8ti4")]
-position = Vector2(1424, 560)
+position = Vector2(1437, 661)
 
 [node name="bat_enemy" parent="." unique_id=1901999404 instance=ExtResource("9_astit")]
 position = Vector2(864, 256)
+
+[node name="LargeGear2" parent="." unique_id=973978510 instance=ExtResource("8_y8ti4")]
+position = Vector2(1492, 593)
+gearDirection = true
