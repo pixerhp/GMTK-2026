@@ -98,8 +98,9 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
 [node name="FullScreenTickbox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=597518639]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Full Screen"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/FullScreenTickbox" to="." method="_on_full_screen_box_pressed"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/FullScreenTickbox" to="." method="_on_full_screen_box_toggled"]
