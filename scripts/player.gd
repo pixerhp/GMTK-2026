@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	if !Input.is_action_pressed("jump") && velocity.y < 0:
 		velocity.y *= JUMP_SLOWDOWN
 	
-	var move_intent: float = Input.get_axis("left", "right")
+	var move_intent: float = Input.get_axis("move_left", "move_right")
 	if(abs(velocity.x) < SPEED) :
 		velocity.x += move_intent * ACCELERATION
 	if(move_intent == 0.0 || move_intent == -sign(velocity.x)) :
@@ -72,18 +72,18 @@ func _physics_process(delta: float) -> void:
 		time_since_on_floor = 0.0
 		$Sprite2D.flip_h = ledge_grabbing == LEDGE_GRAB_DIRECTION.LEFT
 		if ledge_movement_cooldown <= 0.0:
-			if Input.is_action_pressed("down"):
+			if Input.is_action_pressed("move_down"):
 				ledge_grab_cooldown = 0.1
 			if ledge_grabbing == LEDGE_GRAB_DIRECTION.LEFT:
-				if Input.is_action_just_pressed("right"):
+				if Input.is_action_just_pressed("move_right"):
 					ledge_grab_cooldown = 0.1
-				if Input.is_action_just_pressed("left"):
+				if Input.is_action_just_pressed("move_left"):
 					position += Vector2(-4, -32)
 					ledge_grab_cooldown = 0.1
 			elif ledge_grabbing == LEDGE_GRAB_DIRECTION.RIGHT:
-				if Input.is_action_just_pressed("left"):
+				if Input.is_action_just_pressed("move_left"):
 					ledge_grab_cooldown = 0.1
-				if Input.is_action_just_pressed("right"):
+				if Input.is_action_just_pressed("move_right"):
 					position += Vector2(4, -32)
 					ledge_grab_cooldown = 0.1
 	else:
