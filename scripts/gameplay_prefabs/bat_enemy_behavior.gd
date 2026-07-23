@@ -16,8 +16,6 @@ var health: int = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(wall_ray_right)
-	print(wall_ray_left)
 	_reset_move()
 	Globals.tickbeat.connect(_reset_move)
 

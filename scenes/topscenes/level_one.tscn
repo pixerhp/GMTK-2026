@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://clv825o0ktwl1" path="res://scenes/gameplay_prefabs/large_gear.tscn" id="8_0f7dx"]
 [ext_resource type="PackedScene" uid="uid://exvp2wbmlftg" path="res://scenes/gameplay_prefabs/bat_enemy.tscn" id="9_iy65v"]
 [ext_resource type="PackedScene" uid="uid://bpsujftes8w1" path="res://scenes/gameplay_prefabs/pendelum.tscn" id="10_pa78b"]
+[ext_resource type="PackedScene" uid="uid://l1nnv7wnvgun" path="res://scenes/gameplay_prefabs/mechanical_spider.tscn" id="11_yf2wo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t18mc"]
 texture = ExtResource("2_pa78b")
@@ -286,3 +287,6 @@ behavior_choice = 1
 [node name="bat_enemy3" parent="." unique_id=438522298 instance=ExtResource("9_iy65v")]
 position = Vector2(1729, 890)
 behavior_choice = 2
+
+[node name="MechanicalSpider" parent="." unique_id=718075656 instance=ExtResource("11_yf2wo")]
+position = Vector2(1063, 354)
