@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bsoc5t783xb72" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://cc052d8pl0jx" path="res://assets/placeholder_art/placeholder_player.png" id="2_g2els"]
 [ext_resource type="Script" uid="uid://b1loq3hmbc5en" path="res://scripts/player/player_attack.gd" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydybj"]
 size = Vector2(16, 31)
@@ -50,7 +51,7 @@ disabled = true
 [node name="Sprite" type="Sprite2D" parent="DamageArea" unique_id=844528969]
 visible = false
 scale = Vector2(0.4400006, 0.51999974)
-texture = ExtResource("2_g2els")
+texture = ExtResource("4_dqkch")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 32)
 

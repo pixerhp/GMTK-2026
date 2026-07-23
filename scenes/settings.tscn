@@ -5,73 +5,71 @@
 [node name="Settings" type="Control" unique_id=266761967]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5p8wc")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1086769478]
-layout_mode = 0
-offset_left = 430.0
-offset_top = 195.0
-offset_right = 724.0
-offset_bottom = 487.0
-color = Color(0, 0, 0, 0.45490196)
-
-[node name="SettingsVBox" type="VBoxContainer" parent="." unique_id=496854380]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1946243295]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -51.5
-offset_right = 56.5
-offset_bottom = 87.5
+offset_left = -115.5
+offset_top = -134.0
+offset_right = 115.5
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="SettingsVBox" unique_id=343952041]
+[node name="SettingsVBox" type="VBoxContainer" parent="PanelContainer" unique_id=496854380]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/SettingsVBox" unique_id=343952041]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="SettingsVBox" unique_id=1926606127]
+[node name="MusicContainer" type="HBoxContainer" parent="PanelContainer/SettingsVBox" unique_id=1904721084]
 layout_mode = 2
-value = 100.0
 
-[node name="MusicLabel" type="Label" parent="SettingsVBox/MusicSlider" unique_id=976721949]
-layout_mode = 0
-offset_left = -54.0
-offset_top = -3.0
-offset_right = -5.0
-offset_bottom = 20.0
+[node name="MusicLabel" type="Label" parent="PanelContainer/SettingsVBox/MusicContainer" unique_id=976721949]
+layout_mode = 2
 text = "Music"
 
-[node name="SoundSlider" type="HSlider" parent="SettingsVBox" unique_id=883537972]
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/SettingsVBox/MusicContainer" unique_id=1926606127]
 layout_mode = 2
+size_flags_horizontal = 3
 value = 100.0
 
-[node name="SoundLabel" type="Label" parent="SettingsVBox/SoundSlider" unique_id=2136810285]
-layout_mode = 0
-offset_left = -54.0
-offset_top = -3.0
-offset_right = -5.0
-offset_bottom = 20.0
+[node name="SoundContainer" type="HBoxContainer" parent="PanelContainer/SettingsVBox" unique_id=669117318]
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="PanelContainer/SettingsVBox/SoundContainer" unique_id=2136810285]
+layout_mode = 2
 text = "Sound"
 
-[node name="FullScreenBox" type="CheckBox" parent="SettingsVBox" unique_id=597518639]
+[node name="SoundSlider" type="HSlider" parent="PanelContainer/SettingsVBox/SoundContainer" unique_id=883537972]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="FullScreenBox" type="CheckBox" parent="PanelContainer/SettingsVBox" unique_id=597518639]
 layout_mode = 2
 text = "Full Screen"
 
-[node name="BackButton" type="Button" parent="SettingsVBox" unique_id=3550062]
+[node name="BackButton" type="Button" parent="PanelContainer/SettingsVBox" unique_id=3550062]
 layout_mode = 2
 text = "Back"
 
-[connection signal="pressed" from="SettingsVBox/FullScreenBox" to="." method="_on_full_screen_box_pressed"]
-[connection signal="pressed" from="SettingsVBox/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PanelContainer/SettingsVBox/FullScreenBox" to="." method="_on_full_screen_box_pressed"]
+[connection signal="pressed" from="PanelContainer/SettingsVBox/BackButton" to="." method="_on_back_button_pressed"]
