@@ -14,7 +14,7 @@ var health: int = 2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_reset_Move()
-	GlobalTimer.tick_beat.connect(_reset_Move)
+	Globals.tickbeat.connect(_reset_Move)
 	
 
 func _reset_Move() -> void:

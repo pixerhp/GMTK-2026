@@ -6,7 +6,7 @@ extends Node2D
 # this makes the switching
 func _ready() -> void:
 	_switch_direction()
-	GlobalTimer.tick_beat.connect(_switch_direction)
+	Globals.tickbeat.connect(_switch_direction)
 
 func _switch_direction() -> void:
 	gearAnim.play("gearTurn")
