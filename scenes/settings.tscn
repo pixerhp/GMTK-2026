@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://nh0nssb7w8se" path="res://scripts/settings.gd" id="1_5p8wc"]
 
 [node name="Settings" type="Control" unique_id=266761967]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
