@@ -26,13 +26,13 @@ func _physics_process(delta: float) -> void:
 	if behaviorChoice == 0:
 		if inChase == true:
 			if target.global_position.x > global_position.x:
-				velocity.x += (moveExecute * 0.5)
+				velocity.x += (moveExecute * 0.7)
 			if target.global_position.x < global_position.x:
-				velocity.x -= (moveExecute * 0.5)
+				velocity.x -= (moveExecute * 0.7)
 			if target.global_position.y > global_position.y:
-				velocity.y += (moveExecute * 0.5)
+				velocity.y += (moveExecute * 0.7)
 			if target.global_position.y < global_position.y:
-				velocity.y -= (moveExecute * 0.5)
+				velocity.y -= (moveExecute * 0.7)
 	velocity.x *= 0.9
 	velocity.y *= 0.9
 	if behaviorChoice == 1:
