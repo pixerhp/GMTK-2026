@@ -24,7 +24,7 @@ radius = 200.0
 radius = 15.0
 
 [node name="bat_enemy" type="CharacterBody2D" unique_id=1753946486]
-collision_layer = 0
+collision_layer = 4
 script = ExtResource("1_5ejt7")
 
 [node name="BatSprite" type="AnimatedSprite2D" parent="." unique_id=1160160396]

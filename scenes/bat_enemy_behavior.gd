@@ -9,6 +9,8 @@ var moveDirection: bool = 0
 var target = null
 var inChase = false
 
+var health: int = 2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_reset_Move()
@@ -52,3 +54,8 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		target = null
 		inChase = false
+
+func damage_by_player() -> void:
+	health -= 1
+	if health == 0:
+		queue_free()
