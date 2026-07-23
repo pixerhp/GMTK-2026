@@ -249,7 +249,4 @@ position = Vector2(1232, 568)
 gearDirection = true
 
 [node name="LargeGear" parent="." unique_id=523454924 instance=ExtResource("8_y8ti4")]
-position = Vector2(1472, 688)
-
-[node name="LargeGear2" parent="." unique_id=1955243485 instance=ExtResource("8_y8ti4")]
-position = Vector2(1520, 672)
+position = Vector2(1424, 560)
