@@ -12,6 +12,7 @@ size = Vector2(16, 31)
 size = Vector2(20, 17.62712)
 
 [node name="Player" type="CharacterBody2D" unique_id=1697917956]
+z_index = 1
 script = ExtResource("1_3vyb7")
 SPEED = 150.0
 
