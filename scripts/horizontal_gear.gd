@@ -9,9 +9,10 @@ func _ready() -> void:
 	Globals.tickbeat.connect(_switch_direction)
 
 func _switch_direction() -> void:
-	gearAnim.play("horizontalGearTurn")
-	if gearDirection == false:
-		scale.x = 2
-	elif gearDirection == true:
-		scale.x = -2
-	gearDirection = not gearDirection
+	if (Globals.tickbeat_count % 4) == 0:
+		gearAnim.play("horizontalGearTurn")
+		if gearDirection == false:
+			scale.x = 2
+		elif gearDirection == true:
+			scale.x = -2
+		gearDirection = not gearDirection
