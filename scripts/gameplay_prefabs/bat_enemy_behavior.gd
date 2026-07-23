@@ -55,7 +55,8 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 		target = null
 		inChase = false
 
-func damage_by_player() -> void:
+func damage_by_player(player: Node2D) -> void:
+	velocity += player.global_position.direction_to(global_position) * 500
 	health -= 1
 	if health == 0:
 		queue_free()
