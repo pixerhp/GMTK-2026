@@ -3,8 +3,11 @@ extends CharacterBody2D
 enum LEDGE_GRAB_DIRECTION { NEITHER, LEFT, RIGHT }
 
 @export var GRAVITY: float = 9.8
-@export var SPEED: float = 200.0
-@export var JUMP_VELOCITY: float = 300
+@export var SPEED: float = 180.0
+@export var JUMP_VELOCITY: float = 160.0
+@export var ACCELERATION: float = 60.0
+@export var FRICTION: float = 500.0
+@export var JUMP_SLOWDOWN = 0.5
 
 var time_since_on_floor: float = 10.0
 var time_since_pressed_jump: float = 10.0
@@ -40,9 +43,15 @@ func _physics_process(delta: float) -> void:
 	
 	if time_since_pressed_jump < 0.1 and time_since_on_floor < 0.1:
 		velocity.y = -JUMP_VELOCITY
+	if !Input.is_key_pressed(KEY_SPACE) && velocity.y < 0:
+		velocity.y *= JUMP_SLOWDOWN
 	
 	var move_intent: float = Input.get_axis("left", "right")
-	velocity.x = move_intent * SPEED
+	if(abs(velocity.x) < SPEED) :
+		velocity.x += move_intent * ACCELERATION
+	if(move_intent == 0.0 || move_intent == -sign(velocity.x)) :
+		# Stop player from going on an ice skating rink
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 	
 	var ledge_grabbing: LEDGE_GRAB_DIRECTION = LEDGE_GRAB_DIRECTION.NEITHER
 	
