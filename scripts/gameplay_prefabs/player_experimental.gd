@@ -21,9 +21,13 @@ var jump_buffer_time: int = -99999999
 @export var COYOTE_DURATION_MS: int = 100
 var jump_coyote_time: int = -99999999
 
+var is_facing_right: bool = true
+
 func _physics_process(delta: float) -> void:
 	handle_collision_checks()
 	handle_inputs_and_movement(delta)
+	
+	%CharacterSprite.flip_h = not is_facing_right
 	
 	move_and_slide()
 
@@ -61,8 +65,10 @@ func handle_inputs_and_movement(delta: float):
 			velocity.x *= pow(HORIZONTAL_MOVEMENT_GROUND_DECEL_WHILE_STOPPING, delta)
 		# Ground acceleration:
 		if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
+			is_facing_right = false
 			velocity.x -= HORIZONTAL_MOVEMENT_GROUND_ACCEL * delta
 		if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
+			is_facing_right = true
 			velocity.x += HORIZONTAL_MOVEMENT_GROUND_ACCEL * delta
 		# Ground speed limit:
 		if abs(velocity.x) > HORIZONTAL_MOVEMENT_GROUND_MAX_SPEED:
@@ -72,11 +78,13 @@ func handle_inputs_and_movement(delta: float):
 		velocity.x *= pow(HORIZONTAL_MOVEMENT_AIR_DECEL, delta)
 		# Air acceleration:
 		if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
+			is_facing_right = false
 			if velocity.x < (-1.0 * AIR_TURNAROUND_SPEED_LIMIT):
 				velocity.x -= HORIZONTAL_MOVEMENT_AIR_ACCEL * delta
 			else:
 				velocity.x -= AIR_TURNAROUND_ACCEL * delta
 		if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
+			is_facing_right = true
 			if velocity.x > AIR_TURNAROUND_SPEED_LIMIT:
 				velocity.x += HORIZONTAL_MOVEMENT_AIR_ACCEL * delta
 			else:
