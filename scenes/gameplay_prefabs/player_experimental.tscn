@@ -1,6 +1,71 @@
 [gd_scene format=3 uid="uid://dj7whuxs81cvp"]
 
 [ext_resource type="Script" uid="uid://de80ana12qiyc" path="res://scripts/gameplay_prefabs/player_experimental.gd" id="1_8yoq4"]
+[ext_resource type="Texture2D" uid="uid://bsddidcbb0wk7" path="res://assets/art/player_character.png" id="2_r3xnd"]
 
-[node name="Player" type="CharacterBody2D" unique_id=517014374]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqc66"]
+size = Vector2(16, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_r3xnd")
+region = Rect2(2, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_r3xnd")
+region = Rect2(25, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_r3xnd")
+region = Rect2(48, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("2_r3xnd")
+region = Rect2(71, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("2_r3xnd")
+region = Rect2(94, 0, 20, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixoqp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[node name="PlayerExperimental" type="CharacterBody2D" unique_id=517014374]
 script = ExtResource("1_8yoq4")
+
+[node name="CollisionHitbox" type="CollisionShape2D" parent="." unique_id=343900599]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_oqc66")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=534187629]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_ixoqp")
+animation = &"walk"
+autoplay = "idle"
