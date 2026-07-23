@@ -24,4 +24,4 @@ func toggle_attacking(attacking:bool):
 
 func on_body_entered(body):
 	if body.has_method("damage_by_player"):
-		body.damage_by_player()
+		body.damage_by_player(get_parent())

@@ -127,4 +127,10 @@ collision_mask = 2
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ydybj")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1694071491]
+unique_name_in_owner = true
+zoom = Vector2(2.5, 2.5)
+process_callback = 0
+position_smoothing_enabled = true
+
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
