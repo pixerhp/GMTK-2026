@@ -71,5 +71,7 @@ text = "Full Screen"
 layout_mode = 2
 text = "Back"
 
-[connection signal="pressed" from="PanelContainer/SettingsVBox/FullScreenBox" to="." method="_on_full_screen_box_pressed"]
+[connection signal="value_changed" from="PanelContainer/SettingsVBox/MusicContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/SettingsVBox/SoundContainer/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="toggled" from="PanelContainer/SettingsVBox/FullScreenBox" to="." method="_on_full_screen_box_toggled"]
 [connection signal="pressed" from="PanelContainer/SettingsVBox/BackButton" to="." method="_on_back_button_pressed"]
