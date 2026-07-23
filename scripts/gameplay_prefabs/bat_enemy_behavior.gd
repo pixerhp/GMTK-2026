@@ -8,11 +8,16 @@ var move_execute: int = 0
 @export var move_direction: int = 1 ## 1 equals moving either right or up, -1 for opposite, please ensure this is not set to zero, I am unsure what happens.
 var target = null
 var in_chase = false
-
+@onready var wall_ray_up = $VerticalWallDetectionUp
+@onready var wall_ray_down = $VerticalWallDetectionDown
+@onready var wall_ray_left = $HorizontalWallDetectionLeft
+@onready var wall_ray_right = $HorizontalWallDetectionRight
 var health: int = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(wall_ray_right)
+	print(wall_ray_left)
 	_reset_move()
 	Globals.tickbeat.connect(_reset_move)
 
@@ -39,17 +44,21 @@ func _physics_process(delta: float) -> void:
 		elif in_chase == false:
 			velocity.x += randi_range(-move_execute, move_execute)
 			velocity.y += randi_range(-move_execute, move_execute)
-
 	
 	# Horizontal moving behavior.
 	if behavior_choice == 1:
 		velocity.x += (move_execute * move_direction)
-		if is_on_wall():
-			print("Collided")
-			move_direction * -1
+		if wall_ray_left.is_colliding():
+			move_direction = 1
+		if wall_ray_right.is_colliding():
+			move_direction = -1
 	# Vertical moving behavior.
 	if behavior_choice == 2:
-		pass
+		velocity.y += (move_execute * move_direction)
+		if wall_ray_up.is_colliding():
+			move_direction = 1
+		if wall_ray_down.is_colliding():
+			move_direction = -1
 		
 	# regardless of behavior, this is the decay of their movement.
 	velocity.x *= 0.9
