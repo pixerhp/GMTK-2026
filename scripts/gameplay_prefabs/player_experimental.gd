@@ -30,6 +30,21 @@ func _physics_process(delta: float) -> void:
 	handle_collision_checks()
 	handle_inputs_and_movement(delta)
 	
+	if is_facing_right:
+		%LedgeUpperCheck.position.x = abs(%LedgeUpperCheck.position.x)
+		%LedgeLowerCheck.position.x = abs(%LedgeLowerCheck.position.x)
+		
+		%LedgeUpperCheck.target_position.x = abs(%LedgeUpperCheck.target_position.x)
+		%LedgeLowerCheck.target_position.x = abs(%LedgeLowerCheck.target_position.x)
+	else:
+		%LedgeUpperCheck.position.x = -abs(%LedgeUpperCheck.position.x)
+		%LedgeLowerCheck.position.x = -abs(%LedgeLowerCheck.position.x)
+		
+		%LedgeUpperCheck.target_position.x = -abs(%LedgeUpperCheck.target_position.x)
+		%LedgeLowerCheck.target_position.x = -abs(%LedgeLowerCheck.target_position.x)
+	%LedgeUpperCheck.force_raycast_update()
+	%LedgeLowerCheck.force_raycast_update()
+	
 	move_and_slide()
 
 func handle_collision_checks():

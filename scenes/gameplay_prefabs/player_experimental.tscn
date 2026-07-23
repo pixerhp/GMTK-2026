@@ -69,3 +69,15 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ixoqp")
 animation = &"walk"
 autoplay = "idle"
+
+[node name="LedgeUpperCheck" type="RayCast2D" parent="." unique_id=538618084]
+unique_name_in_owner = true
+position = Vector2(8, -15)
+enabled = false
+target_position = Vector2(10, 0)
+
+[node name="LedgeLowerCheck" type="RayCast2D" parent="." unique_id=1247619654]
+unique_name_in_owner = true
+position = Vector2(8, -11)
+enabled = false
+target_position = Vector2(10, 0)
