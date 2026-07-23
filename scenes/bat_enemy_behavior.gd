@@ -20,7 +20,7 @@ func _ready() -> void:
 func _reset_Move() -> void:
 	moveExecute = moveSpeed
 
-
+# TODO: on Behavior 1 and Behavior 2, ensure they follow as the Enum says, making a back and forth hard coded pattern of direction!
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if moveExecute >= 1:
