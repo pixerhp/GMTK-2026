@@ -4,7 +4,7 @@ enum LEDGE_GRAB_DIRECTION { NEITHER, LEFT, RIGHT }
 
 @export var GRAVITY: float = 9.8
 @export var SPEED: float = 180.0
-@export var JUMP_VELOCITY: float = 160.0
+@export var JUMP_VELOCITY: float = 200.0
 @export var ACCELERATION: float = 60.0
 @export var FRICTION: float = 500.0
 @export var JUMP_SLOWDOWN = 0.5
@@ -58,10 +58,10 @@ func _physics_process(delta: float) -> void:
 	
 	var ledge_grabbing: LEDGE_GRAB_DIRECTION = LEDGE_GRAB_DIRECTION.NEITHER
 	
-	if ledge_left_lower_check.is_colliding() and not ledge_left_upper_check.is_colliding():
+	if ledge_left_lower_check.is_colliding() and not ledge_left_upper_check.is_colliding() and velocity.x < 0 and move_intent < 0:
 		ledge_grabbing = LEDGE_GRAB_DIRECTION.LEFT
 		
-	if ledge_right_lower_check.is_colliding() and not ledge_right_upper_check.is_colliding():
+	if ledge_right_lower_check.is_colliding() and not ledge_right_upper_check.is_colliding() and velocity.x > 0 and move_intent > 0:
 		ledge_grabbing = LEDGE_GRAB_DIRECTION.RIGHT
 	
 	if ledge_grabbing != LEDGE_GRAB_DIRECTION.NEITHER and ledge_grab_cooldown <= 0.0 and velocity.y >= 0:
@@ -70,6 +70,7 @@ func _physics_process(delta: float) -> void:
 		was_ledge_grabbing = true
 		velocity = Vector2.ZERO
 		time_since_on_floor = 0.0
+		$Sprite2D.flip_h = ledge_grabbing == LEDGE_GRAB_DIRECTION.LEFT
 		if ledge_movement_cooldown <= 0.0:
 			if Input.is_action_pressed("down"):
 				ledge_grab_cooldown = 0.1
