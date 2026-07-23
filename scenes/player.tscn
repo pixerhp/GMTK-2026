@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsoc5t783xb72" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://cc052d8pl0jx" path="res://assets/placeholder_art/placeholder_player.png" id="2_g2els"]
-[ext_resource type="Script" uid="uid://b1loq3hmbc5en" path="res://scripts/player/player_attack.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://crsrstc3gcffe" path="res://scripts/player/player_attack.gd" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydybj"]
@@ -11,7 +11,8 @@ size = Vector2(16, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(20, 17.62712)
 
-[node name="Player" type="CharacterBody2D" unique_id=1697917956]
+[node name="Player" type="CharacterBody2D" unique_id=1697917956 groups=["Player"]]
+collision_layer = 4
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2038621837]

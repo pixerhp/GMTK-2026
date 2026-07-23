@@ -25,6 +25,10 @@ GlobalTimer="*uid://b2cvrucw3dm8u"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Player="the Player character."
+
 [input]
 
 fullscreen_toggle={
