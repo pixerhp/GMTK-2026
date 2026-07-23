@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://clv825o0ktwl1"]
+
+[ext_resource type="Texture2D" uid="uid://curfvy0qemebc" path="res://assets/art/LargeGear.png" id="1_87u81"]
+[ext_resource type="Script" uid="uid://c43erpyijdpac" path="res://scenes/large_gear.gd" id="1_n82xw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trrqd"]
+radius = 24.33105
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87u81"]
+atlas = ExtResource("1_87u81")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n82xw"]
+atlas = ExtResource("1_87u81")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3hsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87u81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n82xw")
+}],
+"loop": 0,
+"name": &"gearTurn",
+"speed": 6.0
+}]
+
+[node name="LargeGear" type="StaticBody2D" unique_id=523454924]
+scale = Vector2(2, 2)
+script = ExtResource("1_n82xw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1728846996]
+shape = SubResource("CircleShape2D_trrqd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2013797806]
+sprite_frames = SubResource("SpriteFrames_q3hsd")
+animation = &"gearTurn"
+frame = 1
+frame_progress = 1.0

@@ -9,9 +9,4 @@ func _ready() -> void:
 	GlobalTimer.tick_beat.connect(_switch_direction)
 
 func _switch_direction() -> void:
-	gearAnim.play("horizontalGearTurn")
-	if gearDirection == false:
-		scale.x = 2
-	elif gearDirection == true:
-		scale.x = -2
-	gearDirection = not gearDirection
+	gearAnim.play("gearTurn")

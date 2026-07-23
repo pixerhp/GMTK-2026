@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daxwxscbco8ga"
-path="res://.godot/imported/tileset.png-4b0282e8c3e833737baa28cbf141985b.ctex"
+uid="uid://dg6ujq2oqn7yb"
+path="res://.godot/imported/LargeHorizontalGear.png-aca5c872405ad02836dac17bfff503f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-4b0282e8c3e833737baa28cbf141985b.ctex"]
+source_file="res://assets/art/LargeHorizontalGear.png"
+dest_files=["res://.godot/imported/LargeHorizontalGear.png-aca5c872405ad02836dac17bfff503f7.ctex"]
 
 [params]
 
