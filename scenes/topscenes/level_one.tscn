@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqd3qdjgx2gje" path="res://scenes/gameplay_prefabs/horizontal_gear.tscn" id="7_jrqry"]
 [ext_resource type="PackedScene" uid="uid://clv825o0ktwl1" path="res://scenes/gameplay_prefabs/large_gear.tscn" id="8_0f7dx"]
 [ext_resource type="PackedScene" uid="uid://exvp2wbmlftg" path="res://scenes/gameplay_prefabs/bat_enemy.tscn" id="9_iy65v"]
+[ext_resource type="PackedScene" uid="uid://bpsujftes8w1" path="res://scenes/gameplay_prefabs/pendelum.tscn" id="10_pa78b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t18mc"]
 texture = ExtResource("2_pa78b")
@@ -271,3 +272,9 @@ position = Vector2(864, 256)
 
 [node name="LargeGear2" parent="." unique_id=22665727 instance=ExtResource("8_0f7dx")]
 position = Vector2(1399, 674)
+
+[node name="Pendelum" parent="." unique_id=414069732 instance=ExtResource("10_pa78b")]
+position = Vector2(1567, 419)
+
+[node name="LargeGear3" parent="." unique_id=727121963 instance=ExtResource("8_0f7dx")]
+position = Vector2(1535, 631)
