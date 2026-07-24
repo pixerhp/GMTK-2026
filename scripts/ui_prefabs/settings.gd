@@ -6,6 +6,8 @@ var music_volume: float = 1.0
 var sfx_volume: float = 1.0
 
 func _ready() -> void:
+	%MusicVolSlider.value_changed.connect(_on_music_slider_value_changed)
+	%SoundVolSlider.value_changed.connect(_on_sound_slider_value_changed)
 	_load_settings()
 
 func _exit_tree() -> void:
@@ -13,6 +15,7 @@ func _exit_tree() -> void:
 
 func _on_back_button_pressed() -> void:
 	on_back_pressed.emit()
+	_save_settings()
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("fullscreen_toggle"):
@@ -56,7 +59,7 @@ func _on_sound_slider_value_changed(value: float) -> void:
 
 func _on_music_slider_value_changed(value: float) -> void:
 	music_volume = value
-	var vol_in_db: float = lerpf(-100.0, -30.0, music_volume)
+	var vol_in_db: float = lerpf(-100.0, 0.0, music_volume)
 	var bus_index: int = AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_volume_db(bus_index, vol_in_db)
 
