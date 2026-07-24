@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://l1nnv7wnvgun"]
 
-[ext_resource type="Script" uid="uid://bcuvksdvlxcfc" path="res://scenes/gameplay_prefabs/mechanical_spider_behavior.gd" id="1_r6w0l"]
+[ext_resource type="Script" uid="uid://bcuvksdvlxcfc" path="res://scripts/gameplay_prefabs/mechanical_spider_behavior.gd" id="1_r6w0l"]
 [ext_resource type="Texture2D" uid="uid://dpdcr66jtk1u7" path="res://assets/art/mechanical_spider_death.png" id="2_5juai"]
 [ext_resource type="Texture2D" uid="uid://cipxkeb0i5j7g" path="res://assets/art/mechanical_spider_idle.png" id="2_qp2sw"]
 [ext_resource type="Texture2D" uid="uid://dbpe3jvjvvvnc" path="res://assets/art/mechanical_spider_sprint.png" id="3_5g6yq"]
