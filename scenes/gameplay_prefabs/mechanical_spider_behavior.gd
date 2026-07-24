@@ -10,6 +10,7 @@ var is_in_moving: bool = false
 @onready var ledge_left_ray = $LedgeLeftRay
 @onready var ledge_right_ray = $LedgeRightRay
 @onready var spider_sprite = $SpiderSprite
+@onready var spider_collision = $SpiderCollisionBody/CollisionShape2D
 var animation_state: String = "Idle"
 # base counter behaviorwall_left_ray
 func _ready() -> void:
@@ -23,11 +24,12 @@ func _reset_move() -> void:
 	if (Globals.tickbeat_count % 4) == 0:
 		if is_in_moving:
 			is_in_moving = false
+			spider_collision.disabled = true
 		else:
 			is_in_moving = true
+			spider_collision.disabled = false
 
 func _physics_process(delta: float) -> void:
-	
 	if is_in_moving:
 		animation_state = "Sprint"
 		velocity.x = move_speed * move_direction
