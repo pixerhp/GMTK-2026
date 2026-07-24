@@ -33,14 +33,14 @@ func _reset_move() -> void:
 func _physics_process(delta: float) -> void:
 	if health > 0:
 		if is_in_moving:
-			animation_state = "Sprint"
+			spider_sprite.animation = "Sprint"
 			velocity.x = move_speed * move_direction
 			if move_direction == -1:
 				spider_sprite.flip_h = false
 			else: 
 				spider_sprite.flip_h = true
 		else:
-			animation_state = "Idle"
+			spider_sprite.animation = "Idle"
 			velocity.x = 0
 		# switching directions
 		if wall_left_ray.is_colliding() or not ledge_left_ray.is_colliding():
@@ -54,11 +54,11 @@ func _physics_process(delta: float) -> void:
 
 
 func damage_by_player(player: Node2D) -> void:
-	velocity += player.global_position.direction_to(global_position) * 100
+	velocity += player.global_position.direction_to(global_position) * 1000
 	health -= 1
 	if health < 1:
 		spider_collision.disabled = true
-		spider_sprite.stop()
-		spider_sprite.play("Death")
+		spider_sprite.frame = 0
+		spider_sprite.animation = "Death"
 		await get_tree().create_timer(5.0).timeout
 		queue_free()
