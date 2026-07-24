@@ -31,6 +31,12 @@ var holding_ledge: bool = false
 
 var grab_point_marker: Marker2D = Marker2D.new()
 
+var attackTimeLeft: float = 0
+var isAttacking: bool = false
+
+func _ready() -> void:
+	%DamageArea.body_entered.connect(_on_weapon_hit_body)
+
 func _process(_delta):
 	%CharacterSprite.flip_h = not is_facing_right
 
@@ -38,58 +44,10 @@ func _physics_process(delta: float) -> void:
 	handle_collision_checks()
 	handle_inputs_and_movement(delta)
 	
-	if is_facing_right:
-		%LedgeUpperCheck.position.x = abs(%LedgeUpperCheck.position.x)
-		%LedgeLowerCheck.position.x = abs(%LedgeLowerCheck.position.x)
-		
-		%LedgeUpperCheck.target_position.x = abs(%LedgeUpperCheck.target_position.x)
-		%LedgeLowerCheck.target_position.x = abs(%LedgeLowerCheck.target_position.x)
-	else:
-		%LedgeUpperCheck.position.x = -abs(%LedgeUpperCheck.position.x)
-		%LedgeLowerCheck.position.x = -abs(%LedgeLowerCheck.position.x)
-		
-		%LedgeUpperCheck.target_position.x = -abs(%LedgeUpperCheck.target_position.x)
-		%LedgeLowerCheck.target_position.x = -abs(%LedgeLowerCheck.target_position.x)
-	
-	%LedgeUpperCheck.force_raycast_update()
-	%LedgeLowerCheck.force_raycast_update()
-	
-	is_ledge_hit = %LedgeLowerCheck.is_colliding() and not %LedgeUpperCheck.is_colliding()
-	if is_ledge_hit:
-		ledge_hit_point = %LedgeLowerCheck.get_collision_point()
-		ledge_hit_node = %LedgeLowerCheck.get_collider()
-		
-	if not holding_ledge and is_ledge_hit and velocity.y > 0:
-		if ledge_hit_node is TileMapLayer:
-			var tm: TileMapLayer = ledge_hit_node
-			var tile_position: Vector2 = tm.to_global(tm.map_to_local(tm.local_to_map(tm.to_local(ledge_hit_point))))
-			var tile_size: Vector2 = tm.to_global(tm.map_to_local(Vector2i.ONE) - tm.map_to_local(Vector2i.ZERO))
-			if grab_point_marker.get_parent():
-				grab_point_marker.get_parent().remove_child(grab_point_marker)
-			grab_point_marker.global_position = tile_position
-			grab_point_marker.global_position -= tile_size / 2
-			tm.add_child(grab_point_marker)
-			holding_ledge = true
-		else:
-			if grab_point_marker.get_parent():
-				grab_point_marker.get_parent().remove_child(grab_point_marker)
-			ledge_hit_node.add_child(grab_point_marker)
-			if is_facing_right:
-				grab_point_marker.position = Vector2(-10, -10)
-			else:
-				grab_point_marker.position = Vector2(10, -10)
-			holding_ledge = true
-	
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
-		holding_ledge = false
-	if Input.is_action_just_pressed("jump"):
-		holding_ledge = false
-	if holding_ledge:
-		global_position = grab_point_marker.global_position - %LedgeUpperCheck.position
-		velocity = Vector2.ZERO
-		jump_coyote_time = Time.get_ticks_msec()
-	
+	handle_ledges()
 	%CharacterSprite.animation = "walk" if Input.get_axis("move_left", "move_right") != 0 else "idle"
+	
+	handle_weapon(delta)
 	
 	move_and_slide()
 
@@ -163,3 +121,84 @@ func handle_inputs_and_movement(delta: float):
 			#pass
 		#else:
 			#pass
+
+
+func handle_ledges() -> void:
+	if is_facing_right:
+		%LedgeUpperCheck.position.x = abs(%LedgeUpperCheck.position.x)
+		%LedgeLowerCheck.position.x = abs(%LedgeLowerCheck.position.x)
+		
+		%LedgeUpperCheck.target_position.x = abs(%LedgeUpperCheck.target_position.x)
+		%LedgeLowerCheck.target_position.x = abs(%LedgeLowerCheck.target_position.x)
+	else:
+		%LedgeUpperCheck.position.x = -abs(%LedgeUpperCheck.position.x)
+		%LedgeLowerCheck.position.x = -abs(%LedgeLowerCheck.position.x)
+		
+		%LedgeUpperCheck.target_position.x = -abs(%LedgeUpperCheck.target_position.x)
+		%LedgeLowerCheck.target_position.x = -abs(%LedgeLowerCheck.target_position.x)
+	
+	%LedgeUpperCheck.force_raycast_update()
+	%LedgeLowerCheck.force_raycast_update()
+	
+	is_ledge_hit = %LedgeLowerCheck.is_colliding() and not %LedgeUpperCheck.is_colliding()
+	if is_ledge_hit:
+		ledge_hit_point = %LedgeLowerCheck.get_collision_point()
+		ledge_hit_node = %LedgeLowerCheck.get_collider()
+		
+	if not holding_ledge and is_ledge_hit and velocity.y > 0:
+		if ledge_hit_node is TileMapLayer:
+			var tm: TileMapLayer = ledge_hit_node
+			var tile_position: Vector2 = tm.to_global(tm.map_to_local(tm.local_to_map(tm.to_local(ledge_hit_point))))
+			var tile_size: Vector2 = tm.to_global(tm.map_to_local(Vector2i.ONE) - tm.map_to_local(Vector2i.ZERO))
+			if grab_point_marker.get_parent():
+				grab_point_marker.get_parent().remove_child(grab_point_marker)
+			grab_point_marker.global_position = tile_position
+			grab_point_marker.global_position -= tile_size / 2
+			tm.add_child(grab_point_marker)
+			holding_ledge = true
+		else:
+			if grab_point_marker.get_parent():
+				grab_point_marker.get_parent().remove_child(grab_point_marker)
+			ledge_hit_node.add_child(grab_point_marker)
+			if is_facing_right:
+				grab_point_marker.position = Vector2(-10, -10)
+			else:
+				grab_point_marker.position = Vector2(10, -10)
+			holding_ledge = true
+	
+	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+		holding_ledge = false
+	if Input.is_action_just_pressed("jump"):
+		holding_ledge = false
+	if holding_ledge:
+		global_position = grab_point_marker.global_position - %LedgeUpperCheck.position
+		velocity = Vector2.ZERO
+		jump_coyote_time = Time.get_ticks_msec()
+
+
+func handle_weapon(delta: float) -> void:
+	if is_facing_right:
+		%DamageArea.position.x = abs(%DamageArea.position.x)
+	else:
+		%DamageArea.position.x = -abs(%DamageArea.position.x)
+	%DamageSprite.flip_h = !is_facing_right
+	
+	if !isAttacking && Input.is_action_just_pressed("attack"):
+		attackTimeLeft = 0.3
+	else:
+		attackTimeLeft -= delta
+	
+	if isAttacking:
+		if attackTimeLeft < 0:
+			isAttacking = false
+			%DamageSprite.visible = false
+			%DamageCollider.disabled = true
+	else:
+		if attackTimeLeft > 0:
+			isAttacking = true
+			%DamageSprite.visible = true
+			%DamageCollider.disabled = false
+
+func _on_weapon_hit_body(body: Node2D):
+	if body.has_method("damage_by_player"):
+		body.damage_by_player(get_parent())

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://de80ana12qiyc" path="res://scripts/gameplay_prefabs/player_experimental.gd" id="1_8yoq4"]
 [ext_resource type="Texture2D" uid="uid://bsddidcbb0wk7" path="res://assets/art/player_character.png" id="2_r3xnd"]
+[ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_mk14l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqc66"]
 size = Vector2(16, 31)
@@ -57,6 +58,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41807"]
+size = Vector2(36.363632, 29.661018)
+
 [node name="PlayerExperimental" type="CharacterBody2D" unique_id=517014374]
 script = ExtResource("1_8yoq4")
 
@@ -81,3 +85,23 @@ unique_name_in_owner = true
 position = Vector2(8, -11)
 enabled = false
 target_position = Vector2(10, 0)
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1645177015]
+unique_name_in_owner = true
+position = Vector2(14, 0)
+collision_mask = 5
+
+[node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=1452190124]
+unique_name_in_owner = true
+position = Vector2(-3, -0.49999988)
+scale = Vector2(0.385, 1.18)
+shape = SubResource("RectangleShape2D_41807")
+disabled = true
+
+[node name="DamageSprite" type="Sprite2D" parent="DamageArea" unique_id=812403604]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.4400006, 0.51999974)
+texture = ExtResource("4_mk14l")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
