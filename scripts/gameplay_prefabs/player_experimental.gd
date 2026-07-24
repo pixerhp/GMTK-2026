@@ -206,7 +206,7 @@ func handle_weapon(delta: float) -> void:
 
 func _on_weapon_hit_body(body: Node2D):
 	if body.has_method("damage_by_player"):
-		body.damage_by_player()
+		body.damage_by_player(self)
 
 
 # TODO: Handle deaths better
