@@ -4,7 +4,8 @@ extends Node
 var items: PackedStringArray
 
 func _ready():
-	ui.clear_all_items()
+	if not ui == null:
+		ui.clear_all_items()
 
 func try_add_item(id:String) -> bool:
 	if id.is_empty(): return false
