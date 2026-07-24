@@ -84,9 +84,12 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 		target = null
 		in_chase = false
 
+# TODO: someone please check on this code, sometimes the bat multiplies its speed and crashes 
+# into the player and I swear I didn't mess with this initially, 
+# I only flipped variables and its a remedy. - Ray
 func damage_by_player(player: Node2D) -> void:
 	if(iFrames <= 0) :
-		velocity += player.global_position.direction_to(global_position) * 500
+		velocity += player.global_position.direction_to(global_position) * -500
 		health -= 1
 		iFrames = 30;
 		if health == 0:
