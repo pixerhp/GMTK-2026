@@ -294,7 +294,7 @@ tile_map_data = PackedByteArray("AABMAAsAAAAAAAEAAABMAAwAAAAAAAEAAABMAA0AAAABAAE
 tile_set = SubResource("TileSet_yf2wo")
 
 [node name="Player" parent="." unique_id=1697917956 instance=ExtResource("6_g4qfc")]
-position = Vector2(1969, 515)
+position = Vector2(636, 384)
 FRICTION = 1000.0
 
 [node name="HorizontalGear" parent="." unique_id=2055071262 instance=ExtResource("7_jrqry")]
