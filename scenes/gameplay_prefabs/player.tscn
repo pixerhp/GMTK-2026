@@ -62,7 +62,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(137.66234, 36.44068)
+size = Vector2(36.363632, 29.661018)
 
 [node name="Player" type="CharacterBody2D" unique_id=1697917956 groups=["Player"]]
 z_index = 1
@@ -109,7 +109,7 @@ collision_mask = 5
 script = ExtResource("3_qhqgy")
 
 [node name="Collider" type="CollisionShape2D" parent="DamageArea" unique_id=24877283]
-position = Vector2(4.5, -5.5000005)
+position = Vector2(-3, -0.49999988)
 scale = Vector2(0.385, 1.18)
 shape = SubResource("RectangleShape2D_dqkch")
 disabled = true

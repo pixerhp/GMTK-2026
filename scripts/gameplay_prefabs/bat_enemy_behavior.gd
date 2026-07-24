@@ -13,11 +13,14 @@ var in_chase = false
 @onready var wall_ray_left = $HorizontalWallDetectionLeft
 @onready var wall_ray_right = $HorizontalWallDetectionRight
 var health: int = 2
+var desiredPos: Vector2
+var iFrames: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_reset_move()
 	Globals.tickbeat.connect(_reset_move)
+	desiredPos = Vector2(position.x, position.y)
 
 func _reset_move() -> void:
 	if (Globals.tickbeat_count % 4) == 0:
@@ -46,6 +49,9 @@ func _physics_process(delta: float) -> void:
 	# Horizontal moving behavior.
 	if behavior_choice == 1:
 		velocity.x += (move_execute * move_direction)
+		# Move towards desired Y value so as not to leave the intended portion of the level
+		if(abs(desiredPos.y - position.y) > 5) :
+			velocity.y += sign(desiredPos.y - position.y) * move_execute
 		if wall_ray_left.is_colliding():
 			move_direction = 1
 		if wall_ray_right.is_colliding():
@@ -53,6 +59,8 @@ func _physics_process(delta: float) -> void:
 	# Vertical moving behavior.
 	if behavior_choice == 2:
 		velocity.y += (move_execute * move_direction)
+		if(abs(desiredPos.x - position.x) > 5) :
+			velocity.x += sign(desiredPos.x - position.x) * move_execute
 		if wall_ray_up.is_colliding():
 			move_direction = 1
 		if wall_ray_down.is_colliding():
@@ -62,6 +70,8 @@ func _physics_process(delta: float) -> void:
 	velocity.x *= 0.9
 	velocity.y *= 0.9
 	move_and_slide()
+	if(iFrames > 0) :
+		iFrames -= 1;
 
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
@@ -75,7 +85,9 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 		in_chase = false
 
 func damage_by_player(player: Node2D) -> void:
-	velocity += player.global_position.direction_to(global_position) * 500
-	health -= 1
-	if health == 0:
-		queue_free()
+	if(iFrames <= 0) :
+		velocity += player.global_position.direction_to(global_position) * 500
+		health -= 1
+		iFrames = 30;
+		if health == 0:
+			queue_free()
