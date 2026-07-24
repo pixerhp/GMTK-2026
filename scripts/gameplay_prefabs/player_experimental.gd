@@ -36,6 +36,7 @@ var isAttacking: bool = false
 
 func _ready() -> void:
 	%DamageArea.body_entered.connect(_on_weapon_hit_body)
+	%HurtBox.body_entered.connect(_on_hurt_box_body_entered)
 
 func _process(_delta):
 	%CharacterSprite.flip_h = not is_facing_right
@@ -202,3 +203,9 @@ func handle_weapon(delta: float) -> void:
 func _on_weapon_hit_body(body: Node2D):
 	if body.has_method("damage_by_player"):
 		body.damage_by_player(get_parent())
+
+
+# TODO: Handle deaths better
+func _on_hurt_box_body_entered(_body: Node2D) -> void:
+	print("Player died")
+	get_tree().call_deferred("reload_current_scene")

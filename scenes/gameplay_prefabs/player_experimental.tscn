@@ -61,7 +61,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41807"]
 size = Vector2(36.363632, 29.661018)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixoqp"]
+size = Vector2(16, 31)
+
 [node name="PlayerExperimental" type="CharacterBody2D" unique_id=517014374]
+collision_layer = 4
 script = ExtResource("1_8yoq4")
 
 [node name="CollisionHitbox" type="CollisionShape2D" parent="." unique_id=343900599]
@@ -105,3 +109,12 @@ scale = Vector2(0.4400006, 0.51999974)
 texture = ExtResource("4_mk14l")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 32)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1857034451]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1142392910]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ixoqp")
