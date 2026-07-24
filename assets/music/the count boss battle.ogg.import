@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/the count boss battle.ogg-6e77070d1416f914d63
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
