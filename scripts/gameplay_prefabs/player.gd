@@ -40,7 +40,8 @@ func _ready() -> void:
 
 func _process(_delta):
 	%CharacterSprite.flip_h = not is_facing_right
-	%PlayerCam.position.y = Input.get_axis("move_up", "move_down") * 100
+	if not %PlayerCam == null:
+		%PlayerCam.position.y = Input.get_axis("move_up", "move_down") * 100
 
 func _physics_process(delta: float) -> void:
 	handle_collision_checks()
