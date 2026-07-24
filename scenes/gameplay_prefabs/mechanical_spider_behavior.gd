@@ -54,7 +54,6 @@ func _physics_process(delta: float) -> void:
 
 
 func damage_by_player(player: Node2D) -> void:
-	velocity += player.global_position.direction_to(global_position) * 1000
 	health -= 1
 	if health < 1:
 		spider_collision.disabled = true
