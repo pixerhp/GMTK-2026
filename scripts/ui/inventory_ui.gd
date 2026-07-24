@@ -6,7 +6,7 @@ var show_time: float = 0
 var is_showing: bool = true
 
 func _process(delta: float):
-	if Input.is_action_pressed("Inventory"):
+	if Input.is_action_pressed("show_inventory"):
 		if show_time < 0.1: show_time = 0.1
 	else: show_time -= delta
 	
