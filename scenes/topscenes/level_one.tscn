@@ -272,6 +272,7 @@ tile_set = SubResource("TileSet_yf2wo")
 
 [node name="Player" parent="." unique_id=1697917956 instance=ExtResource("6_g4qfc")]
 position = Vector2(610, 348)
+FRICTION = 1000.0
 
 [node name="HorizontalGear" parent="." unique_id=2055071262 instance=ExtResource("7_jrqry")]
 position = Vector2(1232, 376)
@@ -313,3 +314,6 @@ behavior_choice = 2
 
 [node name="MechanicalSpider" parent="." unique_id=718075656 instance=ExtResource("11_yf2wo")]
 position = Vector2(1063, 354)
+
+[node name="MechanicalSpider2" parent="." unique_id=1157883429 instance=ExtResource("11_yf2wo")]
+position = Vector2(1523, 897)
