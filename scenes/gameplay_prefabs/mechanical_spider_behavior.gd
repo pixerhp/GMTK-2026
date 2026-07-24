@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 
 func damage_by_player(player: Node2D) -> void:
 	health -= 1
-	if health < 1:
+	if health == 0:
 		spider_collision.disabled = true
 		spider_sprite.frame = 0
 		spider_sprite.animation = "Death"
