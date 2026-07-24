@@ -1,6 +1,6 @@
 extends Node
 
-@onready var ui: Node =  get_node("../../CanvasLayer/MainUI/InventoryUI")
+@onready var ui: Node =  get_node("../../CanvasLayer/MainUI/%InventoryUI")
 var items: PackedStringArray
 
 func _ready():
