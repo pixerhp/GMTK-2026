@@ -22,13 +22,13 @@ func _reset_move() -> void:
 	if health > 0:
 		spider_sprite.stop()
 		spider_sprite.play(animation_state)
-	if (Globals.tickbeat_count % 4) == 0:
-		if is_in_moving:
-			is_in_moving = false
-			spider_collision.disabled = true
-		else:
-			is_in_moving = true
-			spider_collision.disabled = false
+		if (Globals.tickbeat_count % 4) == 0:
+			if is_in_moving:
+				is_in_moving = false
+				spider_collision.disabled = true
+			else:
+				is_in_moving = true
+				spider_collision.disabled = false
 
 func _physics_process(delta: float) -> void:
 	if health > 0:
@@ -54,7 +54,6 @@ func _physics_process(delta: float) -> void:
 
 
 func damage_by_player(player: Node2D) -> void:
-	velocity += player.global_position.direction_to(global_position) * 1000
 	health -= 1
 	if health < 1:
 		spider_collision.disabled = true

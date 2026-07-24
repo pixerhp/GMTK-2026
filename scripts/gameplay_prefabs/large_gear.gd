@@ -14,7 +14,13 @@ func _turn_gear() -> void:
 		gearAnim.play("gearTurn")
 		if (gearDirection):
 			constant_angular_velocity = gearPower;
+			rotation_degrees += 45
 		else:
 			constant_angular_velocity = -gearPower;
+			rotation_degrees -= 45
 		await get_tree().create_timer(1.0/6.0).timeout
+		if (gearDirection):
+			rotation_degrees += 45
+		else:
+			rotation_degrees -= 45
 		constant_angular_velocity = 0.0;
