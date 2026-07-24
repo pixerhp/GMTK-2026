@@ -89,6 +89,8 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		jump_coyote_time = Time.get_ticks_msec()
 	
+	%CharacterSprite.animation = "walk" if Input.get_axis("move_left", "move_right") != 0 else "idle"
+	
 	move_and_slide()
 
 func handle_collision_checks():
