@@ -49,6 +49,8 @@ func _physics_process(delta: float) -> void:
 	handle_ledges()
 	if not holding_ledge:
 		%CharacterSprite.animation = "walk" if Input.get_axis("move_left", "move_right") != 0 else "idle"
+		if not is_on_floor():
+			%CharacterSprite.animation = "fall" if velocity.y > 0 else "jump"
 	
 	handle_weapon(delta)
 	

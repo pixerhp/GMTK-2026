@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://de80ana12qiyc" path="res://scripts/gameplay_prefabs/player.gd" id="1_8yoq4"]
 [ext_resource type="Texture2D" uid="uid://bsddidcbb0wk7" path="res://assets/art/player_character.png" id="2_r3xnd"]
+[ext_resource type="Texture2D" uid="uid://tfb3vkkmsrd6" path="res://assets/art/player_jump_asset.png" id="3_f777a"]
 [ext_resource type="Texture2D" uid="uid://b40ytmlrxbfjy" path="res://assets/art/player_ledge_grab.png" id="3_mk14l"]
 [ext_resource type="Texture2D" uid="uid://bapuqn2uq7fie" path="res://assets/placeholder_art/background_placeholder.png" id="4_ixoqp"]
 [ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_mk14l"]
@@ -10,6 +11,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqc66"]
 size = Vector2(14, 31)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f777a"]
+atlas = ExtResource("3_f777a")
+region = Rect2(18, 0, 18, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_r3xnd")
 region = Rect2(2, 0, 20, 32)
@@ -17,6 +22,10 @@ region = Rect2(2, 0, 20, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("2_r3xnd")
 region = Rect2(25, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0avo"]
+atlas = ExtResource("3_f777a")
+region = Rect2(0, 0, 18, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41807"]
 atlas = ExtResource("3_mk14l")
@@ -42,6 +51,14 @@ region = Rect2(94, 0, 20, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_f777a")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tuyoq")
 }, {
 "duration": 1.0,
@@ -50,6 +67,14 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0avo")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,7 +123,7 @@ shape = SubResource("RectangleShape2D_oqc66")
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="." unique_id=534187629]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ixoqp")
-animation = &"ledge_grab"
+animation = &"fall"
 autoplay = "idle"
 
 [node name="LedgeUpperCheck" type="RayCast2D" parent="." unique_id=538618084]
