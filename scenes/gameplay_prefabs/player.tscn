@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bsddidcbb0wk7" path="res://assets/art/player_character.png" id="2_qlg0r"]
 [ext_resource type="Script" uid="uid://crsrstc3gcffe" path="res://scripts/gameplay_prefabs/player_attack.gd" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://bapuqn2uq7fie" path="res://assets/placeholder_art/background_placeholder.png" id="6_4j757"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydybj"]
 size = Vector2(16, 31)
@@ -133,5 +134,14 @@ unique_name_in_owner = true
 zoom = Vector2(2.5, 2.5)
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1820217347]
+layer = -5
+
+[node name="BackgroundPlaceholder" type="Sprite2D" parent="BackgroundLayer" unique_id=2144452363]
+z_index = -4
+position = Vector2(573, 365)
+scale = Vector2(2, 2)
+texture = ExtResource("6_4j757")
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
