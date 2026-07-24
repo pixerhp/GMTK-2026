@@ -31,8 +31,8 @@ var holding_ledge: bool = false
 
 var grab_point_marker: Marker2D = Marker2D.new()
 
-var attackTimeLeft: float = 0
-var isAttacking: bool = false
+var attack_time_left: float = 0
+var is_attacking: bool = false
 
 func _ready() -> void:
 	%DamageArea.body_entered.connect(_on_weapon_hit_body)
@@ -188,19 +188,19 @@ func handle_weapon(delta: float) -> void:
 		%DamageArea.position.x = -abs(%DamageArea.position.x)
 	%DamageSprite.flip_h = !is_facing_right
 	
-	if !isAttacking && Input.is_action_just_pressed("attack"):
-		attackTimeLeft = 0.3
+	if !is_attacking && Input.is_action_just_pressed("attack"):
+		attack_time_left = 0.3
 	else:
-		attackTimeLeft -= delta
+		attack_time_left -= delta
 	
-	if isAttacking:
-		if attackTimeLeft < 0:
-			isAttacking = false
+	if is_attacking:
+		if attack_time_left < 0:
+			is_attacking = false
 			%DamageSprite.visible = false
 			%DamageCollider.disabled = true
 	else:
-		if attackTimeLeft > 0:
-			isAttacking = true
+		if attack_time_left > 0:
+			is_attacking = true
 			%DamageSprite.visible = true
 			%DamageCollider.disabled = false
 
