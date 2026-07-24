@@ -30,7 +30,6 @@ func process_tickbeats():
 	while (current_time > (((tickbeat_count + 1) * TICKBEAT_DURATION) + tickbeat_offset)):
 		tickbeat.emit()
 		tickbeat_count += 1
-		print(tickbeat_count)
 
 func set_music(music_node_name: String) -> void:
 	for child in GlobalMusic.get_children():
