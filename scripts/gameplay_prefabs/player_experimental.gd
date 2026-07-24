@@ -70,6 +70,12 @@ func _physics_process(delta: float) -> void:
 				grab_point_marker.get_parent().remove_child(grab_point_marker)
 			tm.add_child(grab_point_marker)
 			holding_ledge = true
+		else:
+			if grab_point_marker.get_parent():
+				grab_point_marker.get_parent().remove_child(grab_point_marker)
+			ledge_hit_node.add_child(grab_point_marker)
+			grab_point_marker.position = Vector2(-10, -10)
+			holding_ledge = true
 	
 	if Input.get_axis("move_left", "move_right") != 0:
 		holding_ledge = false

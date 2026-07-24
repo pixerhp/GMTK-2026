@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dlaqcju7cj62t" path="res://scenes/ui_prefabs/pause_menu.tscn" id="1_2wy44"]
 [ext_resource type="Texture2D" uid="uid://dwtkyuyglfn0h" path="res://icon.svg" id="2_43atn"]
 [ext_resource type="Texture2D" uid="uid://dast4mbd2enft" path="res://assets/tilemaps/placeholder_tilemap.png" id="3_0nmgs"]
-[ext_resource type="Texture2D" uid="uid://daxwxscbco8ga" path="res://assets/art/tileset.png" id="4_4culg"]
+[ext_resource type="Texture2D" uid="uid://l1cwwwxc13og" path="res://assets/art/tileset.png" id="4_4culg"]
 [ext_resource type="Texture2D" uid="uid://c3qdbxfklu2ur" path="res://assets/art/spikes_directional_tile.png" id="5_ykj2d"]
 [ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player_experimental.tscn" id="6_5s1p4"]
 
@@ -230,6 +230,87 @@ sources/1 = SubResource("TileSetAtlasSource_4r5f4")
 sources/2 = SubResource("TileSetAtlasSource_hubvu")
 sources/3 = SubResource("TileSetAtlasSource_6r1dl")
 
+[sub_resource type="Animation" id="Animation_2wy44"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(695, 328)]
+}
+
+[sub_resource type="Animation" id="Animation_43atn"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0000002, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(695, 328), Vector2(695, 272), Vector2(695, 328)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0nmgs"]
+_data = {
+&"RESET": SubResource("Animation_2wy44"),
+&"new_animation": SubResource("Animation_43atn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydybj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ydybj"]
+size = Vector2(20, 20)
+
+[sub_resource type="Animation" id="Animation_4culg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(919, 305)]
+}
+
+[sub_resource type="Animation" id="Animation_0nmgs"]
+resource_name = "new_animation"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5000002, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(919, 305), Vector2(1152, 305), Vector2(919, 305)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4culg"]
+_data = {
+&"RESET": SubResource("Animation_4culg"),
+&"new_animation": SubResource("Animation_0nmgs")
+}
+
 [node name="LevelExperimental" type="Node2D" unique_id=1091946195]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2001517660]
@@ -248,3 +329,31 @@ position = Vector2(577, 231)
 [node name="PlayerCam" type="Camera2D" parent="Player" unique_id=180335348]
 unique_name_in_owner = true
 zoom = Vector2(2, 2)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=608600198]
+position = Vector2(695, 328)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=802221351]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_0nmgs")
+autoplay = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=979175159]
+shape = SubResource("RectangleShape2D_ydybj")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=891282968]
+texture = SubResource("PlaceholderTexture2D_ydybj")
+
+[node name="AnimatableBody2D2" type="AnimatableBody2D" parent="." unique_id=1404361532]
+position = Vector2(919, 305)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D2" unique_id=1372601565]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_4culg")
+autoplay = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2" unique_id=1890825023]
+shape = SubResource("RectangleShape2D_ydybj")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D2" unique_id=1884886684]
+texture = SubResource("PlaceholderTexture2D_ydybj")
