@@ -152,14 +152,19 @@ func handle_ledges() -> void:
 	if not holding_ledge and is_ledge_hit and velocity.y > 0:
 		if ledge_hit_node is TileMapLayer:
 			var tm: TileMapLayer = ledge_hit_node
-			var tile_position: Vector2 = tm.to_global(tm.map_to_local(tm.local_to_map(tm.to_local(ledge_hit_point))))
-			var tile_size: Vector2 = tm.to_global(tm.map_to_local(Vector2i.ONE) - tm.map_to_local(Vector2i.ZERO))
-			if grab_point_marker.get_parent():
-				grab_point_marker.get_parent().remove_child(grab_point_marker)
-			grab_point_marker.global_position = tile_position
-			grab_point_marker.global_position -= tile_size / 2
-			tm.add_child(grab_point_marker)
-			holding_ledge = true
+			var tile_coordinates: Vector2i = tm.local_to_map(tm.to_local(ledge_hit_point))
+			var ground_check_tile: Vector2i = Vector2i(-1,2) if is_facing_right else Vector2i(1,2)
+			ground_check_tile += tile_coordinates
+			var ground_tile_data: TileData = tm.get_cell_tile_data(ground_check_tile)
+			if not (ground_tile_data and ground_tile_data.get_collision_polygons_count(0) > 0):
+				var tile_position: Vector2 = tm.to_global(tm.map_to_local(tile_coordinates))
+				var tile_size: Vector2 = tm.to_global(tm.map_to_local(Vector2i.ONE) - tm.map_to_local(Vector2i.ZERO))
+				if grab_point_marker.get_parent():
+					grab_point_marker.get_parent().remove_child(grab_point_marker)
+				grab_point_marker.global_position = tile_position
+				grab_point_marker.global_position -= tile_size / 2
+				tm.add_child(grab_point_marker)
+				holding_ledge = true
 		else:
 			if grab_point_marker.get_parent():
 				grab_point_marker.get_parent().remove_child(grab_point_marker)
