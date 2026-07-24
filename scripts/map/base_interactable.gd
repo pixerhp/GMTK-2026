@@ -5,5 +5,5 @@ signal on_interacted
 
 func damage_by_player():
 	if !required_item_id.is_empty():
-		if !%Player.Inventory.try_use_item(required_item_id): return
+		if !%Player.get_node("Inventory").try_use_item(required_item_id): return
 	on_interacted.emit()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://75xhg72dc2cf" path="res://scripts/ui/inventory_ui.gd" id="1_7nagc"]
 
-[node name="InventoryUI" type="Control" unique_id=1261748560]
+[node name="InventoryUI" type="Control" unique_id=1261748560 node_paths=PackedStringArray("container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7nagc")
+container = NodePath("Container")
 
 [node name="Container" type="HFlowContainer" parent="." unique_id=948858732]
 layout_mode = 1
@@ -21,5 +22,6 @@ offset_top = -100.0
 offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
+offset_transform_enabled = true
 theme_override_constants/h_separation = 25
 alignment = 1

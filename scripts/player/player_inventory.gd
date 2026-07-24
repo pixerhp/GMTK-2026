@@ -3,9 +3,8 @@ extends Node
 @onready var ui: Node =  get_node("../../CanvasLayer/MainUI/InventoryUI")
 var items: PackedStringArray
 
-func _ready() -> void:
+func _ready():
 	ui.clear_all_items()
-	items.append("test")
 
 func try_add_item(id:String) -> bool:
 	if id.is_empty(): return false
@@ -16,7 +15,7 @@ func try_add_item(id:String) -> bool:
 	return true
 	
 func try_use_item(id:String) -> bool:
-	if !items.has(id): return false
-	items.erase(id)
+	if !items.erase(id): return false
+	print("used item " + id)
 	ui.remove_item(id)
 	return true

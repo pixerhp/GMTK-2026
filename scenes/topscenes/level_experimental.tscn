@@ -371,8 +371,9 @@ texture = SubResource("PlaceholderTexture2D_ydybj")
 
 [node name="Collectible" type="Area2D" parent="." unique_id=446109857]
 position = Vector2(533, 385)
+collision_mask = 5
 script = ExtResource("8_5s1p4")
-id = "placeholder_gear_small"
+id = "placeholder_small_gear"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collectible" unique_id=1425628175]
 shape = SubResource("CircleShape2D_hubvu")
@@ -380,8 +381,33 @@ shape = SubResource("CircleShape2D_hubvu")
 [node name="Sprite2D" type="Sprite2D" parent="Collectible" unique_id=1971863831]
 texture = ExtResource("9_gglk1")
 
+[node name="Collectible2" type="Area2D" parent="." unique_id=1905465598]
+position = Vector2(621, 380)
+collision_mask = 5
+script = ExtResource("8_5s1p4")
+id = "placeholder_small_gear"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectible2" unique_id=967632763]
+shape = SubResource("CircleShape2D_hubvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collectible2" unique_id=1772998681]
+texture = ExtResource("9_gglk1")
+
+[node name="Collectible3" type="Area2D" parent="." unique_id=2135632714]
+position = Vector2(658, 381)
+collision_mask = 5
+script = ExtResource("8_5s1p4")
+id = "placeholder_small_gear"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectible3" unique_id=1374266922]
+shape = SubResource("CircleShape2D_hubvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collectible3" unique_id=153758588]
+texture = ExtResource("9_gglk1")
+
 [node name="Interactable" type="StaticBody2D" parent="." unique_id=1818728425]
 script = ExtResource("10_4r5f4")
+required_item_id = "placeholder_small_gear"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=563093661]
 position = Vector2(467, 384)
