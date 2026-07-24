@@ -74,7 +74,10 @@ func _physics_process(delta: float) -> void:
 			if grab_point_marker.get_parent():
 				grab_point_marker.get_parent().remove_child(grab_point_marker)
 			ledge_hit_node.add_child(grab_point_marker)
-			grab_point_marker.position = Vector2(-10, -10)
+			if is_facing_right:
+				grab_point_marker.position = Vector2(-10, -10)
+			else:
+				grab_point_marker.position = Vector2(10, -10)
 			holding_ledge = true
 	
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
