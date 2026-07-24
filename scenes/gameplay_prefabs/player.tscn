@@ -132,6 +132,7 @@ position = Vector2(3.5, -17)
 enabled = false
 target_position = Vector2(14.5, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="LedgeLowerCheck" type="RayCast2D" parent="." unique_id=1247619654]
 unique_name_in_owner = true
@@ -139,6 +140,7 @@ position = Vector2(3.5, -11)
 enabled = false
 target_position = Vector2(14.5, 0)
 collision_mask = 8
+hit_from_inside = true
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=1645177015]
 unique_name_in_owner = true
