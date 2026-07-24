@@ -107,9 +107,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bwhlu")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Death",
-"speed": 12.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -138,7 +138,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Idle",
-"speed": 12.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -165,9 +165,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qlddx")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"Sprint",
-"speed": 12.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rghg"]
@@ -177,12 +177,12 @@ size = Vector2(34, 16)
 size = Vector2(29, 9)
 
 [node name="MechanicalSpider" type="CharacterBody2D" unique_id=718075656]
-collision_layer = 0
+collision_layer = 4
 script = ExtResource("1_r6w0l")
 
 [node name="SpiderSprite" type="AnimatedSprite2D" parent="." unique_id=821957762]
 sprite_frames = SubResource("SpriteFrames_trrqd")
-animation = &"Sprint"
+animation = &"Death"
 
 [node name="SpiderWorldCollision" type="CollisionShape2D" parent="." unique_id=1225109218]
 position = Vector2(0, 1)

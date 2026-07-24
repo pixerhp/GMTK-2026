@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # choices for bat behaviors.
 @export_enum("Chase", "Horizontal Move", "Vertical Move") var behavior_choice: int = 0
-@onready var playerRange = $BatSprite/PlayerDetection
+@onready var player_range = $BatSprite/PlayerDetection
 var move_speed: int = 30
 var move_execute: int = 0
 @export var move_direction: int = 1 ## 1 equals moving either right or up, -1 for opposite, please ensure this is not set to zero, I am unsure what happens.
