@@ -21,6 +21,7 @@ var jump_buffer_time: int = -99999999
 var jump_coyote_time: int = -99999999
 
 var is_facing_right: bool = true
+var turned_around_this_frame: bool = false
 
 var is_ledge_hit: bool = false
 var ledge_hit_point: Vector2
@@ -62,6 +63,7 @@ func handle_collision_checks():
 		jump_coyote_time = Time.get_ticks_msec()
 
 func handle_inputs_and_movement(delta: float):
+	var was_facing_right: bool = is_facing_right
 	# Gravity application:
 	if Input.is_action_pressed("jump"):
 		velocity.y += GRAVITY * GRAVITY_MULT_IF_HOLDING_JUMP * delta
@@ -115,6 +117,7 @@ func handle_inputs_and_movement(delta: float):
 				velocity.x += HORIZONTAL_MOVEMENT_AIR_ACCEL * delta
 			else:
 				velocity.x += AIR_TURNAROUND_ACCEL * delta
+	turned_around_this_frame = was_facing_right != is_facing_right
 	
 	#if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
 		#if is_on_floor():
@@ -177,7 +180,7 @@ func handle_ledges() -> void:
 				grab_point_marker.position = Vector2(10, -9)
 			holding_ledge = true
 	
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+	if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and turned_around_this_frame:
 		holding_ledge = false
 	if Input.is_action_just_pressed("jump"):
 		holding_ledge = false
