@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpsujftes8w1"]
 
-[ext_resource type="Texture2D" uid="uid://citssf3krfu8d" path="res://assets/placeholder_art/placeholder_pendulum.png" id="1_0ea86"]
 [ext_resource type="Script" uid="uid://ctbevxg4pheyw" path="res://scripts/gameplay_prefabs/pendelum.gd" id="1_vurom"]
+[ext_resource type="Texture2D" uid="uid://b701tijd7ojvy" path="res://assets/art/pendulum_asset.png" id="2_vurom"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ho8su"]
 radius = 18.0
@@ -66,12 +66,12 @@ _data = {
 script = ExtResource("1_vurom")
 
 [node name="PlaceholderPendulum" type="Sprite2D" parent="." unique_id=1545408452]
-position = Vector2(-1.0788374, 64.13139)
+position = Vector2(0, 64)
 scale = Vector2(2, 2)
-texture = ExtResource("1_0ea86")
+texture = ExtResource("2_vurom")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=716230803]
-position = Vector2(0, 112)
+position = Vector2(0, 110)
 shape = SubResource("CircleShape2D_ho8su")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=737052487]
