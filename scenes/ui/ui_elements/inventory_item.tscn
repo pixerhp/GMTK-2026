@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://vbt162raqfqx"]
+
+[ext_resource type="Texture2D" uid="uid://ctjtkf7j281tf" path="res://assets/placeholder_art/placeholder_small_gear.png" id="1_xx1lu"]
+
+[node name="InventoryItem" type="TextureRect" unique_id=67693846]
+custom_minimum_size = Vector2(75, 75)
+texture = ExtResource("1_xx1lu")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1386699981]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 1)
+text = "Item Name"
+horizontal_alignment = 1

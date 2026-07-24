@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://crsrstc3gcffe" path="res://scripts/gameplay_prefabs/player_attack.gd" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bapuqn2uq7fie" path="res://assets/placeholder_art/background_placeholder.png" id="6_4j757"]
+[ext_resource type="Script" uid="uid://bt538f3gn7tgx" path="res://scripts/player/player_inventory.gd" id="7_f777a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydybj"]
 size = Vector2(16, 31)
@@ -149,5 +150,8 @@ z_index = -4
 position = Vector2(573, 1325)
 scale = Vector2(2, 2)
 texture = ExtResource("6_4j757")
+
+[node name="Node" type="Node" parent="." unique_id=1206514743]
+script = ExtResource("7_f777a")
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

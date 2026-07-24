@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://vw3pv1akulhd"]
+
+[ext_resource type="PackedScene" uid="uid://vxglx8g208fg" path="res://scenes/ui/inventory_ui.tscn" id="1_hnesk"]
+
+[node name="MainUI" type="Control" unique_id=1261748560]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryUI" parent="." unique_id=56718059 instance=ExtResource("1_hnesk")]
+layout_mode = 1
