@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://l1nnv7wnvgun" path="res://scenes/gameplay_prefabs/mechanical_spider.tscn" id="11_yf2wo"]
 [ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player.tscn" id="12_le6gx"]
 [ext_resource type="PackedScene" uid="uid://b1dsii4h55eli" path="res://scenes/gameplay_prefabs/the_count.tscn" id="13_gwq8n"]
+[ext_resource type="Script" path="res://scenes/gameplay_prefabs/the_count_behavior.gd" id="14_g4qfc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5rfim"]
 texture = ExtResource("3_yf2wo")
@@ -277,6 +278,7 @@ position_smoothing_enabled = true
 
 [node name="TheCount" parent="." unique_id=194178612 instance=ExtResource("13_gwq8n")]
 position = Vector2(2032, 618)
+script = ExtResource("14_g4qfc")
 
 [node name="MechanicalSpider2" parent="." unique_id=1417044683 instance=ExtResource("11_yf2wo")]
 position = Vector2(1805, 628)
