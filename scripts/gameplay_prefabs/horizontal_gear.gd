@@ -12,7 +12,7 @@ func _switch_direction() -> void:
 	if (Globals.tickbeat_count % 4) == 0:
 		gearAnim.play("horizontalGearTurn")
 		if gearDirection == false:
-			scale.x = 2
+			scale.x = 1
 		elif gearDirection == true:
-			scale.x = -2
+			scale.x = -1
 		gearDirection = not gearDirection

@@ -29,7 +29,6 @@ animations = [{
 }]
 
 [node name="LargeGear" type="StaticBody2D" unique_id=523454924]
-scale = Vector2(2, 2)
 script = ExtResource("1_s1yx0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1728846996]
