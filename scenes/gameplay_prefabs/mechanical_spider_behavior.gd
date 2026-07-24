@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 func damage_by_player(player: Node2D) -> void:
 	health -= 1
 	if health < 1:
-		spider_collision.disabled = true
+		spider_collision.set_deferred("disabled", true)
 		spider_sprite.frame = 0
 		spider_sprite.animation = "Death"
 		await get_tree().create_timer(5.0).timeout
