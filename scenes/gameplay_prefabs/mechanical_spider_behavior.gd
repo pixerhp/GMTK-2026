@@ -57,6 +57,7 @@ func damage_by_player(player: Node2D) -> void:
 	velocity += player.global_position.direction_to(global_position) * 100
 	health -= 1
 	if health < 1:
+		spider_collision.disabled = true
 		spider_sprite.stop()
 		spider_sprite.play("Death")
 		await get_tree().create_timer(5.0).timeout
