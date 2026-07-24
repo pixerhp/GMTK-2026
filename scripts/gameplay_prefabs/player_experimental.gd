@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 			grab_point_marker.position = Vector2(-10, -10)
 			holding_ledge = true
 	
-	if Input.get_axis("move_left", "move_right") != 0:
+	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 		holding_ledge = false
 	if Input.is_action_just_pressed("jump"):
 		holding_ledge = false
