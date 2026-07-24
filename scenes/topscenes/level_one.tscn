@@ -268,7 +268,7 @@ behavior_choice = 2
 position = Vector2(1063, 354)
 
 [node name="Player" parent="." unique_id=517014374 groups=["Player"] instance=ExtResource("12_le6gx")]
-position = Vector2(577, 231)
+position = Vector2(569, 384)
 
 [node name="PlayerCam" type="Camera2D" parent="Player" unique_id=1013167009]
 unique_name_in_owner = true
