@@ -329,6 +329,7 @@ position = Vector2(577, 231)
 [node name="PlayerCam" type="Camera2D" parent="Player" unique_id=180335348]
 unique_name_in_owner = true
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=608600198]
 position = Vector2(695, 328)
