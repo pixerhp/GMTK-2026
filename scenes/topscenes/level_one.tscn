@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://exvp2wbmlftg" path="res://scenes/gameplay_prefabs/bat_enemy.tscn" id="9_iy65v"]
 [ext_resource type="PackedScene" uid="uid://bpsujftes8w1" path="res://scenes/gameplay_prefabs/pendelum.tscn" id="10_pa78b"]
 [ext_resource type="PackedScene" uid="uid://l1nnv7wnvgun" path="res://scenes/gameplay_prefabs/mechanical_spider.tscn" id="11_yf2wo"]
-[ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player_experimental.tscn" id="12_le6gx"]
+[ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player.tscn" id="12_le6gx"]
 [ext_resource type="PackedScene" uid="uid://b1dsii4h55eli" path="res://scenes/gameplay_prefabs/the_count.tscn" id="13_gwq8n"]
 [ext_resource type="AudioStream" uid="uid://dbapthxxqp177" path="res://assets/music/CountMusicStuff.ogg" id="14_g4qfc"]
 

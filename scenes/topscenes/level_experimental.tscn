@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dast4mbd2enft" path="res://assets/tilemaps/placeholder_tilemap.png" id="3_0nmgs"]
 [ext_resource type="Texture2D" uid="uid://l1cwwwxc13og" path="res://assets/art/tileset.png" id="4_4culg"]
 [ext_resource type="Texture2D" uid="uid://c3qdbxfklu2ur" path="res://assets/art/spikes_directional_tile.png" id="5_ykj2d"]
-[ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player_experimental.tscn" id="6_5s1p4"]
+[ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player.tscn" id="6_5s1p4"]
 [ext_resource type="Script" uid="uid://2ybmiqp71ddo" path="res://scripts/map/collectible.gd" id="8_5s1p4"]
 [ext_resource type="Texture2D" uid="uid://ctjtkf7j281tf" path="res://assets/placeholder_art/placeholder_small_gear.png" id="9_gglk1"]
 [ext_resource type="Script" uid="uid://bxig7artywac4" path="res://scripts/map/test_interactable.gd" id="10_4r5f4"]
