@@ -144,4 +144,10 @@ position = Vector2(573, 365)
 scale = Vector2(2, 2)
 texture = ExtResource("6_4j757")
 
+[node name="BackgroundPlaceholder2" type="Sprite2D" parent="BackgroundLayer" unique_id=2108088004]
+z_index = -4
+position = Vector2(573, 1325)
+scale = Vector2(2, 2)
+texture = ExtResource("6_4j757")
+
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

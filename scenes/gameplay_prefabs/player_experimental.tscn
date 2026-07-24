@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://de80ana12qiyc" path="res://scripts/gameplay_prefabs/player_experimental.gd" id="1_8yoq4"]
 [ext_resource type="Texture2D" uid="uid://bsddidcbb0wk7" path="res://assets/art/player_character.png" id="2_r3xnd"]
+[ext_resource type="Texture2D" uid="uid://bapuqn2uq7fie" path="res://assets/placeholder_art/background_placeholder.png" id="4_ixoqp"]
 [ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_mk14l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqc66"]
@@ -118,3 +119,18 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1142392910]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ixoqp")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=2007183894]
+layer = -5
+
+[node name="BackgroundPlaceholder" type="Sprite2D" parent="BackgroundLayer" unique_id=484785671]
+z_index = -4
+position = Vector2(573, 365)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ixoqp")
+
+[node name="BackgroundPlaceholder2" type="Sprite2D" parent="BackgroundLayer" unique_id=1699527941]
+z_index = -4
+position = Vector2(573, 1325)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ixoqp")
