@@ -15,7 +15,6 @@ extends CharacterBody2D
 @export var AIR_TURNAROUND_ACCEL: float = 10.0 * 60.0
 @export var AIR_TURNAROUND_SPEED_LIMIT: float = 120.0
 @export var JUMP_VERTICAL_VELOCITY: float = 300.0
-@export var JUMP_SLOWDOWN = 0.9
 @export var JUMP_BUFFER_DURATION_MS: int = 100
 var jump_buffer_time: int = -99999999
 @export var COYOTE_DURATION_MS: int = 100
