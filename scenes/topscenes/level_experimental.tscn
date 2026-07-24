@@ -344,6 +344,7 @@ position_smoothing_enabled = true
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=608600198]
 position = Vector2(695, 328)
+collision_layer = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=802221351]
 root_node = NodePath("../..")
@@ -358,6 +359,7 @@ texture = SubResource("PlaceholderTexture2D_ydybj")
 
 [node name="AnimatableBody2D2" type="AnimatableBody2D" parent="." unique_id=1404361532]
 position = Vector2(919, 305)
+collision_layer = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D2" unique_id=1372601565]
 root_node = NodePath("../..")
