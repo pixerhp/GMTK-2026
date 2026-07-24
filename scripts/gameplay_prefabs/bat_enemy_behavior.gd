@@ -28,7 +28,7 @@ func _reset_move() -> void:
 
 # TODO: on Behavior 1 and Behavior 2, ensure they follow as the Enum says, making a back and forth hard coded pattern of direction!
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if move_execute >= 1:
 		move_execute -= 1
 	# Chase Behavior

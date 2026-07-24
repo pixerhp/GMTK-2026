@@ -30,7 +30,7 @@ func _reset_move() -> void:
 				is_in_moving = true
 				spider_collision.disabled = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if health > 0:
 		if is_in_moving:
 			spider_sprite.animation = "Sprint"
@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 
-func damage_by_player(player: Node2D) -> void:
+func damage_by_player(_player: Node2D) -> void:
 	health -= 1
 	if health == 0:
 		spider_collision.set_deferred("disabled", true)
