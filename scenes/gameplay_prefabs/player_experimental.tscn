@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://de80ana12qiyc" path="res://scripts/gameplay_prefabs/player_experimental.gd" id="1_8yoq4"]
 [ext_resource type="Texture2D" uid="uid://bsddidcbb0wk7" path="res://assets/art/player_character.png" id="2_r3xnd"]
+[ext_resource type="Texture2D" uid="uid://b40ytmlrxbfjy" path="res://assets/art/player_ledge_grab.png" id="3_mk14l"]
 [ext_resource type="Texture2D" uid="uid://bapuqn2uq7fie" path="res://assets/placeholder_art/background_placeholder.png" id="4_ixoqp"]
 [ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_mk14l"]
 
@@ -15,6 +16,14 @@ region = Rect2(2, 0, 20, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("2_r3xnd")
 region = Rect2(25, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41807"]
+atlas = ExtResource("3_mk14l")
+region = Rect2(0, 0, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3p41"]
+atlas = ExtResource("3_mk14l")
+region = Rect2(23, 0, 23, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_r3xnd")
@@ -43,6 +52,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_41807")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3p41")
+}],
+"loop": 1,
+"name": &"ledge_grab",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_smehm")
 }, {
 "duration": 1.0,
@@ -66,6 +86,7 @@ size = Vector2(36.363632, 29.661018)
 size = Vector2(16, 31)
 
 [node name="PlayerExperimental" type="CharacterBody2D" unique_id=517014374]
+z_index = 1
 collision_layer = 4
 script = ExtResource("1_8yoq4")
 
@@ -76,7 +97,7 @@ shape = SubResource("RectangleShape2D_oqc66")
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="." unique_id=534187629]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ixoqp")
-animation = &"walk"
+animation = &"ledge_grab"
 autoplay = "idle"
 
 [node name="LedgeUpperCheck" type="RayCast2D" parent="." unique_id=538618084]
@@ -87,9 +108,9 @@ target_position = Vector2(10, 0)
 
 [node name="LedgeLowerCheck" type="RayCast2D" parent="." unique_id=1247619654]
 unique_name_in_owner = true
-position = Vector2(8, -11)
+position = Vector2(3.5, -11)
 enabled = false
-target_position = Vector2(10, 0)
+target_position = Vector2(14.5, 0)
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=1645177015]
 unique_name_in_owner = true

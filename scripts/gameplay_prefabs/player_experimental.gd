@@ -40,17 +40,20 @@ func _ready() -> void:
 
 func _process(_delta):
 	%CharacterSprite.flip_h = not is_facing_right
+	%PlayerCam.position.y = Input.get_axis("move_up", "move_down") * 100
 
 func _physics_process(delta: float) -> void:
 	handle_collision_checks()
 	handle_inputs_and_movement(delta)
 	
 	handle_ledges()
-	%CharacterSprite.animation = "walk" if Input.get_axis("move_left", "move_right") != 0 else "idle"
+	if not holding_ledge:
+		%CharacterSprite.animation = "walk" if Input.get_axis("move_left", "move_right") != 0 else "idle"
 	
 	handle_weapon(delta)
 	
-	move_and_slide()
+	if not holding_ledge:
+		move_and_slide()
 
 func handle_collision_checks():
 	if is_on_floor():
@@ -162,9 +165,9 @@ func handle_ledges() -> void:
 				grab_point_marker.get_parent().remove_child(grab_point_marker)
 			ledge_hit_node.add_child(grab_point_marker)
 			if is_facing_right:
-				grab_point_marker.position = Vector2(-10, -10)
+				grab_point_marker.position = Vector2(-10, -9)
 			else:
-				grab_point_marker.position = Vector2(10, -10)
+				grab_point_marker.position = Vector2(10, -9)
 			holding_ledge = true
 	
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
@@ -172,9 +175,10 @@ func handle_ledges() -> void:
 	if Input.is_action_just_pressed("jump"):
 		holding_ledge = false
 	if holding_ledge:
-		global_position = grab_point_marker.global_position - %LedgeUpperCheck.position
+		global_position = grab_point_marker.global_position - %LedgeLowerCheck.position
 		velocity = Vector2.ZERO
 		jump_coyote_time = Time.get_ticks_msec()
+		%CharacterSprite.animation = "ledge_grab"
 
 
 func handle_weapon(delta: float) -> void:
