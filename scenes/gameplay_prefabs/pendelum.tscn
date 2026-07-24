@@ -63,7 +63,10 @@ _data = {
 }
 
 [node name="Pendelum" type="AnimatableBody2D" unique_id=414069732]
+collision_layer = 9
 script = ExtResource("1_vurom")
+metadata/left_grab_point = Vector2(-4, 128)
+metadata/right_grab_point = Vector2(4, 128)
 
 [node name="PlaceholderPendulum" type="Sprite2D" parent="." unique_id=1545408452]
 position = Vector2(0, 64)

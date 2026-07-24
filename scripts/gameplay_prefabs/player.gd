@@ -156,29 +156,9 @@ func handle_ledges() -> void:
 		
 	if not holding_ledge and is_ledge_hit and velocity.y > 0:
 		if ledge_hit_node is TileMapLayer:
-			var tm: TileMapLayer = ledge_hit_node
-			var tile_coordinates: Vector2i = tm.local_to_map(tm.to_local(ledge_hit_point))
-			var ground_check_tile: Vector2i = Vector2i(-1,2) if is_facing_right else Vector2i(1,2)
-			ground_check_tile += tile_coordinates
-			var ground_tile_data: TileData = tm.get_cell_tile_data(ground_check_tile)
-			if not (ground_tile_data and ground_tile_data.get_collision_polygons_count(0) > 0):
-				var tile_position: Vector2 = tm.to_global(tm.map_to_local(tile_coordinates))
-				var tile_size: Vector2 = tm.to_global(tm.map_to_local(Vector2i.ONE) - tm.map_to_local(Vector2i.ZERO))
-				if grab_point_marker.get_parent():
-					grab_point_marker.get_parent().remove_child(grab_point_marker)
-				grab_point_marker.global_position = tile_position
-				grab_point_marker.global_position -= tile_size / 2
-				tm.add_child(grab_point_marker)
-				holding_ledge = true
+			attempt_grab_tile(ledge_hit_node, ledge_hit_point)
 		else:
-			if grab_point_marker.get_parent():
-				grab_point_marker.get_parent().remove_child(grab_point_marker)
-			ledge_hit_node.add_child(grab_point_marker)
-			if is_facing_right:
-				grab_point_marker.position = Vector2(-10, -9)
-			else:
-				grab_point_marker.position = Vector2(10, -9)
-			holding_ledge = true
+			attempt_grab_object(ledge_hit_node, ledge_hit_point)
 	
 	if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and turned_around_this_frame:
 		if holding_ledge:
@@ -191,6 +171,42 @@ func handle_ledges() -> void:
 		velocity = Vector2.ZERO
 		jump_coyote_time = Time.get_ticks_msec()
 		%CharacterSprite.animation = "ledge_grab"
+
+func attempt_grab_tile(ledge_hit_node: Node2D, ledge_hit_point: Vector2) -> void:
+	var tm: TileMapLayer = ledge_hit_node
+	var tile_coordinates: Vector2i = tm.local_to_map(tm.to_local(ledge_hit_point))
+	var ground_check_tile: Vector2i = Vector2i(-1,2) if is_facing_right else Vector2i(1,2)
+	ground_check_tile += tile_coordinates
+	var ground_tile_data: TileData = tm.get_cell_tile_data(ground_check_tile)
+	
+	if ground_tile_data and ground_tile_data.get_collision_polygons_count(0) > 0:
+		return
+	
+	var tile_position: Vector2 = tm.to_global(tm.map_to_local(tile_coordinates))
+	var tile_size: Vector2 = tm.to_global(tm.map_to_local(Vector2i.ONE) - tm.map_to_local(Vector2i.ZERO))
+	
+	if grab_point_marker.get_parent():
+		grab_point_marker.get_parent().remove_child(grab_point_marker)
+	
+	grab_point_marker.global_position = tile_position
+	grab_point_marker.global_position -= tile_size / 2
+	tm.add_child(grab_point_marker)
+	holding_ledge = true
+
+func attempt_grab_object(ledge_hit_node: Node2D, ledge_hit_point: Vector2) -> void:
+	if is_facing_right and not ledge_hit_node.has_meta("left_grab_point"):
+		return
+	if not is_facing_right and not ledge_hit_node.has_meta("right_grab_point"):
+		return
+	
+	if grab_point_marker.get_parent():
+		grab_point_marker.get_parent().remove_child(grab_point_marker)
+	ledge_hit_node.add_child(grab_point_marker)
+	if is_facing_right:
+		grab_point_marker.position = ledge_hit_node.get_meta("left_grab_point")
+	else:
+		grab_point_marker.position = ledge_hit_node.get_meta("right_grab_point")
+	holding_ledge = true
 
 
 func handle_weapon(delta: float) -> void:
