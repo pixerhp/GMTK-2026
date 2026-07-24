@@ -181,6 +181,8 @@ func handle_ledges() -> void:
 			holding_ledge = true
 	
 	if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and turned_around_this_frame:
+		if holding_ledge:
+			position.y += 8
 		holding_ledge = false
 	if Input.is_action_just_pressed("jump"):
 		holding_ledge = false
