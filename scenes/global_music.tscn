@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d0h5xy8m0rse4"]
+
+[ext_resource type="AudioStream" uid="uid://dbapthxxqp177" path="res://assets/music/CountMusicStuff.ogg" id="1_p76w3"]
+[ext_resource type="AudioStream" uid="uid://bv1ygh8djpgil" path="res://assets/music/the count boss battle.ogg" id="2_p54fa"]
+
+[node name="GlobalMusic" type="Node" unique_id=733621884]
+process_mode = 3
+
+[node name="CountMusicStuff" type="AudioStreamPlayer" parent="." unique_id=1655309963]
+stream = ExtResource("1_p76w3")
+bus = &"Music"
+parameters/looping = true
+
+[node name="TheCountBossBattle" type="AudioStreamPlayer" parent="." unique_id=1545696624]
+stream = ExtResource("2_p54fa")
+bus = &"Music"

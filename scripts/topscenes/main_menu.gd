@@ -1,6 +1,10 @@
 extends Control
 
+func _ready() -> void:
+	Globals.set_music("TheCountBossBattle")
+
 func _on_play_button_pressed() -> void:
+	Globals.set_music("CountMusicStuff")
 	get_tree().change_scene_to_file("res://scenes/topscenes/level_one.tscn")
 
 func _on_settings_button_pressed() -> void:

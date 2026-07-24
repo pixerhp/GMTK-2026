@@ -18,6 +18,8 @@ func _turn_gear() -> void:
 		else:
 			constant_angular_velocity = -gearPower;
 			rotation_degrees -= 45
+		if not is_inside_tree():
+			return
 		await get_tree().create_timer(1.0/6.0).timeout
 		if (gearDirection):
 			rotation_degrees += 45
