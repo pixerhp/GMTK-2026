@@ -173,6 +173,7 @@ shape = SubResource("RectangleShape2D_ixoqp")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=2007183894]
 layer = -5
+visible = false
 
 [node name="BackgroundPlaceholder" type="Sprite2D" parent="BackgroundLayer" unique_id=484785671]
 z_index = -4

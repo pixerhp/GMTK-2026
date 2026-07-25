@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://exvp2wbmlftg" path="res://scenes/gameplay_prefabs/bat_enemy.tscn" id="9_iy65v"]
 [ext_resource type="PackedScene" uid="uid://bpsujftes8w1" path="res://scenes/gameplay_prefabs/pendelum.tscn" id="10_pa78b"]
 [ext_resource type="PackedScene" uid="uid://l1nnv7wnvgun" path="res://scenes/gameplay_prefabs/mechanical_spider.tscn" id="11_yf2wo"]
+[ext_resource type="Texture2D" uid="uid://dy4pas7m7x3bt" path="res://assets/art/bg_concept.png" id="12_gwq8n"]
 [ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player.tscn" id="12_le6gx"]
 [ext_resource type="PackedScene" uid="uid://b1dsii4h55eli" path="res://scenes/gameplay_prefabs/the_count.tscn" id="13_gwq8n"]
 
@@ -86,3 +87,15 @@ position = Vector2(2032, 618)
 
 [node name="MechanicalSpider2" parent="." unique_id=1417044683 instance=ExtResource("11_yf2wo")]
 position = Vector2(1805, 628)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2048359077]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2" unique_id=1869757967]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_gwq8n")
+stretch_mode = 6
