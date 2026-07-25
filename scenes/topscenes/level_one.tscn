@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player.tscn" id="12_le6gx"]
 [ext_resource type="PackedScene" uid="uid://b1dsii4h55eli" path="res://scenes/gameplay_prefabs/the_count.tscn" id="13_gwq8n"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26qnp"]
+size = Vector2(1627, 20)
+
 [node name="LevelOne" type="Node2D" unique_id=1716816]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1612070724]
@@ -99,3 +102,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_gwq8n")
 stretch_mode = 6
+
+[node name="DeathBox" type="Node" parent="." unique_id=1804645432]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="DeathBox" unique_id=1739447149]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox/CharacterBody2D" unique_id=835682303]
+position = Vector2(2027, 981)
+shape = SubResource("RectangleShape2D_26qnp")
