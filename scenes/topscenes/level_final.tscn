@@ -147,5 +147,5 @@ position = Vector2(-8, -63)
 
 [node name="PlayerCam" type="Camera2D" parent="Player" unique_id=1013167009]
 unique_name_in_owner = true
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
