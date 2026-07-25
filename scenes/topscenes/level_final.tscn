@@ -1,0 +1,151 @@
+[gd_scene format=4 uid="uid://c708sajr313g6"]
+
+[ext_resource type="PackedScene" uid="uid://vw3pv1akulhd" path="res://scenes/ui/main_ui.tscn" id="1_808r4"]
+[ext_resource type="PackedScene" uid="uid://dlaqcju7cj62t" path="res://scenes/ui_prefabs/pause_menu.tscn" id="2_ksy3k"]
+[ext_resource type="TileSet" uid="uid://p7u1cu5mw2gg" path="res://assets/tilesets/main_tileset.tres" id="3_rtdqw"]
+[ext_resource type="Texture2D" uid="uid://fipv6jw6do5l" path="res://assets/tilesets_artwork/background_tileset.png" id="4_1svfx"]
+[ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player.tscn" id="10_2vxps"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwq8n"]
+texture = ExtResource("4_1svfx")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+3:2/animation_columns = 3
+3:2/animation_speed = 9.0
+3:2/animation_mode = 1
+3:2/animation_frame_0/duration = 4.0
+3:2/animation_frame_1/duration = 4.0
+3:2/animation_frame_2/duration = 4.0
+3:2/0 = 0
+3:3/animation_speed = 4.5
+3:3/animation_frame_0/duration = 2.0
+3:3/animation_frame_1/duration = 2.0
+3:3/animation_frame_2/duration = 2.0
+3:3/0 = 0
+6:1/animation_columns = 3
+6:1/animation_speed = 9.0
+6:1/animation_frame_0/duration = 4.0
+6:1/animation_frame_1/duration = 4.0
+6:1/animation_frame_2/duration = 4.0
+6:1/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+14:3/0 = 0
+14:4/0 = 0
+13:4/0 = 0
+12:4/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+9:2/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+11:2/0 = 0
+10:2/0 = 0
+0:5/size_in_atlas = Vector2i(1, 2)
+0:5/animation_columns = 12
+0:5/animation_speed = 5.0
+0:5/animation_mode = 1
+0:5/animation_frame_0/duration = 1.0
+0:5/animation_frame_1/duration = 1.0
+0:5/animation_frame_2/duration = 1.0
+0:5/animation_frame_3/duration = 1.0
+0:5/animation_frame_4/duration = 1.0
+0:5/animation_frame_5/duration = 1.0
+0:5/animation_frame_6/duration = 1.0
+0:5/animation_frame_7/duration = 1.0
+0:5/animation_frame_8/duration = 1.0
+0:5/animation_frame_9/duration = 1.0
+0:5/animation_frame_10/duration = 1.0
+0:5/animation_frame_11/duration = 1.0
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(0, -8)
+15:2/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+2:3/0 = 0
+4:4/0 = 0
+3:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+12:5/size_in_atlas = Vector2i(1, 3)
+12:5/0 = 0
+12:5/0/texture_origin = Vector2i(0, 16)
+0:7/size_in_atlas = Vector2i(1, 3)
+0:7/animation_columns = 2
+0:7/animation_speed = 1.8
+0:7/animation_mode = 1
+0:7/animation_frame_0/duration = 1.0
+0:7/animation_frame_1/duration = 1.0
+0:7/0 = 0
+2:7/size_in_atlas = Vector2i(1, 3)
+2:7/animation_columns = 2
+2:7/animation_speed = 1.8
+2:7/animation_mode = 1
+2:7/animation_frame_0/duration = 1.0
+2:7/animation_frame_1/duration = 1.0
+2:7/0 = 0
+0:14/size_in_atlas = Vector2i(3, 3)
+0:14/animation_columns = 6
+0:14/animation_frame_0/duration = 1.0
+0:14/animation_frame_1/duration = 1.0
+0:14/animation_frame_2/duration = 1.0
+0:14/animation_frame_3/duration = 1.0
+0:14/animation_frame_4/duration = 1.0
+0:14/animation_frame_5/duration = 1.0
+0:14/animation_frame_6/duration = 1.0
+0:14/animation_frame_7/duration = 1.0
+0:14/0 = 0
+0:14/0/z_index = -2
+
+[sub_resource type="TileSet" id="TileSet_yf2wo"]
+sources/0 = SubResource("TileSetAtlasSource_gwq8n")
+
+[node name="LevelOne" type="Node2D" unique_id=1716816]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1612070724]
+
+[node name="MainUI" parent="CanvasLayer" unique_id=1261748560 instance=ExtResource("1_808r4")]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1811061067 instance=ExtResource("2_ksy3k")]
+unique_name_in_owner = true
+visible = false
+
+[node name="MainTileMapLayer" type="TileMapLayer" parent="." unique_id=468422003]
+tile_map_data = PackedByteArray("AAD+/wAAAgACAAEAAAD//wAAAgACAAEAAAAAAAAAAgACAAEAAAABAAAAAgABAAEAAFD9/wAAAgABAAEAAAD9/wIAAgABAAEAAGABAAIAAgABAAEAADD9/wEAAgACAAEAAGD+/wIAAgACAAEAADD//wIAAgACAAEAADAAAAIAAgACAAEAADABAAEAAgACAAEAAFD//wEAAgACAAMAAAAAAAEAAgABAAMAAAD+/wEAAgABAAMAAAA=")
+tile_set = ExtResource("3_rtdqw")
+
+[node name="BackTileMapLayer" type="TileMapLayer" parent="." unique_id=56657799]
+z_index = -2
+tile_map_data = PackedByteArray("AAD+//7/AAAGAAEAAAD+////AAAFAAEAAAD///7/AAAEAAEAAFD9//7/AAADAAIAAGABAP7/AAADAAIAAHAAAP7/AAAHAAIAAAAAAP//AAAEAAEAAAA=")
+tile_set = SubResource("TileSet_yf2wo")
+
+[node name="Player" parent="." unique_id=517014374 groups=["Player"] instance=ExtResource("10_2vxps")]
+unique_name_in_owner = true
+position = Vector2(-8, -63)
+
+[node name="PlayerCam" type="Camera2D" parent="Player" unique_id=1013167009]
+unique_name_in_owner = true
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
