@@ -8,13 +8,13 @@ extends CharacterBody2D
 @export var FALL_SPEED_MAX: float = 600.0
 @export var HORIZONTAL_MOVEMENT_UPON_JUMP_MULT: float = 0.8
 @export var HORIZONTAL_MOVEMENT_GROUND_ACCEL: float = 20.0 * 60.0
-@export var HORIZONTAL_MOVEMENT_GROUND_MAX_SPEED: float = 220.0
+@export var HORIZONTAL_MOVEMENT_GROUND_MAX_SPEED: float = 160.0
 @export var HORIZONTAL_MOVEMENT_GROUND_DECEL_WHILE_STOPPING: float = 0.0000000001
 @export var HORIZONTAL_MOVEMENT_AIR_ACCEL: float = 2.25 * 60.0
 @export var HORIZONTAL_MOVEMENT_AIR_DECEL: float = 1.0 / (1.5)
 @export var AIR_TURNAROUND_ACCEL: float = 10.0 * 60.0
 @export var AIR_TURNAROUND_SPEED_LIMIT: float = 120.0
-@export var JUMP_VERTICAL_VELOCITY: float = 300.0
+@export var JUMP_VERTICAL_VELOCITY: float = 320.0
 @export var JUMP_BUFFER_DURATION_MS: int = 100
 var jump_buffer_time: int = -99999999
 @export var COYOTE_DURATION_MS: int = 100
