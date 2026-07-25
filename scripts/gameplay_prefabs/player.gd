@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @export var GRAVITY: float = 22.0 * 60.0
 @export var GRAVITY_MULT_IF_HOLDING_JUMP: float = 0.5
-@export var FALL_SPEED_MAX: float = 600.0
+@export var FALL_SPEED_MAX: float = 440.0
 @export var HORIZONTAL_MOVEMENT_UPON_JUMP_MULT: float = 0.8
 @export var HORIZONTAL_MOVEMENT_GROUND_ACCEL: float = 15.0 * 60.0
 @export var HORIZONTAL_MOVEMENT_GROUND_MAX_SPEED: float = 160.0
