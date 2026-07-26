@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func _on_play_button_pressed() -> void:
 	Globals.set_music("CountMusicStuff")
-	get_tree().change_scene_to_file("res://scenes/topscenes/level_one.tscn")
+	get_tree().change_scene_to_file("res://scenes/topscenes/level_final.tscn")
 
 func _on_settings_button_pressed() -> void:
 	%MainMenuButtons.visible = false
