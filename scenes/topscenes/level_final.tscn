@@ -30,7 +30,7 @@ tile_set = ExtResource("4_w20fa")
 
 [node name="Player" parent="." unique_id=517014374 groups=["Player"] instance=ExtResource("10_2vxps")]
 unique_name_in_owner = true
-position = Vector2(54, -33)
+position = Vector2(260, 169)
 
 [node name="PlayerCam" type="Camera2D" parent="Player" unique_id=1013167009]
 unique_name_in_owner = true
