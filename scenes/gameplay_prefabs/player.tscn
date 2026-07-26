@@ -154,6 +154,9 @@ size = Vector2(36.363632, 29.661018)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixoqp"]
 size = Vector2(10, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1sx2"]
+size = Vector2(14, 31)
+
 [node name="Player" type="CharacterBody2D" unique_id=517014374]
 z_index = 1
 collision_layer = 4
@@ -178,7 +181,7 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ixoqp")
 animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.94863784
+frame_progress = 0.11732307
 
 [node name="LedgeUpperCheck" type="RayCast2D" parent="." unique_id=538618084]
 unique_name_in_owner = true
@@ -226,6 +229,15 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1142392910]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ixoqp")
+
+[node name="CheckpointBox" type="Area2D" parent="." unique_id=884108031]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckpointBox" unique_id=1437330898]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_o1sx2")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=2007183894]
 layer = -5

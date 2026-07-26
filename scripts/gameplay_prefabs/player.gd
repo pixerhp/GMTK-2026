@@ -37,6 +37,14 @@ var is_attacking: bool = false
 func _ready() -> void:
 	%DamageArea.body_entered.connect(_on_weapon_hit_body)
 	%HurtBox.body_entered.connect(_on_hurt_box_body_entered)
+	%CheckpointBox.area_entered.connect(_on_checkpoint)
+	
+	if $"../%Checkpoints":
+		var checkpoint: Node2D = $"../%Checkpoints".get_node_or_null(Globals.current_checkpoint)
+		if checkpoint:
+			global_position = checkpoint.global_position
+	else:
+		push_warning("%Checkpoints not found")
 
 func _process(_delta):
 	%CharacterSprite.flip_h = not is_facing_right
@@ -246,3 +254,7 @@ func _on_weapon_hit_body(body: Node2D):
 func _on_hurt_box_body_entered(_body: Node2D) -> void:
 	print("Player died")
 	get_tree().call_deferred("reload_current_scene")
+
+func _on_checkpoint(checkpoint: Node2D) -> void:
+	Globals.current_checkpoint = checkpoint.name
+	print(checkpoint)

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://clv825o0ktwl1" path="res://scenes/gameplay_prefabs/large_gear.tscn" id="6_1cbn3"]
 [ext_resource type="PackedScene" uid="uid://bpsujftes8w1" path="res://scenes/gameplay_prefabs/pendelum.tscn" id="8_1vg0w"]
 [ext_resource type="Texture2D" uid="uid://dy4pas7m7x3bt" path="res://assets/art/bg_concept.png" id="9_g3wom"]
+[ext_resource type="PackedScene" uid="uid://18ejjykpfrhq" path="res://scenes/gameplay_prefabs/checkpoint.tscn" id="9_n1g34"]
 [ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player.tscn" id="10_2vxps"]
 
 [node name="LevelOne" type="Node2D" unique_id=1716816]
@@ -30,7 +31,7 @@ tile_set = ExtResource("4_w20fa")
 
 [node name="Player" parent="." unique_id=517014374 groups=["Player"] instance=ExtResource("10_2vxps")]
 unique_name_in_owner = true
-position = Vector2(251, 167)
+position = Vector2(73, -23)
 
 [node name="PlayerCam" type="Camera2D" parent="Player" unique_id=1013167009]
 unique_name_in_owner = true
@@ -89,14 +90,12 @@ gearDirection = true
 
 [node name="Pendelum7" parent="." unique_id=1584399092 instance=ExtResource("8_1vg0w")]
 position = Vector2(360, 120)
-pendelumDirection = true
 
 [node name="Pendelum8" parent="." unique_id=20637781 instance=ExtResource("8_1vg0w")]
 position = Vector2(328, 328)
 
 [node name="Pendelum9" parent="." unique_id=1831738006 instance=ExtResource("8_1vg0w")]
 position = Vector2(472, 328)
-pendelumDirection = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1463054282]
 layer = -1
@@ -109,3 +108,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_g3wom")
 stretch_mode = 6
+
+[node name="Checkpoints" type="Node2D" parent="." unique_id=1989201440]
+unique_name_in_owner = true
+
+[node name="Checkpoint" parent="Checkpoints" unique_id=635337857 instance=ExtResource("9_n1g34")]
+position = Vector2(248, -24)
