@@ -52,8 +52,8 @@ func _ready() -> void:
 
 func _process(delta: float):
 	if is_dead:
-		%CharacterSprite.position += death_velocity
-		death_velocity.y += 9.8 * delta
+		%CharacterSprite.position += death_velocity * delta
+		death_velocity.y += 9.8 * 60 * delta
 	
 	%CharacterSprite.flip_h = not is_facing_right
 	if not %PlayerCam == null:
@@ -273,8 +273,8 @@ func _on_hurt_box_body_entered(_body: Node2D) -> void:
 		return
 	%CharacterSprite.animation = "death"
 	is_dead = true
-	death_velocity.y = -5
-	death_velocity.x += randf_range(-0.75, 0.75)
+	death_velocity.y = -300
+	death_velocity.x += randf_range(-45, 45)
 	
 	await get_tree().create_timer(1.5).timeout
 	
