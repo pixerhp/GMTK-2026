@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	Globals.set_music("TheCountBossBattle")
+	Globals.set_music("MenuScreen")
 
 func _process(_delta: float):
 	if Input.is_action_just_pressed("pause"):

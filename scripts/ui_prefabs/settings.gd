@@ -53,13 +53,13 @@ func _post_load_settings() -> void:
 
 func _on_sound_slider_value_changed(value: float) -> void:
 	sfx_volume = value
-	var vol_in_db: float = lerpf(-30.0, 0.0, sfx_volume)
+	var vol_in_db: float = lerpf(-35.0, 0.0, sfx_volume)
 	var bus_index: int = AudioServer.get_bus_index("SFX")
 	AudioServer.set_bus_volume_db(bus_index, vol_in_db)
 
 func _on_music_slider_value_changed(value: float) -> void:
 	music_volume = value
-	var vol_in_db: float = lerpf(-30.0, 0.0, music_volume)
+	var vol_in_db: float = lerpf(-35.0, 0.0, music_volume)
 	var bus_index: int = AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_volume_db(bus_index, vol_in_db)
 

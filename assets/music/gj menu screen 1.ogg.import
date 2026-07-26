@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bg5f5sg5idvyy"
+path="res://.godot/imported/gj menu screen 1.ogg-403103f63dc1eef36a2e2a0cb35a44b3.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/gj menu screen 1.ogg"
+dest_files=["res://.godot/imported/gj menu screen 1.ogg-403103f63dc1eef36a2e2a0cb35a44b3.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
