@@ -162,10 +162,12 @@ script = ExtResource("1_8yoq4")
 [node name="JumpSfx" type="AudioStreamPlayer" parent="." unique_id=861514343]
 unique_name_in_owner = true
 stream = ExtResource("2_o1sx2")
+bus = &"SFX"
 
 [node name="SlapSfxLower" type="AudioStreamPlayer" parent="." unique_id=387084330]
 unique_name_in_owner = true
 stream = ExtResource("3_kqsta")
+bus = &"SFX"
 
 [node name="CollisionHitbox" type="CollisionShape2D" parent="." unique_id=343900599]
 position = Vector2(0, 0.5)
@@ -176,7 +178,7 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ixoqp")
 animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.9443072
+frame_progress = 0.94863784
 
 [node name="LedgeUpperCheck" type="RayCast2D" parent="." unique_id=538618084]
 unique_name_in_owner = true
