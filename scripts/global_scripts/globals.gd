@@ -41,3 +41,7 @@ func set_music(music_node_name: String) -> void:
 	GlobalMusic.get_node(music_node_name).play(0)
 	tickbeat_count = 0
 	tickbeat_offset = Time.get_ticks_msec()
+	
+signal on_boss_death
+func boss_dead() -> void:
+	on_boss_death.emit()
