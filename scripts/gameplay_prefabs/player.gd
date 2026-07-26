@@ -222,6 +222,8 @@ func attempt_grab_object() -> void:
 
 
 func handle_weapon(delta: float) -> void:
+	if holding_ledge:
+		return
 	if is_facing_right:
 		%DamageArea.position.x = abs(%DamageArea.position.x)
 	else:
