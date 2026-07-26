@@ -33,7 +33,7 @@ text = "Resume"
 
 [node name="SettingsButton" type="Button" parent="PauseMenuVBox" unique_id=1766917561]
 layout_mode = 2
-text = "Settings"
+text = "Options"
 
 [node name="MenuButton" type="Button" parent="PauseMenuVBox" unique_id=451124657]
 layout_mode = 2

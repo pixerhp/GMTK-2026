@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://b8xxm06qgkjxv"]
 
 [ext_resource type="Script" uid="uid://d2vo4atjn8tb2" path="res://scripts/topscenes/main_menu.gd" id="1_0i0qt"]
-[ext_resource type="Texture2D" uid="uid://dy4pas7m7x3bt" path="res://assets/art/bg_concept.png" id="2_88r13"]
+[ext_resource type="Texture2D" uid="uid://c7pua7areueq7" path="res://assets/art/down_with_the_count_GJ_26.png" id="2_88r13"]
 [ext_resource type="PackedScene" uid="uid://boytkmlbjs72p" path="res://scenes/ui_prefabs/settings.tscn" id="2_wbtsg"]
+[ext_resource type="Texture2D" uid="uid://3box584gihf8" path="res://assets/art/play_button_gj26.png" id="3_88r13"]
+[ext_resource type="Texture2D" uid="uid://50e1jgqesemq" path="res://assets/art/play_button_gj26_highlight.png" id="4_wfad2"]
+[ext_resource type="Texture2D" uid="uid://e11f8hq6eqyv" path="res://assets/art/Options_Button_gj26.png" id="5_mcsmy"]
+[ext_resource type="Texture2D" uid="uid://tyw5c07d6atd" path="res://assets/art/Options_Button_gj26_highlight.png" id="6_ty1p7"]
+[ext_resource type="Texture2D" uid="uid://yayf2edewgxk" path="res://assets/art/creddits_button_gj26.png" id="7_njsja"]
+[ext_resource type="Texture2D" uid="uid://c8ggmwce4g36x" path="res://assets/art/creddits_button_gj26_highlight.png" id="8_iyt8r"]
+[ext_resource type="Texture2D" uid="uid://ch14h1c37nq3v" path="res://assets/art/quit.png" id="9_5iify"]
+[ext_resource type="Texture2D" uid="uid://lphvxo7t32g2" path="res://assets/art/quit_highlight.png" id="10_33kn4"]
 
 [node name="MainMenu" type="Control" unique_id=1561242803]
 process_mode = 3
@@ -14,6 +22,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0i0qt")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=285423521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13725491, 0.07450981, 0.3254902, 1)
+
 [node name="BackgroundTexture" type="TextureRect" parent="." unique_id=1547822162]
 layout_mode = 1
 anchors_preset = 15
@@ -22,9 +39,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_88r13")
-stretch_mode = 6
+expand_mode = 2
+stretch_mode = 5
 
-[node name="MainMenuButtons" type="VBoxContainer" parent="." unique_id=1235927817]
+[node name="MainMenuButtons" type="Control" parent="." unique_id=1392068927]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -34,30 +52,50 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -35.0
 offset_top = -68.0
-offset_right = 35.0
-offset_bottom = 68.0
+offset_right = 51.0
+offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayButton" type="Button" parent="MainMenuButtons" unique_id=483718142]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Play"
+[node name="PlayButton" type="TextureButton" parent="MainMenuButtons" unique_id=1295571520]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 245.0
+offset_right = 92.0
+offset_bottom = 285.0
+texture_normal = ExtResource("3_88r13")
+texture_pressed = ExtResource("3_88r13")
+texture_hover = ExtResource("4_wfad2")
 
-[node name="SettingsButton" type="Button" parent="MainMenuButtons" unique_id=1697987725]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Settings"
+[node name="SettingsButton" type="TextureButton" parent="MainMenuButtons" unique_id=811843925]
+layout_mode = 0
+offset_left = -20.0
+offset_top = 314.0
+offset_right = 66.0
+offset_bottom = 354.0
+texture_normal = ExtResource("5_mcsmy")
+texture_pressed = ExtResource("5_mcsmy")
+texture_hover = ExtResource("6_ty1p7")
 
-[node name="CreditsButton" type="Button" parent="MainMenuButtons" unique_id=1757431307]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Credits"
+[node name="CreditsButton" type="TextureButton" parent="MainMenuButtons" unique_id=905172065]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 254.0
+offset_right = 423.0
+offset_bottom = 294.0
+texture_normal = ExtResource("7_njsja")
+texture_pressed = ExtResource("7_njsja")
+texture_hover = ExtResource("8_iyt8r")
 
-[node name="QuitButton" type="Button" parent="MainMenuButtons" unique_id=857512115]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Quit"
+[node name="QuitButton" type="TextureButton" parent="MainMenuButtons" unique_id=660055431]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 328.0
+offset_right = 466.0
+offset_bottom = 368.0
+texture_normal = ExtResource("9_5iify")
+texture_pressed = ExtResource("9_5iify")
+texture_hover = ExtResource("10_33kn4")
 
 [node name="Settings" parent="." unique_id=266761967 instance=ExtResource("2_wbtsg")]
 unique_name_in_owner = true

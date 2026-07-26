@@ -16,7 +16,7 @@ var knockback: bool = false
 @onready var dracula_collision = $CountCollisionBody/CollisionShape2D
 var animation_state: String = "Idle"
 
-@onready var death_floor: float = position.y
+@onready var death_floor: float = position.y + 10
 # base counter behaviorwall_left_ray
 func _ready() -> void:
 	_reset_move()
