@@ -36,6 +36,8 @@ var is_attacking: bool = false
 
 var is_dead: bool = false
 
+var death_velocity: Vector2 = Vector2.ZERO
+
 func _ready() -> void:
 	%DamageArea.body_entered.connect(_on_weapon_hit_body)
 	%HurtBox.body_entered.connect(_on_hurt_box_body_entered)
@@ -48,7 +50,11 @@ func _ready() -> void:
 	else:
 		push_warning("%Checkpoints not found")
 
-func _process(_delta):
+func _process(delta: float):
+	if is_dead:
+		%CharacterSprite.position += death_velocity
+		death_velocity.y += 9.8 * delta
+	
 	%CharacterSprite.flip_h = not is_facing_right
 	if not %PlayerCam == null:
 		%PlayerCam.position.y = Input.get_axis("move_up", "move_down") * 100
@@ -267,13 +273,10 @@ func _on_hurt_box_body_entered(_body: Node2D) -> void:
 		return
 	%CharacterSprite.animation = "death"
 	is_dead = true
+	death_velocity.y = -5
+	death_velocity.x += randf_range(-0.75, 0.75)
 	
-	var new_tween: Tween = get_tree().create_tween()
-	new_tween.set_ease(Tween.EASE_IN_OUT)
-	new_tween.tween_property(%CharacterSprite, "position", %CharacterSprite.position + Vector2(0, -80), 0.4)
-	new_tween.tween_property(%CharacterSprite, "position", %CharacterSprite.position + Vector2(0, 400), 1.5)
-	new_tween.play()
-	await new_tween.finished
+	await get_tree().create_timer(1.5).timeout
 	
 	get_tree().call_deferred("reload_current_scene")
 
