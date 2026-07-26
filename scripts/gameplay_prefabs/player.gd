@@ -46,7 +46,10 @@ func _ready() -> void:
 	if $"../%Checkpoints":
 		var checkpoint: Node2D = $"../%Checkpoints".get_node_or_null(Globals.current_checkpoint)
 		if checkpoint:
+			%PlayerCam.position_smoothing_enabled = false
 			global_position = checkpoint.global_position
+			await get_tree().create_timer(0.1).timeout
+			%PlayerCam.position_smoothing_enabled = true
 	else:
 		push_warning("%Checkpoints not found")
 
