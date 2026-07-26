@@ -81,5 +81,6 @@ func damage_by_player(player: Node2D) -> void:
 func end_game() -> void:
 	Globals.boss_dead()
 	Globals.set_music("Credits")
+	Globals.current_checkpoint = ""
 	get_tree().change_scene_to_file("res://scenes/topscenes/win_screen.tscn")
 	queue_free()

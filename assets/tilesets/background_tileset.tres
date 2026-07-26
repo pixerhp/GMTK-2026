@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://u3nyqx5vle8g"]
 
 [ext_resource type="Texture2D" uid="uid://fipv6jw6do5l" path="res://assets/tilesets_artwork/background_tileset.png" id="1_qpwtf"]
+[ext_resource type="Texture2D" uid="uid://l1cwwwxc13og" path="res://assets/art/tileset.png" id="2_dqu10"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwq8n"]
 texture = ExtResource("1_qpwtf")
@@ -124,5 +125,44 @@ texture = ExtResource("1_qpwtf")
 8:10/0 = 0
 8:10/0/texture_origin = Vector2i(0, 24)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7m0v"]
+texture = ExtResource("2_dqu10")
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_gwq8n")
+sources/2 = SubResource("TileSetAtlasSource_h7m0v")
