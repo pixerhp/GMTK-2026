@@ -34,6 +34,8 @@ var grab_point_marker: Marker2D = Marker2D.new()
 var attack_time_left: float = 0
 var is_attacking: bool = false
 
+var is_dead: bool = false
+
 func _ready() -> void:
 	%DamageArea.body_entered.connect(_on_weapon_hit_body)
 	%HurtBox.body_entered.connect(_on_hurt_box_body_entered)
@@ -52,6 +54,9 @@ func _process(_delta):
 		%PlayerCam.position.y = Input.get_axis("move_up", "move_down") * 100
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+	
 	handle_collision_checks()
 	handle_inputs_and_movement(delta)
 	
@@ -258,8 +263,21 @@ func _on_weapon_hit_body(body: Node2D):
 
 # TODO: Handle deaths better
 func _on_hurt_box_body_entered(_body: Node2D) -> void:
-	print("Player died")
+	if is_dead:
+		return
+	%CharacterSprite.animation = "death"
+	is_dead = true
+	
+	var new_tween: Tween = get_tree().create_tween()
+	new_tween.set_ease(Tween.EASE_IN_OUT)
+	new_tween.tween_property(%CharacterSprite, "position", %CharacterSprite.position + Vector2(0, -80), 0.4)
+	new_tween.tween_property(%CharacterSprite, "position", %CharacterSprite.position + Vector2(0, 400), 1.5)
+	new_tween.play()
+	await new_tween.finished
+	
 	get_tree().call_deferred("reload_current_scene")
 
 func _on_checkpoint(checkpoint: Node2D) -> void:
+	if is_dead:
+		return
 	Globals.current_checkpoint = checkpoint.name

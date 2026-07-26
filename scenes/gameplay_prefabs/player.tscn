@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b40ytmlrxbfjy" path="res://assets/art/player_ledge_grab.png" id="3_mk14l"]
 [ext_resource type="Texture2D" uid="uid://bapuqn2uq7fie" path="res://assets/placeholder_art/background_placeholder.png" id="4_ixoqp"]
 [ext_resource type="Texture2D" uid="uid://bcjm56u0yw5ct" path="res://assets/placeholder_art/placeholder_attack.png" id="4_mk14l"]
+[ext_resource type="Texture2D" uid="uid://b6mvneruv6xbo" path="res://assets/art/player_death.png" id="5_kqsta"]
 [ext_resource type="Script" uid="uid://bt538f3gn7tgx" path="res://scripts/player/player_inventory.gd" id="6_41807"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqc66"]
@@ -33,6 +34,10 @@ region = Rect2(66, 0, 22, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wlp6"]
 atlas = ExtResource("2_o0avo")
 region = Rect2(88, 0, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao5i1"]
+atlas = ExtResource("5_kqsta")
+region = Rect2(0, 0, 22, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f777a"]
 atlas = ExtResource("3_f777a")
@@ -91,6 +96,14 @@ animations = [{
 "loop": 1,
 "name": &"attack",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao5i1")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -179,9 +192,8 @@ shape = SubResource("RectangleShape2D_oqc66")
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="." unique_id=534187629]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ixoqp")
-animation = &"attack"
+animation = &"death"
 autoplay = "idle"
-frame_progress = 0.11732307
 
 [node name="LedgeUpperCheck" type="RayCast2D" parent="." unique_id=538618084]
 unique_name_in_owner = true

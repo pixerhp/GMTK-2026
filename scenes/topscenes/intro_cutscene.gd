@@ -9,10 +9,10 @@ func _ready() -> void:
 	else:
 		queue_free()
 
-func _on_animation_player_animation_started(anim_name: StringName) -> void:
+func _on_animation_player_animation_started(_anim_name: StringName) -> void:
 	get_tree().paused = true;
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	get_tree().paused = false;
 	Globals.is_cutscene_played = true;
 	queue_free()
