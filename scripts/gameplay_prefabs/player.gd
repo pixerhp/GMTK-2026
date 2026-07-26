@@ -49,9 +49,12 @@ func _physics_process(delta: float) -> void:
 	
 	handle_ledges()
 	if not holding_ledge:
-		%CharacterSprite.animation = "walk" if Input.get_axis("move_left", "move_right") != 0 else "idle"
-		if not is_on_floor():
-			%CharacterSprite.animation = "fall" if velocity.y > 0 else "jump"
+		if not is_attacking:
+			%CharacterSprite.animation = "walk" if Input.get_axis("move_left", "move_right") != 0 else "idle"
+			if not is_on_floor():
+				%CharacterSprite.animation = "fall" if velocity.y > 0 else "jump"
+		else:
+			%CharacterSprite.animation = "attack"
 	
 	handle_weapon(delta)
 	
@@ -79,6 +82,7 @@ func handle_inputs_and_movement(delta: float):
 		jump_coyote_time = -99999999
 		velocity.y = -1.0 * JUMP_VERTICAL_VELOCITY
 		velocity.x *= HORIZONTAL_MOVEMENT_UPON_JUMP_MULT
+		%JumpSfx.play()
 	# Vertical speed limits:
 	if (velocity.y > FALL_SPEED_MAX):
 		velocity.y = FALL_SPEED_MAX
@@ -217,6 +221,7 @@ func handle_weapon(delta: float) -> void:
 	%DamageSprite.flip_h = !is_facing_right
 	
 	if !is_attacking && Input.is_action_just_pressed("attack"):
+		%SlapSfxLower.play()
 		attack_time_left = 0.3
 	else:
 		attack_time_left -= delta
