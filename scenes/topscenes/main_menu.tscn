@@ -66,7 +66,6 @@ layout_mode = 1
 
 [node name="Credits" type="PanelContainer" parent="." unique_id=97834489]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -127,9 +126,10 @@ Pixer H. P. (\"Pixer\")
   • Developer (mostly revision, cleanup)
   • Director
   • Artist (placeholders, spikes)
-  • Level designer
+  • Level designer (earlier areas)
 RaY (\"Ray\")
   • Artist (tiles, mechanical spider)
+  • Level designer (later areas, revision)
   • Developer (mechanical spider)
   • Composer (unused music)
 CoralQuail/ClumsyClix (\"Coral\")
@@ -145,36 +145,6 @@ overmet15 (\"Burnout\")
   • Developer (inventory ui system, attack)
 JJJokesalot (\"JJ\")
   • Team member"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer" unique_id=1219766417]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="Names" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1067135881]
-layout_mode = 2
-text = "PixerHP
-Jcodefox
-Coral
-JJJokesalot
-overmet15
-Stevemc32
-Emanations
-RaY
-RickLastley"
-
-[node name="Roles" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2026749926]
-layout_mode = 2
-text = "Leader Guy
-Programmer
-Artist
-Team Member
-Cool Guy
-Even cooler guy
-Music and Sound
-Ideas
-Credits"
-horizontal_alignment = 2
 
 [connection signal="pressed" from="MainMenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenuButtons/SettingsButton" to="." method="_on_settings_button_pressed"]
