@@ -1,10 +1,11 @@
 extends Control
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pause"):
-		if(!has_node("../IntroCutscene")):
-			get_tree().paused = not get_tree().paused
-			visible = get_tree().paused
+	if Input.is_action_just_pressed("pause") && !has_node("../IntroCutscene"):
+		get_tree().paused = not get_tree().paused
+		if($Settings.visible):
+			$Settings._on_back_button_pressed()
+		visible = get_tree().paused
 
 func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
