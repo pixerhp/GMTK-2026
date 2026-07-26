@@ -257,4 +257,3 @@ func _on_hurt_box_body_entered(_body: Node2D) -> void:
 
 func _on_checkpoint(checkpoint: Node2D) -> void:
 	Globals.current_checkpoint = checkpoint.name
-	print(checkpoint)
