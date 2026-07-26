@@ -201,7 +201,7 @@ Stevemc32 (\"Steve\")
 overmet15 (\"Burnout\")
   • Developer (inventory ui system, attack)
 JJJokesalot (\"JJ\")
-  • Team member"
+  • Artist (menus, ui, menu backgrounds)"
 
 [connection signal="pressed" from="MainMenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenuButtons/SettingsButton" to="." method="_on_settings_button_pressed"]
