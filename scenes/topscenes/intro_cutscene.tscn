@@ -154,6 +154,7 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 24
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=829550658]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(552, 419)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_oh3fs")
