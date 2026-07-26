@@ -5,6 +5,9 @@ var current_checkpoint: String = ""
 var is_fullscreen: bool = false
 var is_cutscene_played
 
+var music_volume: float = 1.0
+var sfx_volume: float = 1.0
+
 func _ready() -> void:
 	is_fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 
