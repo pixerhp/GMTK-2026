@@ -1,21 +1,15 @@
 extends StaticBody2D
 
 @onready var pendelum_anim = $AnimationPlayer
-@export var pendelumPower = 4.0;
 @export var pendelum_direction = false;
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	_swing_pendelum()
+func _ready():
 	Globals.tickbeat.connect(_swing_pendelum)
+	_swing_pendelum(true)
 
-func _swing_pendelum():
-	if (Globals.tickbeat_count % 4) == 0:
-		if pendelum_direction:
-			constant_linear_velocity = Vector2(pendelumPower, 0.0)
+func _swing_pendelum(force_swing: bool = false):
+	if ((Globals.tickbeat_count % 4) == 0) or force_swing:
+		if pendelum_direction != bool((Globals.tickbeat_count/4)%2):
 			pendelum_anim.play("swing_left")
 		else:
-			constant_linear_velocity = Vector2(-pendelumPower, 0.0)
 			pendelum_anim.play("swing_right")
-		constant_linear_velocity = Vector2(0.0, 0.0)
-		pendelum_direction = not pendelum_direction
