@@ -172,6 +172,10 @@ func handle_ledges() -> void:
 		else:
 			attempt_grab_object()
 	
+	if Input.is_action_pressed("move_down"):
+		if holding_ledge:
+			position.y += 8
+		holding_ledge = false
 	if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and turned_around_this_frame:
 		if holding_ledge:
 			position.y += 8
