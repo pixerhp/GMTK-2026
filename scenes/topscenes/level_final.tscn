@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://u3nyqx5vle8g" path="res://assets/tilesets/background_tileset.tres" id="4_w20fa"]
 [ext_resource type="PackedScene" uid="uid://clv825o0ktwl1" path="res://scenes/gameplay_prefabs/large_gear.tscn" id="6_1cbn3"]
 [ext_resource type="PackedScene" uid="uid://bpsujftes8w1" path="res://scenes/gameplay_prefabs/pendelum.tscn" id="8_1vg0w"]
+[ext_resource type="Texture2D" uid="uid://dy4pas7m7x3bt" path="res://assets/art/bg_concept.png" id="9_g3wom"]
 [ext_resource type="PackedScene" uid="uid://dj7whuxs81cvp" path="res://scenes/gameplay_prefabs/player.tscn" id="10_2vxps"]
 
 [node name="LevelOne" type="Node2D" unique_id=1716816]
@@ -24,7 +25,7 @@ tile_set = ExtResource("3_rtdqw")
 
 [node name="BackTileMapLayer" type="TileMapLayer" parent="." unique_id=56657799]
 z_index = -2
-tile_map_data = PackedByteArray("AAAAAP//AAAAAAoAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAoAAAAEAP3/AAAJAAEAAAAEAP7/AAAJAAIAAAAEAP//AAAJAAMAAAAFAP3/AAAKAAEAAAAFAP7/AAAKAAIAAAAFAP//AAAKAAMAAAAGAP3/AAALAAEAAAAGAP7/AAALAAIAAAAGAP//AAALAAMAAAASAP3/AAANAAIAAAALAAUAAAAOAAMAAAAdAP3/AAAOAAIAAAAJAAUAAAACAAIAAAAMAAUAAAACAAIAAAAPAP//AAABAAIAAAAWAP3/AAAAAAIAAAAYAP3/AAABAAIAAAAfAP3/AAAAAAIAAAAkAP3/AAABAAIAAAAXAPb/AAAFAAEAAAAXAPf/AAAEAAEAAAAXAPj/AAADAAMAAAAXAPn/AAAEAAEAAAAXAPr/AAAEAAEAAAAXAPv/AAAEAAEAAAAXAPz/AAADAAIAAAAXAP3/AAAFAAEAAAAjAPb/AAADAAEAAAAjAPf/AAAEAAEAAAAjAPj/AAAFAAEAAAAjAPn/AAADAAMAAAAjAPr/AAADAAIAAAAjAPv/AAADAAMAAAAjAPz/AAADAAIAAAAjAP3/AAADAAMAAAA=")
 tile_set = ExtResource("4_w20fa")
 
 [node name="Player" parent="." unique_id=517014374 groups=["Player"] instance=ExtResource("10_2vxps")]
@@ -96,3 +97,15 @@ position = Vector2(328, 328)
 [node name="Pendelum9" parent="." unique_id=1831738006 instance=ExtResource("8_1vg0w")]
 position = Vector2(472, 328)
 pendelumDirection = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1463054282]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2" unique_id=345678004]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_g3wom")
+stretch_mode = 6
