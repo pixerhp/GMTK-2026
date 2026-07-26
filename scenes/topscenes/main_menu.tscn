@@ -49,7 +49,8 @@ text = "Quit"
 visible = false
 layout_mode = 1
 
-[node name="CreditsVBox" type="VBoxContainer" parent="." unique_id=1311366397]
+[node name="Credits" type="PanelContainer" parent="." unique_id=97834489]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -57,23 +58,85 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -94.0
+offset_top = -42.5
+offset_right = 94.0
+offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CreditsVBox" unique_id=308933017]
+[node name="MarginContainer" type="MarginContainer" parent="Credits" unique_id=1022293537]
 layout_mode = 2
-text = "Credits"
-horizontal_alignment = 1
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CreditsVBox" unique_id=1219766417]
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/MarginContainer" unique_id=1311366397]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer" unique_id=979786775]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1863002091]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "< Exit"
+
+[node name="Spacer1" type="Control" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1766355302]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SettingsTitleLabel" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1945318672]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "CREDITS:"
+horizontal_alignment = 2
+
+[node name="Spacer2" type="Control" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1259996279]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Credits/MarginContainer/VBoxContainer" unique_id=2138882587]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="CreditsListLabel" type="Label" parent="Credits/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1815568286]
+layout_mode = 2
+text = "Jcodefox (\"Fox\")
+  • Developer (features, merge conflicts)
+Pixer H. P. (\"Pixer\")
+  • Developer (mostly revision, cleanup)
+  • Director
+  • Artist (placeholders, spikes)
+  • Level designer
+RaY (\"Ray\")
+  • Artist (tiles, mechanical spider)
+  • Developer (mechanical spider)
+  • Composer (unused music)
+CoralQuail/ClumsyClix (\"Coral\")
+  • Artist (player, the count, background)
+Emanimations (\"Eman\")
+  • Composer (music, sfx)
+RickLastley (\"Rick\")
+  • Great ideas brainstorming
+  • Developer (intro cutscene, bugfixes)
+Stevemc32 (\"Steve\")
+  • Developer (object functionality)
+overmet15 (\"Burnout\")
+  • Developer (inventory ui system, attack)
+JJJokesalot (\"JJ\")
+  • Team member"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer" unique_id=1219766417]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Names" type="Label" parent="CreditsVBox/HBoxContainer" unique_id=1067135881]
+[node name="Names" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1067135881]
 layout_mode = 2
 text = "PixerHP
 Jcodefox
@@ -85,7 +148,7 @@ Emanations
 RaY
 RickLastley"
 
-[node name="Roles" type="Label" parent="CreditsVBox/HBoxContainer" unique_id=2026749926]
+[node name="Roles" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2026749926]
 layout_mode = 2
 text = "Leader Guy
 Programmer
@@ -98,14 +161,9 @@ Ideas
 Credits"
 horizontal_alignment = 2
 
-[node name="BackButton" type="Button" parent="CreditsVBox" unique_id=2010020827]
-layout_mode = 2
-text = "Back
-"
-
 [connection signal="pressed" from="MainMenuVBox/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenuVBox/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="on_back_pressed" from="Settings" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="CreditsVBox/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Credits/MarginContainer/VBoxContainer/HBoxContainer2/BackButton" to="." method="_on_back_pressed"]

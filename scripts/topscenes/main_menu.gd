@@ -13,7 +13,7 @@ func _on_settings_button_pressed() -> void:
 
 func _on_credits_button_pressed() -> void:
 	_hide_all()
-	$CreditsVBox.visible = true
+	%Credits.visible = true
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
