@@ -1,19 +1,27 @@
 [gd_scene format=3 uid="uid://b8xxm06qgkjxv"]
 
 [ext_resource type="Script" uid="uid://d2vo4atjn8tb2" path="res://scripts/topscenes/main_menu.gd" id="1_0i0qt"]
+[ext_resource type="Texture2D" uid="uid://dy4pas7m7x3bt" path="res://assets/art/bg_concept.png" id="2_88r13"]
 [ext_resource type="PackedScene" uid="uid://boytkmlbjs72p" path="res://scenes/ui_prefabs/settings.tscn" id="2_wbtsg"]
 
 [node name="MainMenu" type="Control" unique_id=1561242803]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0i0qt")
+
+[node name="BackgroundTexture" type="TextureRect" parent="." unique_id=1547822162]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_88r13")
 
 [node name="MainMenuVBox" type="VBoxContainer" parent="." unique_id=1235927817]
 layout_mode = 1
@@ -31,18 +39,22 @@ grow_vertical = 2
 
 [node name="PlayButton" type="Button" parent="MainMenuVBox" unique_id=483718142]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Play"
 
 [node name="SettingsButton" type="Button" parent="MainMenuVBox" unique_id=1697987725]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="MainMenuVBox" unique_id=1757431307]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="MainMenuVBox" unique_id=857512115]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Quit"
 
 [node name="Settings" parent="." unique_id=266761967 instance=ExtResource("2_wbtsg")]
