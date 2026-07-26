@@ -3,6 +3,10 @@ extends Control
 func _ready() -> void:
 	Globals.set_music("TheCountBossBattle")
 
+func _process(_delta: float):
+	if Input.is_action_just_pressed("pause"):
+		_on_back_pressed()
+
 func _on_play_button_pressed() -> void:
 	Globals.set_music("CountMusicStuff")
 	get_tree().change_scene_to_file("res://scenes/topscenes/level_final.tscn")
