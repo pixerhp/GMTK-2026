@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ctgls3nfrprwx" path="res://scripts/gameplay_prefabs/the_count_behavior.gd" id="1_nbiaa"]
 [ext_resource type="Texture2D" uid="uid://b2b8yp3obei70" path="res://assets/art/vampire_idle.png" id="1_rcnsh"]
+[ext_resource type="Texture2D" uid="uid://hcih3lom82t3" path="res://assets/art/count_death.png" id="2_p5yaj"]
 [ext_resource type="Texture2D" uid="uid://dsi6ywp0k7msx" path="res://assets/art/count_walk.png" id="3_1w4wn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5yaj"]
-atlas = ExtResource("1_rcnsh")
-region = Rect2(0, 0, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xleie"]
-atlas = ExtResource("1_rcnsh")
-region = Rect2(16, 0, 16, 32)
+atlas = ExtResource("2_p5yaj")
+region = Rect2(0, 0, 20, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtm3g"]
 atlas = ExtResource("1_rcnsh")
@@ -31,9 +28,6 @@ region = Rect2(60, 0, 20, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_5bk2j"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p5yaj")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xleie")
 }],
@@ -77,8 +71,8 @@ move_direction = 2
 
 [node name="CountSprite" type="AnimatedSprite2D" parent="." unique_id=1845971497]
 sprite_frames = SubResource("SpriteFrames_5bk2j")
-animation = &"Idle"
-frame_progress = 0.0801663
+animation = &"Death"
+frame_progress = 1.0
 
 [node name="CountWorldCollision" type="CollisionShape2D" parent="." unique_id=1800927334]
 position = Vector2(0, 0.5)

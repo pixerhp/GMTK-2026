@@ -114,4 +114,4 @@ position = Vector2(2027, 981)
 shape = SubResource("RectangleShape2D_26qnp")
 
 [node name="TheCount2" parent="." unique_id=2049750261 instance=ExtResource("13_gwq8n")]
-position = Vector2(849, 333)
+position = Vector2(850, 336)

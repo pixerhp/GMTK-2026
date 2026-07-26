@@ -5,7 +5,7 @@ extends CharacterBody2D
 # setting up simple variables, reusing spider behavior...
 var move_speed: int = 100
 @export var move_direction: int = 1 ## 1 equals moving either right, -1 for opposite, please ensure this is not set to zero, I am unsure what happens.
-var health: int = 4000
+var health: int = 4
 var is_in_moving: bool = false
 var knockback: bool = false
 @onready var wall_left_ray = $WallLeftRay
@@ -15,6 +15,8 @@ var knockback: bool = false
 @onready var dracula_sprite = $CountSprite
 @onready var dracula_collision = $CountCollisionBody/CollisionShape2D
 var animation_state: String = "Idle"
+
+@onready var death_floor: float = position.y
 # base counter behaviorwall_left_ray
 func _ready() -> void:
 	_reset_move()
@@ -52,10 +54,15 @@ func _physics_process(delta: float) -> void:
 			move_direction = 1
 		if wall_right_ray.is_colliding() or not ledge_right_ray.is_colliding():
 			move_direction = -1
-		if not is_on_floor():
-			velocity.y += get_gravity().y * delta
+			
+	if not is_on_floor():
+		velocity.y += get_gravity().y * delta
 		
-		move_and_slide()
+	if position.y > death_floor:
+		health = 0
+		damage_by_player(self)
+		
+	move_and_slide()
 
 
 func damage_by_player(player: Node2D) -> void:
@@ -63,8 +70,7 @@ func damage_by_player(player: Node2D) -> void:
 		dracula_collision.disabled = true
 		dracula_sprite.frame = 0
 		dracula_sprite.animation = "Death"
-		await dracula_sprite.animation_finished
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(5.0).timeout
 		Globals.boss_dead()
 		queue_free()
 	velocity -= player.global_position.direction_to(global_position) * -300
