@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://bca8pgvgkj116"]
+
+[ext_resource type="Script" uid="uid://c31juxon1xlhk" path="res://scenes/topscenes/intro_cutscene.gd" id="1_rba1f"]
+[ext_resource type="Texture2D" uid="uid://bsddidcbb0wk7" path="res://assets/art/player_character.png" id="2_c111r"]
+
+[sub_resource type="Animation" id="Animation_cl5lp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rba1f"]
+resource_name = "intro_animation"
+length = 29.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.9, 9.300001, 14.740001, 17.633333, 21.16, 24.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["In a land far away there sits a clocktower – the clocktower of everlasting life.", "But alas! Vampires have invaded and the dreaded Count Dracula is nearly at the top!", "He plans to turn back the clock, leaving us as helpless babies and him a fountain of youth.", "Only one man can stop him...", "Kevin: Technician Extraordinaire", "Will he be able to stop this vampire invasion, or will he be left down for the count?", "Only time will tell..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 2.97, 3.9, 4.46, 8.370001, 9.3, 9.866667, 13.81, 14.74, 15.306666, 16.703333, 17.633333, 18.199999, 20.23, 21.16, 21.726665, 23.703333, 24.633333, 25.199999, 27.266666, 29.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 27.2667, 29.500034),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(17.666666, 18.233332, 20.263332, 21.193333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c111r"]
+_data = {
+&"RESET": SubResource("Animation_cl5lp"),
+&"intro_animation": SubResource("Animation_rba1f")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abswy"]
+atlas = ExtResource("2_c111r")
+region = Rect2(0, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mb3g"]
+atlas = ExtResource("2_c111r")
+region = Rect2(23, 0, 23, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oh3fs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abswy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mb3g")
+}],
+"loop": 1,
+"name": &"player_idle",
+"speed": 5.0
+}]
+
+[node name="IntroCutscene" type="Control" unique_id=1375040767]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rba1f")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1076831886]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 575.0
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=410670660]
+libraries/ = SubResource("AnimationLibrary_c111r")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1934840396]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.625
+offset_top = -41.625
+offset_right = 208.625
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=829550658]
+position = Vector2(552, 419)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_oh3fs")
+animation = &"player_idle"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
