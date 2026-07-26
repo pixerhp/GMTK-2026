@@ -107,7 +107,7 @@ layout_mode = 2
 [node name="CreditsListLabel" type="Label" parent="Credits/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1815568286]
 layout_mode = 2
 text = "Jcodefox (\"Fox\")
-  • Developer (features, merge conflicts)
+  • Developer (features, fixes, merge conflicts)
 Pixer H. P. (\"Pixer\")
   • Developer (mostly revision, cleanup)
   • Director
