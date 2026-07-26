@@ -10,7 +10,8 @@ radius = 24.0
 radius = 8.0
 
 [node name="SpinningWheel" type="StaticBody2D" unique_id=1291630829]
-collision_layer = 9
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_vslbk")
 
 [node name="LargeCog" type="Sprite2D" parent="." unique_id=902383260]
@@ -21,7 +22,8 @@ shape = SubResource("CircleShape2D_ho8su")
 
 [node name="SmallWheel" type="StaticBody2D" parent="." unique_id=1174227448]
 position = Vector2(0, 32)
-collision_layer = 9
+collision_layer = 8
+collision_mask = 0
 metadata/right_grab_point = Vector2(0, 0)
 metadata/left_grab_point = Vector2(0, 0)
 
