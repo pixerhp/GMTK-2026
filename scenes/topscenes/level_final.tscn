@@ -114,3 +114,12 @@ unique_name_in_owner = true
 
 [node name="Checkpoint" parent="Checkpoints" unique_id=635337857 instance=ExtResource("9_n1g34")]
 position = Vector2(248, -24)
+
+[node name="Checkpoint2" parent="Checkpoints" unique_id=1711843450 instance=ExtResource("9_n1g34")]
+position = Vector2(-24, -400)
+
+[node name="Checkpoint3" parent="Checkpoints" unique_id=1625254068 instance=ExtResource("9_n1g34")]
+position = Vector2(264, 160)
+
+[node name="Checkpoint4" parent="Checkpoints" unique_id=1687587135 instance=ExtResource("9_n1g34")]
+position = Vector2(216, 336)
