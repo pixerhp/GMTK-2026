@@ -70,10 +70,16 @@ func damage_by_player(player: Node2D) -> void:
 		dracula_collision.disabled = true
 		dracula_sprite.frame = 0
 		dracula_sprite.animation = "Death"
-		await get_tree().create_timer(5.0).timeout
-		Globals.boss_dead()
-		queue_free()
-	velocity -= player.global_position.direction_to(global_position) * -300
-	knockback = true
-	await get_tree().create_timer(0.2).timeout
-	knockback = false
+		Globals.set_music("Stop")
+		get_tree().create_timer(3.0).timeout.connect(end_game)
+	else:
+		velocity -= player.global_position.direction_to(global_position) * -300
+		knockback = true
+		await get_tree().create_timer(0.2).timeout
+		knockback = false
+
+func end_game() -> void:
+	Globals.boss_dead()
+	Globals.set_music("Credits")
+	get_tree().change_scene_to_file("res://scenes/topscenes/win_screen.tscn")
+	queue_free()

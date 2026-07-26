@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b7urt5min7b08" path="res://scripts/ui_prefabs/pause_menu.gd" id="1_emkde"]
 [ext_resource type="PackedScene" uid="uid://boytkmlbjs72p" path="res://scenes/ui_prefabs/settings.tscn" id="2_yd762"]
+[ext_resource type="Texture2D" uid="uid://e11f8hq6eqyv" path="res://assets/art/Options_Button_gj26.png" id="3_47msh"]
+[ext_resource type="Texture2D" uid="uid://dl2afx4r8ljbl" path="res://assets/art/resume_button.png" id="3_mwucq"]
+[ext_resource type="Texture2D" uid="uid://devbki5mt7vu4" path="res://assets/art/pause_menu.png" id="3_yd762"]
+[ext_resource type="Texture2D" uid="uid://cmyr2u60b5jgw" path="res://assets/art/resume_button_highlight.png" id="4_7ccqp"]
+[ext_resource type="Texture2D" uid="uid://tyw5c07d6atd" path="res://assets/art/Options_Button_gj26_highlight.png" id="4_mwucq"]
+[ext_resource type="Texture2D" uid="uid://b263bxqcjqgyt" path="res://assets/art/Main_Menu.png" id="7_yf08m"]
+[ext_resource type="Texture2D" uid="uid://emwycqutf87m" path="res://assets/art/Main_Menu_highlight.png" id="8_n2v6y"]
 
 [node name="PauseMenu" type="Control" unique_id=1811061067]
 process_mode = 3
@@ -13,31 +20,66 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_emkde")
 
-[node name="PauseMenuVBox" type="VBoxContainer" parent="." unique_id=837675356]
+[node name="MainPause" type="Control" parent="." unique_id=638222034]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -50.5
-offset_right = 35.0
-offset_bottom = 50.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResumeButton" type="Button" parent="PauseMenuVBox" unique_id=577476883]
-layout_mode = 2
-text = "Resume"
+[node name="TextureRect" type="TextureRect" parent="MainPause" unique_id=1523204049]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -65.0
+offset_right = 60.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yd762")
 
-[node name="SettingsButton" type="Button" parent="PauseMenuVBox" unique_id=1766917561]
-layout_mode = 2
-text = "Options"
+[node name="PauseMenuVBox" type="VBoxContainer" parent="MainPause" unique_id=837675356]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -53.0
+offset_right = 45.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MenuButton" type="Button" parent="PauseMenuVBox" unique_id=451124657]
+[node name="ResumeButton" type="TextureButton" parent="MainPause/PauseMenuVBox" unique_id=296107459]
 layout_mode = 2
-text = "MainMenu"
+texture_normal = ExtResource("3_mwucq")
+texture_pressed = ExtResource("3_mwucq")
+texture_hover = ExtResource("4_7ccqp")
+
+[node name="SettingsButton" type="TextureButton" parent="MainPause/PauseMenuVBox" unique_id=1407804311]
+layout_mode = 2
+texture_normal = ExtResource("3_47msh")
+texture_pressed = ExtResource("3_47msh")
+texture_hover = ExtResource("4_mwucq")
+
+[node name="MenuButton" type="TextureButton" parent="MainPause/PauseMenuVBox" unique_id=1023463426]
+layout_mode = 2
+texture_normal = ExtResource("7_yf08m")
+texture_pressed = ExtResource("7_yf08m")
+texture_hover = ExtResource("8_n2v6y")
 
 [node name="Settings" parent="." unique_id=266761967 instance=ExtResource("2_yd762")]
 visible = false
@@ -45,7 +87,7 @@ layout_mode = 1
 offset_left = -35.0
 offset_right = 35.0
 
-[connection signal="pressed" from="PauseMenuVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PauseMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="PauseMenuVBox/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MainPause/PauseMenuVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainPause/PauseMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainPause/PauseMenuVBox/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="on_back_pressed" from="Settings" to="." method="_on_back_pressed"]

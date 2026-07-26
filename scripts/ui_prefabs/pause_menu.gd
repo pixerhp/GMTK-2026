@@ -21,7 +21,7 @@ func _on_menu_button_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	_hide_all()
-	$PauseMenuVBox.visible = true
+	$MainPause.visible = true
 
 func _hide_all() -> void:
 	for child in get_children():
