@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://c8ggmwce4g36x" path="res://assets/art/creddits_button_gj26_highlight.png" id="8_iyt8r"]
 [ext_resource type="Texture2D" uid="uid://ch14h1c37nq3v" path="res://assets/art/quit.png" id="9_5iify"]
 [ext_resource type="Texture2D" uid="uid://lphvxo7t32g2" path="res://assets/art/quit_highlight.png" id="10_33kn4"]
+[ext_resource type="Texture2D" uid="uid://cgkclo3rl004l" path="res://assets/art/exit_button.png" id="12_2hly7"]
+[ext_resource type="Texture2D" uid="uid://cny4gws6yvg3k" path="res://assets/art/exit_button_highlight.png" id="13_n8gap"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hly7"]
+bg_color = Color(0.8846431, 0.59706324, 0.18006477, 1)
 
 [node name="MainMenu" type="Control" unique_id=1561242803]
 process_mode = 3
@@ -117,6 +122,7 @@ offset_right = 94.0
 offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2hly7")
 
 [node name="MarginContainer" type="MarginContainer" parent="Credits" unique_id=1022293537]
 layout_mode = 2
@@ -131,12 +137,21 @@ layout_mode = 2
 [node name="HBoxContainer2" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer" unique_id=979786775]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1863002091]
+[node name="BackButton" type="TextureButton" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=852028168]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "< Exit"
+texture_normal = ExtResource("12_2hly7")
+texture_pressed = ExtResource("12_2hly7")
+texture_hover = ExtResource("13_n8gap")
+
+[node name="Panel" type="Panel" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2/BackButton" unique_id=622690284]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 30.5
+mouse_filter = 2
 
 [node name="Spacer1" type="Control" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1766355302]
 layout_mode = 2
@@ -144,6 +159,7 @@ size_flags_horizontal = 3
 
 [node name="SettingsTitleLabel" type="Label" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1945318672]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.5254902, 0.10980392, 0.08235294, 1)
 theme_override_font_sizes/font_size = 24
 text = "CREDITS:"
 horizontal_alignment = 2
@@ -159,6 +175,7 @@ layout_mode = 2
 
 [node name="CreditsListLabel" type="Label" parent="Credits/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1815568286]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.5254902, 0.10980392, 0.08235294, 1)
 text = "Jcodefox (\"Fox\")
   • Developer (features, fixes, merge conflicts)
 Pixer H. P. (\"Pixer\")
