@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://vw3pv1akulhd" path="res://scenes/ui/main_ui.tscn" id="1_808r4"]
 [ext_resource type="PackedScene" uid="uid://dlaqcju7cj62t" path="res://scenes/ui_prefabs/pause_menu.tscn" id="2_ksy3k"]
-[ext_resource type="PackedScene" uid="uid://bca8pgvgkj116" path="res://scenes/topscenes/intro_cutscene.tscn" id="3_n1g34"]
 [ext_resource type="TileSet" uid="uid://p7u1cu5mw2gg" path="res://assets/tilesets/main_tileset.tres" id="3_rtdqw"]
 [ext_resource type="TileSet" uid="uid://u3nyqx5vle8g" path="res://assets/tilesets/background_tileset.tres" id="4_w20fa"]
 [ext_resource type="PackedScene" uid="uid://clv825o0ktwl1" path="res://scenes/gameplay_prefabs/large_gear.tscn" id="6_1cbn3"]
@@ -22,9 +21,6 @@
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1811061067 instance=ExtResource("2_ksy3k")]
 unique_name_in_owner = true
-visible = false
-
-[node name="IntroCutscene" parent="CanvasLayer" unique_id=1375040767 instance=ExtResource("3_n1g34")]
 visible = false
 
 [node name="MainTileMapLayer" type="TileMapLayer" parent="." unique_id=468422003]
