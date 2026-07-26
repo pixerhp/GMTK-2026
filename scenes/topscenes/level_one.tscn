@@ -83,6 +83,7 @@ position = Vector2(569, 384)
 [node name="PlayerCam" type="Camera2D" parent="Player" unique_id=1013167009]
 unique_name_in_owner = true
 zoom = Vector2(2, 2)
+process_callback = 0
 position_smoothing_enabled = true
 
 [node name="TheCount" parent="." unique_id=194178612 instance=ExtResource("13_gwq8n")]

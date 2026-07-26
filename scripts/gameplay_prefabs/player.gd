@@ -156,9 +156,9 @@ func handle_ledges() -> void:
 		
 	if not holding_ledge and is_ledge_hit and velocity.y > 0:
 		if ledge_hit_node is TileMapLayer:
-			attempt_grab_tile(ledge_hit_node, ledge_hit_point)
+			attempt_grab_tile()
 		else:
-			attempt_grab_object(ledge_hit_node, ledge_hit_point)
+			attempt_grab_object()
 	
 	if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and turned_around_this_frame:
 		if holding_ledge:
@@ -172,7 +172,7 @@ func handle_ledges() -> void:
 		jump_coyote_time = Time.get_ticks_msec()
 		%CharacterSprite.animation = "ledge_grab"
 
-func attempt_grab_tile(ledge_hit_node: Node2D, ledge_hit_point: Vector2) -> void:
+func attempt_grab_tile() -> void:
 	var tm: TileMapLayer = ledge_hit_node
 	var tile_coordinates: Vector2i = tm.local_to_map(tm.to_local(ledge_hit_point))
 	var ground_check_tile: Vector2i = Vector2i(-1,2) if is_facing_right else Vector2i(1,2)
@@ -193,7 +193,7 @@ func attempt_grab_tile(ledge_hit_node: Node2D, ledge_hit_point: Vector2) -> void
 	tm.add_child(grab_point_marker)
 	holding_ledge = true
 
-func attempt_grab_object(ledge_hit_node: Node2D, ledge_hit_point: Vector2) -> void:
+func attempt_grab_object() -> void:
 	if is_facing_right and not ledge_hit_node.has_meta("left_grab_point"):
 		return
 	if not is_facing_right and not ledge_hit_node.has_meta("right_grab_point"):

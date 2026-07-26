@@ -34,6 +34,7 @@ position = Vector2(54, -33)
 [node name="PlayerCam" type="Camera2D" parent="Player" unique_id=1013167009]
 unique_name_in_owner = true
 zoom = Vector2(2.5, 2.5)
+process_callback = 0
 position_smoothing_enabled = true
 
 [node name="Pendelum" parent="." unique_id=414069732 instance=ExtResource("8_1vg0w")]
