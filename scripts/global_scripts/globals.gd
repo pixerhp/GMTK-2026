@@ -3,6 +3,8 @@ extends Node
 var current_checkpoint: String = ""
 
 var is_fullscreen: bool = false
+var is_cutscene_played
+
 func _ready() -> void:
 	is_fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 
