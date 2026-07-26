@@ -23,7 +23,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_88r13")
 
-[node name="MainMenuVBox" type="VBoxContainer" parent="." unique_id=1235927817]
+[node name="MainMenuButtons" type="VBoxContainer" parent="." unique_id=1235927817]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,27 +38,28 @@ offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayButton" type="Button" parent="MainMenuVBox" unique_id=483718142]
+[node name="PlayButton" type="Button" parent="MainMenuButtons" unique_id=483718142]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="MainMenuVBox" unique_id=1697987725]
+[node name="SettingsButton" type="Button" parent="MainMenuButtons" unique_id=1697987725]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Settings"
 
-[node name="CreditsButton" type="Button" parent="MainMenuVBox" unique_id=1757431307]
+[node name="CreditsButton" type="Button" parent="MainMenuButtons" unique_id=1757431307]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="MainMenuVBox" unique_id=857512115]
+[node name="QuitButton" type="Button" parent="MainMenuButtons" unique_id=857512115]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Quit"
 
 [node name="Settings" parent="." unique_id=266761967 instance=ExtResource("2_wbtsg")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
@@ -173,9 +175,9 @@ Ideas
 Credits"
 horizontal_alignment = 2
 
-[connection signal="pressed" from="MainMenuVBox/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MainMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MainMenuVBox/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MainMenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenuButtons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainMenuButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="on_back_pressed" from="Settings" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Credits/MarginContainer/VBoxContainer/HBoxContainer2/BackButton" to="." method="_on_back_pressed"]
