@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c708sajr313g6"]
 
 [ext_resource type="PackedScene" uid="uid://vw3pv1akulhd" path="res://scenes/ui/main_ui.tscn" id="1_808r4"]
+[ext_resource type="PackedScene" uid="uid://bca8pgvgkj116" path="res://scenes/topscenes/intro_cutscene.tscn" id="1_rqob1"]
 [ext_resource type="PackedScene" uid="uid://dlaqcju7cj62t" path="res://scenes/ui_prefabs/pause_menu.tscn" id="2_ksy3k"]
 [ext_resource type="TileSet" uid="uid://p7u1cu5mw2gg" path="res://assets/tilesets/main_tileset.tres" id="3_rtdqw"]
 [ext_resource type="TileSet" uid="uid://u3nyqx5vle8g" path="res://assets/tilesets/background_tileset.tres" id="4_w20fa"]
@@ -18,6 +19,8 @@
 [node name="LevelOne2" type="Node2D" unique_id=1716816]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1612070724]
+
+[node name="IntroCutscene" parent="CanvasLayer" unique_id=1375040767 instance=ExtResource("1_rqob1")]
 
 [node name="MainUI" parent="CanvasLayer" unique_id=1261748560 instance=ExtResource("1_808r4")]
 
